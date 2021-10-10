@@ -1,0 +1,28 @@
+@import "defaults.css";
+
+.hoverPath:hover {
+    stroke: var(--color-secondary);
+    stroke-opacity: 1;
+}
+
+#treeMap {
+    margin-top: 15px;
+    /* background-color: lightgray;
+    mask: url("../Icons/long-arrow-alt-right-solid.svg") no-repeat center;
+    -webkit-mask: url("../Icons/long-arrow-alt-right-solid.svg") no-repeat center; */
+}
+
+rect {
+    shape-rendering: crispEdges;
+}
+
+.diagrammOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.diagrammOptions button {
+    width: 100%;
+}

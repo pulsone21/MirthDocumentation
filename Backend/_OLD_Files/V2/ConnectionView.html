@@ -1,0 +1,83 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mirth Doku 2.0 - Connection View</title>
+        <link rel="icon" href="./Icons/Link.png" />
+        <link rel="stylesheet" href="./StyleSheets/defaults.css" />
+        <link rel="stylesheet" href="./StyleSheets/index.css" />
+        <link rel="stylesheet" href="./StyleSheets/navbar.css" />
+        <link rel="stylesheet" href="./StyleSheets/tooltipp.css" />
+        <link rel="stylesheet" href="./StyleSheets/modalView.css" />
+        <link rel="stylesheet" href="./StyleSheets/filterBar.css" />
+        <link rel="stylesheet" href="./StyleSheets/sankeyDiagramm.css" />
+        <link rel="stylesheet" href="./StyleSheets/diagrammLegend.css" />
+        <script src="./Scripts/Librarys/BaseClasses.js"></script>
+        <script src="./Scripts/Librarys/d3.v4.min.js"></script>
+        <script src="./Scripts/Librarys/jquerry.js"></script>
+        <script src="./Scripts/Librarys/d3-sankey-circular.js"></script>
+        <script src="./Scripts/Librarys/d3-path-arrows.js"></script>
+        <script src="./Scripts/Librarys/sankeyFormating.js"></script>
+        <!-- <script src="./Scripts/Librarys/d3-sankey-circular.min.js"></script> -->
+        <link href="./StyleSheets/fonts.css" rel="stylesheet">
+    </head>
+    <body oncontextmenu="return false">
+        <header class="section">
+        </header>
+        <nav class="section tertiaryBackground">
+          </nav>
+        <div style="margin-bottom: 15px" id="FilterBar" class="section tertiaryBackground">
+            <div>
+                <div class="filterInput">
+                    <input style="min-width: 400px" type="text" name="ConnectorName" id="cnSearch" placeholder="Name of the Connector" />
+                    <p id="searchHelpText" style="margin-left: 5px; ;"class="articalText">Suche nach einem Connector und klicke auf Get Sankey Diagramm</p>
+                </div>
+                <div class="diagrammOptions">
+                    <button id="showEverythingBtn" onclick="ShowEverything()" style="padding: 5px; display:none" class="navBtn">
+                        <span style="pointer-events: none" class="btnName">show all</span>
+                    </button>
+                    <button id="hideEverythingBtn" onclick="ResetDiagramm()" style="padding: 5px; display:none" class="navBtn">
+                        <span style="pointer-events: none" class="btnName">reset diagramm</span>
+                    </button>
+                </div>
+            </div>
+            <div style="align-self:flex-start;">
+                <button onclick="StartSankeyProcess()" style="padding: 5px" class="navBtn">
+                    <span style="pointer-events: none" class="btnName">Get Sankey Diagramm</span>
+                </button>
+            </div>
+            
+        </div>
+        <div id="diagrammLegendContainer" style="display: none; pointer-events: none;">
+            <h3>Diagramm Legende</h3>
+            <svg style="width: 610px; height: 90px; border: 1px solid black">
+                <g stroke="#000000" stroke-opacity="1">
+                    <rect x="5" y="5" height="20" width="15" fill="#2A71B8"><title>Source/Channel</title></rect>
+                    <rect x="5" y="35" height="20" width="15" fill="#FFCA02"><title>Destination</title></rect>
+                    <rect x="5" y="65" height="20" width="15" fill="#cb2821"><title>Pfad</title></rect>
+                    <rect x="155" y="35" height="20" width="15" fill="#2A71B8" opacity="0.5"><title>Disabled Connector</title></rect>
+                </g>
+                <g font-family="sans-serif" font-size="10">
+                    <text x="35" y="15" dy="0.35em" opacity="1" class="articalText" text-anchor="start" fill="#000000" style="display: block">Source/Channel</text>
+                    <text x="35" y="45" dy="0.35em" opacity="1" class="articalText" text-anchor="start" fill="#000000" style="display: block">Destination</text>
+                    <text x="35" y="75" dy="0.35em" opacity="1" class="articalText" text-anchor="start" fill="#000000" style="display: block">Pfad</text>
+                    <text x="155" y="15" dy="0.35em" opacity="1" class="articalText" text-anchor="start" fill="#20800d" style="display: block">Gesuchter Connector</text>
+                    <text x="175" y="45" dy="0.35em" opacity="1" class="articalText" text-anchor="start" fill="#000000" style="display: block">Disabeld Connector</text>
+                    <text x="155" y="65" dy="0.35em" opacity="1" class="articalText" text-anchor="start" fill="#000000" style="display: block">
+                        <tspan x="155" y="65">Rechts - Klick versteckt den geklickten Connector</tspan> 
+                        <tspan x="155" y="85">Links - Klick öffnet alle verbundenen Connectoren des geklickten Connectors</tspan> 
+                    </text>
+                </g>
+                <line x1="150" y1="0" x2="150" y2="90" style="stroke: black; stroke-width: 1">
+            </svg>
+        </div>
+        <div id="chart"></div>
+        <!-- <div><img style="pointer-events: none; position:absolute; opacity: 0.1; max-width: 1920px; max-height: 350px;"src="./Icons/long-arrow-alt-right-solid.svg"></img></div> -->
+    </body>
+    <script src="./Scripts/header.js"></script>
+    <script src="./Scripts/DetailView.js"></script>
+    <script src="./Scripts/DiagrammLegend.js"></script>
+    <script src="./Scripts/CreateSankeyDiagrammJson.js"></script>
+    <script src="./Scripts/TreeViewCircular.js"></script>
+</html>

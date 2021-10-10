@@ -1,0 +1,41 @@
+{
+  "channelname": "AdsGrv_ActDir_PR_LU_Csv_10_50117_FrSmb",
+  "srv": "82",
+  "type": "",
+  "tooltip": "",
+  "Summary": {
+    "id": "504bbc39-acda-481f-a64b-af9c1711f894",
+    "lastModified": "1576654977091",
+    "enabled": "false",
+    "messageStorageMode": "PRODUCTION",
+    "removeContentOnCompletion": "false",
+    "initialState": "STOPPED",
+    "pruneMetaDataDays": "1",
+    "Tags": [],
+    "metaDataColumns": ["SOURCE", "TYPE"],
+    "description": " Beschreibung:\r\n     CMDB AD Gruppen\r\n     \r\n Kontakte:\r\n   Source:\r\n     \r\n   Destinations:\r\n     ID1 --\r\n     \r\n Erstellt:\r\n     2015.06.02 Matthias Gasser\r\n     \r\n Änderungen:\r\n     \r\n Bemerkungen:\r\n     \r\n     \r\n     \r\n     "
+  },
+  "Connector": {
+    "ConnectorName": "AdsGrv_HeaCmd_TE_LU_Csv_10_50117_FwSmb",
+    "enabled": "false",
+    "metaDataId": "2",
+    "mode": "DESTINATION",
+    "transportName": "File Writer",
+    "waitForPrevious": "",
+    "charsetEncoding": "ISO-8859-15",
+    "filter": [],
+    "transformer": [
+      {
+        "name": "New Step",
+        "script": "/*\n\n\n\n*/\n\nvar out = 0;\n\nfor each (row in msg..row) {\n\tif(row['MemberName'].toString() != \"GroupMemberName\"){\n\t\tcreateSegment('row', tmp, out); // Out Zeile erstellen\n\t\ttmp['row'][out]['GrpName'] = row['Name'].toString();\n\t\ttmp['row'][out]['GrpMemberName'] = row['MemberName'].toString();\n\t\tout++;\n\t}else{\n\t\t\n\t}\n}\n\n\n\n\n//"
+      }
+    ],
+    "responseTransformer": []
+  },
+  "Scripts": {
+    "Deploy": "// This script executes once when the channel is deployed\n// You only have access to the globalMap and globalChannelMap here to persist data\nreturn;",
+    "Undeploy": "// This script executes once when the channel is undeployed\n// You only have access to the globalMap and globalChannelMap here to persist data\nreturn;",
+    "Preprocessor": "// Modify the message variable below to pre process data\n\nreturn message;",
+    "Postprocessor": "// This script executes once after a message has been processed\nreturn;"
+  }
+}

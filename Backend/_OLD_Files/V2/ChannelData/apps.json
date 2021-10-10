@@ -1,0 +1,2391 @@
+{
+  "liste": {
+    "IamIiq_TE_LU": {
+      "Applikation": "Iam",
+      "Hersteller": "Iiq",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IamIiq_DE_LU": {
+      "Applikation": "Iam",
+      "Hersteller": "Iiq",
+      "PTK": "DE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IamIiq_PR_LU": {
+      "Applikation": "Iam",
+      "Hersteller": "Iiq",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ArcLuk_XA_LU": {
+      "Applikation": "Arc",
+      "Hersteller": "Luk",
+      "PTK": "XA",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DigKur_PR_LU": {
+      "Applikation": "Dig",
+      "Hersteller": "Kur",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "BriEpi_TE_LU": {
+      "Applikation": "Bri",
+      "Hersteller": "Epi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "BriEpi_PR_LU": {
+      "Applikation": "Bri",
+      "Hersteller": "Epi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MirOsm_80_LU": {
+      "Applikation": "Mir",
+      "Hersteller": "Osm",
+      "PTK": "80",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HeaCmd_PR_LU": {
+      "Applikation": "Hea",
+      "Hersteller": "Cmd",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IshSap_PR_LU": {
+      "Applikation": "Ish",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IegTie_PR_LU": {
+      "Applikation": "Ieg",
+      "Hersteller": "Tie",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MirOsm_83_LU": {
+      "Applikation": "Mir",
+      "Hersteller": "Osm",
+      "PTK": "83",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AdvTre_PR_LU": {
+      "Applikation": "Adv",
+      "Hersteller": "Tre",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "colle..._colle..._colle...": {
+      "Applikation": "col",
+      "Hersteller": "le.",
+      "PTK": "colle...",
+      "Ort": "colle...",
+      "Tags": "noch keine Tags"
+    },
+    "NagIos_PR_LU": {
+      "Applikation": "Nag",
+      "Hersteller": "Ios",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HspNex_PR_MO": {
+      "Applikation": "Hsp",
+      "Hersteller": "Nex",
+      "PTK": "PR",
+      "Ort": "MO",
+      "Tags": "noch keine Tags"
+    },
+    "LisHvs_PR_MO": {
+      "Applikation": "Lis",
+      "Hersteller": "Hvs",
+      "PTK": "PR",
+      "Ort": "MO",
+      "Tags": "noch keine Tags"
+    },
+    "LisMol_PR_MO": {
+      "Applikation": "Lis",
+      "Hersteller": "Mol",
+      "PTK": "PR",
+      "Ort": "MO",
+      "Tags": "noch keine Tags"
+    },
+    "MfoNex_PR_LU": {
+      "Applikation": "Mfo",
+      "Hersteller": "Nex",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PthBas_PR_LU": {
+      "Applikation": "Pth",
+      "Hersteller": "Bas",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SplGsd_PR_LU": {
+      "Applikation": "Spl",
+      "Hersteller": "Gsd",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AriVar_PR_LU": {
+      "Applikation": "Ari",
+      "Hersteller": "Var",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IspPhi_PR_LU": {
+      "Applikation": "Isp",
+      "Hersteller": "Phi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IncEpi_PR_LU": {
+      "Applikation": "Inc",
+      "Hersteller": "Epi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HeyHei_PR_LU": {
+      "Applikation": "Hey",
+      "Hersteller": "Hei",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ImsIma_PR_LU": {
+      "Applikation": "Ims",
+      "Hersteller": "Ima",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AimSyn_PR_LU": {
+      "Applikation": "Aim",
+      "Hersteller": "Syn",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AtiSpi_PR_LU": {
+      "Applikation": "Ati",
+      "Hersteller": "Spi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CobRoc_PR_LU": {
+      "Applikation": "Cob",
+      "Hersteller": "Roc",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CtoBed_PR_LU": {
+      "Applikation": "Cto",
+      "Hersteller": "Bed",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DpsTcg_PR_LU": {
+      "Applikation": "Dps",
+      "Hersteller": "Tcg",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EdeEye_PR_LU": {
+      "Applikation": "Ede",
+      "Hersteller": "Eye",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EntIno_PR_LU": {
+      "Applikation": "Ent",
+      "Hersteller": "Ino",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IbiIbt_PR_LU": {
+      "Applikation": "Ibi",
+      "Hersteller": "Ibt",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IbmIbt_PR_SW": {
+      "Applikation": "Ibm",
+      "Hersteller": "Ibt",
+      "PTK": "PR",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "ImeDor_PR_LU": {
+      "Applikation": "Ime",
+      "Hersteller": "Dor",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IscPhi_PR_LU": {
+      "Applikation": "Isc",
+      "Hersteller": "Phi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IshSpi_PR_SW": {
+      "Applikation": "Ish",
+      "Hersteller": "Spi",
+      "PTK": "PR",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "IvfMie_PR_LU": {
+      "Applikation": "Ivf",
+      "Hersteller": "Mie",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MwsSoh_PR_LU": {
+      "Applikation": "Mws",
+      "Hersteller": "Soh",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MwsSoh_PR_SW": {
+      "Applikation": "Mws",
+      "Hersteller": "Soh",
+      "PTK": "PR",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "OdsAst_PR_LU": {
+      "Applikation": "Ods",
+      "Hersteller": "Ast",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PacPho_PR_LU": {
+      "Applikation": "Pac",
+      "Hersteller": "Pho",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PtmPhi_PR_LU": {
+      "Applikation": "Ptm",
+      "Hersteller": "Phi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SanBst_PR_LU": {
+      "Applikation": "San",
+      "Hersteller": "Bst",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SemShi_PR_LU": {
+      "Applikation": "Sem",
+      "Hersteller": "Shi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SenSpa_PR_LU": {
+      "Applikation": "Sen",
+      "Hersteller": "Spa",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SeaSec_PR_LU": {
+      "Applikation": "Sea",
+      "Hersteller": "Sec",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DpsTcg_TP_LU": {
+      "Applikation": "Dps",
+      "Hersteller": "Tcg",
+      "PTK": "TP",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SanBst_TP_LU": {
+      "Applikation": "San",
+      "Hersteller": "Bst",
+      "PTK": "TP",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IspPhi_TE_LU": {
+      "Applikation": "Isp",
+      "Hersteller": "Phi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EmeHci_PR_LU": {
+      "Applikation": "Eme",
+      "Hersteller": "Hci",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EahPat_PR_LU": {
+      "Applikation": "Eah",
+      "Hersteller": "Pat",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "KisZug_PR_ZG": {
+      "Applikation": "Kis",
+      "Hersteller": "Zug",
+      "PTK": "PR",
+      "Ort": "ZG",
+      "Tags": "noch keine Tags"
+    },
+    "MirOsm_81_LU": {
+      "Applikation": "Mir",
+      "Hersteller": "Osm",
+      "PTK": "81",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "RadIsl_PR_LU": {
+      "Applikation": "Rad",
+      "Hersteller": "Isl",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HspNex_PR_LU": {
+      "Applikation": "Hsp",
+      "Hersteller": "Nex",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ArcLup_XA_ST": {
+      "Applikation": "Arc",
+      "Hersteller": "Lup",
+      "PTK": "XA",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "IbiIbt_PR_ST": {
+      "Applikation": "Ibi",
+      "Hersteller": "Ibt",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "KisIne_PR_ST": {
+      "Applikation": "Kis",
+      "Hersteller": "Ine",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "LisMbd_PR_ST": {
+      "Applikation": "Lis",
+      "Hersteller": "Mbd",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "IbmIbt_PR_ST": {
+      "Applikation": "Ibm",
+      "Hersteller": "Ibt",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "SupTrv_PR_ST": {
+      "Applikation": "Sup",
+      "Hersteller": "Trv",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "DglDme_PR_ST": {
+      "Applikation": "Dgl",
+      "Hersteller": "Dme",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "HspNex_NG_ST": {
+      "Applikation": "Hsp",
+      "Hersteller": "Nex",
+      "PTK": "NG",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "OpeTel_PR_MO": {
+      "Applikation": "Ope",
+      "Hersteller": "Tel",
+      "PTK": "PR",
+      "Ort": "MO",
+      "Tags": "noch keine Tags"
+    },
+    "RapPly_PR_MO": {
+      "Applikation": "Rap",
+      "Hersteller": "Ply",
+      "PTK": "PR",
+      "Ort": "MO",
+      "Tags": "noch keine Tags"
+    },
+    "LisHvs_PR_LU": {
+      "Applikation": "Lis",
+      "Hersteller": "Hvs",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "KonSap_PR_LU": {
+      "Applikation": "Kon",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "Nachv..._Nachv..._Nachv...": {
+      "Applikation": "Nac",
+      "Hersteller": "hv.",
+      "PTK": "Nachv...",
+      "Ort": "Nachv...",
+      "Tags": "noch keine Tags"
+    },
+    "MscCon_PR_LU": {
+      "Applikation": "Msc",
+      "Hersteller": "Con",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "InDie..._InDie..._InDie...": {
+      "Applikation": "InD",
+      "Hersteller": "ie.",
+      "PTK": "InDie...",
+      "Ort": "InDie...",
+      "Tags": "noch keine Tags"
+    },
+    "LkiEpi_PR_LU": {
+      "Applikation": "Lki",
+      "Hersteller": "Epi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LisCob_PR_SZ": {
+      "Applikation": "Lis",
+      "Hersteller": "Cob",
+      "PTK": "PR",
+      "Ort": "SZ",
+      "Tags": "noch keine Tags"
+    },
+    "KisUri_PR_UR": {
+      "Applikation": "Kis",
+      "Hersteller": "Uri",
+      "PTK": "PR",
+      "Ort": "UR",
+      "Tags": "noch keine Tags"
+    },
+    "LisIne_PR_NW": {
+      "Applikation": "Lis",
+      "Hersteller": "Ine",
+      "PTK": "PR",
+      "Ort": "NW",
+      "Tags": "noch keine Tags"
+    },
+    "Nirva..._Nirva..._Nirva...": {
+      "Applikation": "Nir",
+      "Hersteller": "va.",
+      "PTK": "Nirva...",
+      "Ort": "Nirva...",
+      "Tags": "noch keine Tags"
+    },
+    "MirOsm_PR_LU": {
+      "Applikation": "Mir",
+      "Hersteller": "Osm",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "NasLuk_XA_LU": {
+      "Applikation": "Nas",
+      "Hersteller": "Luk",
+      "PTK": "XA",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SocCri_PR_LU": {
+      "Applikation": "Soc",
+      "Hersteller": "Cri",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LukLei_PR_LU": {
+      "Applikation": "Luk",
+      "Hersteller": "Lei",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "NasLup_PR_ST": {
+      "Applikation": "Nas",
+      "Hersteller": "Lup",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "WinVpt_PR_LU": {
+      "Applikation": "Win",
+      "Hersteller": "Vpt",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DmsAde_PR_ST": {
+      "Applikation": "Dms",
+      "Hersteller": "Ade",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "HspNex_PR_ST": {
+      "Applikation": "Hsp",
+      "Hersteller": "Nex",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "MipMid_PR_ST": {
+      "Applikation": "Mip",
+      "Hersteller": "Mid",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "MipMid_PR_LU": {
+      "Applikation": "Mip",
+      "Hersteller": "Mid",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IncEpi_TE_LU": {
+      "Applikation": "Inc",
+      "Hersteller": "Epi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IsePhi_PR_LU": {
+      "Applikation": "Ise",
+      "Hersteller": "Phi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LnoIbm_PR_LU": {
+      "Applikation": "Lno",
+      "Hersteller": "Ibm",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LnoIBM_TE_ST": {
+      "Applikation": "Lno",
+      "Hersteller": "IBM",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "MmaSap_PR_LU": {
+      "Applikation": "Mma",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ElfLab_PR_LU": {
+      "Applikation": "Elf",
+      "Hersteller": "Lab",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "XlbDor_PR_LU": {
+      "Applikation": "Xlb",
+      "Hersteller": "Dor",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "BlbDor_PR_LU": {
+      "Applikation": "Blb",
+      "Hersteller": "Dor",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MlbDor_PR_LU": {
+      "Applikation": "Mlb",
+      "Hersteller": "Dor",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EprInt_PR_LU": {
+      "Applikation": "Epr",
+      "Hersteller": "Int",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ImeDor_TE_LU": {
+      "Applikation": "Ime",
+      "Hersteller": "Dor",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "QiaLab_PR_LU": {
+      "Applikation": "Qia",
+      "Hersteller": "Lab",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EloEur_PR_LU": {
+      "Applikation": "Elo",
+      "Hersteller": "Eur",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LisAml_PR_ZH": {
+      "Applikation": "Lis",
+      "Hersteller": "Aml",
+      "PTK": "PR",
+      "Ort": "ZH",
+      "Tags": "noch keine Tags"
+    },
+    "KisIne_TE_ST": {
+      "Applikation": "Kis",
+      "Hersteller": "Ine",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "IdoMco_PR_CL": {
+      "Applikation": "Ido",
+      "Hersteller": "Mco",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "IdoGhx_PR_CL": {
+      "Applikation": "Ido",
+      "Hersteller": "Ghx",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "WspLyr_PR_LU": {
+      "Applikation": "Wsp",
+      "Hersteller": "Lyr",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PrpPrs_PR_CL": {
+      "Applikation": "Prp",
+      "Hersteller": "Prs",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "VeeNuk_PR_LU": {
+      "Applikation": "Vee",
+      "Hersteller": "Nuk",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HemScw_PR_LU": {
+      "Applikation": "Hem",
+      "Hersteller": "Scw",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "Trash..._Trash..._Trash...": {
+      "Applikation": "Tra",
+      "Hersteller": "sh.",
+      "PTK": "Trash...",
+      "Ort": "Trash...",
+      "Tags": "noch keine Tags"
+    },
+    "EniBma_PR_LU": {
+      "Applikation": "Eni",
+      "Hersteller": "Bma",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CadCad_PR_LU": {
+      "Applikation": "Cad",
+      "Hersteller": "Cad",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "Desti..._Desti..._Desti...": {
+      "Applikation": "Des",
+      "Hersteller": "ti.",
+      "PTK": "Desti...",
+      "Ort": "Desti...",
+      "Tags": "noch keine Tags"
+    },
+    "EasNdd_PR_LU": {
+      "Applikation": "Eas",
+      "Hersteller": "Ndd",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "KieBdm_PR_LU": {
+      "Applikation": "Kie",
+      "Hersteller": "Bdm",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MtrOpm_PR_LU": {
+      "Applikation": "Mtr",
+      "Hersteller": "Opm",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IegTie_TP_LU": {
+      "Applikation": "Ieg",
+      "Hersteller": "Tie",
+      "PTK": "TP",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IshSap_PR_SW": {
+      "Applikation": "Ish",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "ArcLuk_XA_SW": {
+      "Applikation": "Arc",
+      "Hersteller": "Luk",
+      "PTK": "XA",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "Test..._Test..._Test...": {
+      "Applikation": "Tes",
+      "Hersteller": "t..",
+      "PTK": "Test...",
+      "Ort": "Test...",
+      "Tags": "noch keine Tags"
+    },
+    "ApiBit_TE_LU": {
+      "Applikation": "Api",
+      "Hersteller": "Bit",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "McvMim_TE_LU": {
+      "Applikation": "Mcv",
+      "Hersteller": "Mim",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "VmdElc_TE_LU": {
+      "Applikation": "Vmd",
+      "Hersteller": "Elc",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "VmdElc_PR_LU": {
+      "Applikation": "Vmd",
+      "Hersteller": "Elc",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ApiBit_PR_LU": {
+      "Applikation": "Api",
+      "Hersteller": "Bit",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ApoLoc_PR_LU": {
+      "Applikation": "Apo",
+      "Hersteller": "Loc",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ArcLuk_PR_LU": {
+      "Applikation": "Arc",
+      "Hersteller": "Luk",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CtoBed_TE_LU": {
+      "Applikation": "Cto",
+      "Hersteller": "Bed",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IshSap_TE_LU": {
+      "Applikation": "Ish",
+      "Hersteller": "Sap",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PtmPhi_PR_SU": {
+      "Applikation": "Ptm",
+      "Hersteller": "Phi",
+      "PTK": "PR",
+      "Ort": "SU",
+      "Tags": "noch keine Tags"
+    },
+    "PtmPhi_PR_WO": {
+      "Applikation": "Ptm",
+      "Hersteller": "Phi",
+      "PTK": "PR",
+      "Ort": "WO",
+      "Tags": "noch keine Tags"
+    },
+    "SlxCap_PR_LU": {
+      "Applikation": "Slx",
+      "Hersteller": "Cap",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SlxCap_PO_LU": {
+      "Applikation": "Slx",
+      "Hersteller": "Cap",
+      "PTK": "PO",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HeaCmd_TE_LU": {
+      "Applikation": "Hea",
+      "Hersteller": "Cmd",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ActDir_PR_LU": {
+      "Applikation": "Act",
+      "Hersteller": "Dir",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EquRic_TE_LU": {
+      "Applikation": "Equ",
+      "Hersteller": "Ric",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EquRic_PR_LU": {
+      "Applikation": "Equ",
+      "Hersteller": "Ric",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CoyCoy_PR_LU": {
+      "Applikation": "Coy",
+      "Hersteller": "Coy",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PepPly_TE_LU": {
+      "Applikation": "Pep",
+      "Hersteller": "Ply",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PepPly_PR_LU": {
+      "Applikation": "Pep",
+      "Hersteller": "Ply",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PrkZut_PR_SU": {
+      "Applikation": "Prk",
+      "Hersteller": "Zut",
+      "PTK": "PR",
+      "Ort": "SU",
+      "Tags": "noch keine Tags"
+    },
+    "PrkZut_PR_LU": {
+      "Applikation": "Prk",
+      "Hersteller": "Zut",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "TcpKas_PR_LU": {
+      "Applikation": "Tcp",
+      "Hersteller": "Kas",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ExoKab_PR_LU": {
+      "Applikation": "Exo",
+      "Hersteller": "Kab",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IdxMvw_PR_LU": {
+      "Applikation": "Idx",
+      "Hersteller": "Mvw",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DnsSrv_PR_LU": {
+      "Applikation": "Dns",
+      "Hersteller": "Srv",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MirOsm_82_LU": {
+      "Applikation": "Mir",
+      "Hersteller": "Osm",
+      "PTK": "82",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "FicSap_PR_LU": {
+      "Applikation": "Fic",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "FicSap_TE_LU": {
+      "Applikation": "Fic",
+      "Hersteller": "Sap",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AseEmi_PR_LU": {
+      "Applikation": "Ase",
+      "Hersteller": "Emi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AseEmi_TE_LU": {
+      "Applikation": "Ase",
+      "Hersteller": "Emi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SedBfs_PR_LU": {
+      "Applikation": "Sed",
+      "Hersteller": "Bfs",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "NisOmn_PR_LU": {
+      "Applikation": "Nis",
+      "Hersteller": "Omn",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "WinCas_PR_LU": {
+      "Applikation": "Win",
+      "Hersteller": "Cas",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PlaPps_PR_LU": {
+      "Applikation": "Pla",
+      "Hersteller": "Pps",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LowApx_PR_LU": {
+      "Applikation": "Low",
+      "Hersteller": "Apx",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DhcSrv_PR_LU": {
+      "Applikation": "Dhc",
+      "Hersteller": "Srv",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "TbuInt_PR_LU": {
+      "Applikation": "Tbu",
+      "Hersteller": "Int",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HipSwi_PR_LU": {
+      "Applikation": "Hip",
+      "Hersteller": "Swi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "FilGal_PR_LU": {
+      "Applikation": "Fil",
+      "Hersteller": "Gal",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "B2bXat_PR_LU": {
+      "Applikation": "B2b",
+      "Hersteller": "Xat",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PisSap_PR_KT": {
+      "Applikation": "Pis",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "KT",
+      "Tags": "noch keine Tags"
+    },
+    "CoyCoy_PR_SU": {
+      "Applikation": "Coy",
+      "Hersteller": "Coy",
+      "PTK": "PR",
+      "Ort": "SU",
+      "Tags": "noch keine Tags"
+    },
+    "CoyCoy_PR_WO": {
+      "Applikation": "Coy",
+      "Hersteller": "Coy",
+      "PTK": "PR",
+      "Ort": "WO",
+      "Tags": "noch keine Tags"
+    },
+    "Ma4Spi_PR_SW": {
+      "Applikation": "Ma4",
+      "Hersteller": "Spi",
+      "PTK": "PR",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "DevExp_PR_LU": {
+      "Applikation": "Dev",
+      "Hersteller": "Exp",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "NsxVmw_PR_LU": {
+      "Applikation": "Nsx",
+      "Hersteller": "Vmw",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ShoHgl_PR_CL": {
+      "Applikation": "Sho",
+      "Hersteller": "Hgl",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "FilGsd_PR_LU": {
+      "Applikation": "Fil",
+      "Hersteller": "Gsd",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PagHbs_PR_LU": {
+      "Applikation": "Pag",
+      "Hersteller": "Hbs",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "FicSap_TP_LU": {
+      "Applikation": "Fic",
+      "Hersteller": "Sap",
+      "PTK": "TP",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SedZas_PR_LU": {
+      "Applikation": "Sed",
+      "Hersteller": "Zas",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HcmSap_PR_LU": {
+      "Applikation": "Hcm",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PepPis_PR_MO": {
+      "Applikation": "Pep",
+      "Hersteller": "Pis",
+      "PTK": "PR",
+      "Ort": "MO",
+      "Tags": "noch keine Tags"
+    },
+    "PepPly_PR_ST": {
+      "Applikation": "Pep",
+      "Hersteller": "Ply",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "AccQss_PR_LU": {
+      "Applikation": "Acc",
+      "Hersteller": "Qss",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DirRec_PR_LU": {
+      "Applikation": "Dir",
+      "Hersteller": "Rec",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "KwpPis_PR_LU": {
+      "Applikation": "Kwp",
+      "Hersteller": "Pis",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PefWeb_PR_LU": {
+      "Applikation": "Pef",
+      "Hersteller": "Web",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PefWeb_TE_LU": {
+      "Applikation": "Pef",
+      "Hersteller": "Web",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PmdPis_PR_LU": {
+      "Applikation": "Pmd",
+      "Hersteller": "Pis",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SunPlu_PR_LU": {
+      "Applikation": "Sun",
+      "Hersteller": "Plu",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LkiEpi_TE_LU": {
+      "Applikation": "Lki",
+      "Hersteller": "Epi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PebPis_PR_LU": {
+      "Applikation": "Peb",
+      "Hersteller": "Pis",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MisTip_PR_LU": {
+      "Applikation": "Mis",
+      "Hersteller": "Tip",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "QviQli_PR_LU": {
+      "Applikation": "Qvi",
+      "Hersteller": "Qli",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PlaPps_TE_LU": {
+      "Applikation": "Pla",
+      "Hersteller": "Pps",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MbsMed_TE_LU": {
+      "Applikation": "Mbs",
+      "Hersteller": "Med",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MbsMed_PR_LU": {
+      "Applikation": "Mbs",
+      "Hersteller": "Med",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EleIli_TE_LU": {
+      "Applikation": "Ele",
+      "Hersteller": "Ili",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EleIli_PR_LU": {
+      "Applikation": "Ele",
+      "Hersteller": "Ili",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SenMit_PR_ST": {
+      "Applikation": "Sen",
+      "Hersteller": "Mit",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "JabCis_PR_ST": {
+      "Applikation": "Jab",
+      "Hersteller": "Cis",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "ActDir_PR_ST": {
+      "Applikation": "Act",
+      "Hersteller": "Dir",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "JmfMdm_PR_ST": {
+      "Applikation": "Jmf",
+      "Hersteller": "Mdm",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "LrnEsy_PR_ST": {
+      "Applikation": "Lrn",
+      "Hersteller": "Esy",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "LmqMob_PR_ST": {
+      "Applikation": "Lmq",
+      "Hersteller": "Mob",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "DruAml_PR_LU": {
+      "Applikation": "Dru",
+      "Hersteller": "Aml",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DruAml_DE_LU": {
+      "Applikation": "Dru",
+      "Hersteller": "Aml",
+      "PTK": "DE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EalSwi_PR_LU": {
+      "Applikation": "Eal",
+      "Hersteller": "Swi",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EalSwi_PR_SU": {
+      "Applikation": "Eal",
+      "Hersteller": "Swi",
+      "PTK": "PR",
+      "Ort": "SU",
+      "Tags": "noch keine Tags"
+    },
+    "EalSwi_PR_WO": {
+      "Applikation": "Eal",
+      "Hersteller": "Swi",
+      "PTK": "PR",
+      "Ort": "WO",
+      "Tags": "noch keine Tags"
+    },
+    "WavSen_PR_LU": {
+      "Applikation": "Wav",
+      "Hersteller": "Sen",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SmeInt_PR_LU": {
+      "Applikation": "Sme",
+      "Hersteller": "Int",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EdoEtz_PR_CL": {
+      "Applikation": "Edo",
+      "Hersteller": "Etz",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "HspNex_TE_ST": {
+      "Applikation": "Hsp",
+      "Hersteller": "Nex",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "HceTip_PR_ST": {
+      "Applikation": "Hce",
+      "Hersteller": "Tip",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "HceTip_TP_ST": {
+      "Applikation": "Hce",
+      "Hersteller": "Tip",
+      "PTK": "TP",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "EzgSma_PR_LU": {
+      "Applikation": "Ezg",
+      "Hersteller": "Sma",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EzgSma_TE_LU": {
+      "Applikation": "Ezg",
+      "Hersteller": "Sma",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EreInf_PR_CL": {
+      "Applikation": "Ere",
+      "Hersteller": "Inf",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "LmqMar_PR_LU": {
+      "Applikation": "Lmq",
+      "Hersteller": "Mar",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SidWeb_PR_CL": {
+      "Applikation": "Sid",
+      "Hersteller": "Web",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "PebUsv_PR_LU": {
+      "Applikation": "Peb",
+      "Hersteller": "Usv",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SlnSap_PR_LU": {
+      "Applikation": "Sln",
+      "Hersteller": "Sap",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "WinVpt_TE_LU": {
+      "Applikation": "Win",
+      "Hersteller": "Vpt",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "TvaLup_PR_ST": {
+      "Applikation": "Tva",
+      "Hersteller": "Lup",
+      "PTK": "PR",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "LgqLuk_PR_LU": {
+      "Applikation": "Lgq",
+      "Hersteller": "Luk",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "FegVit_PR_CL": {
+      "Applikation": "Feg",
+      "Hersteller": "Vit",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "SamVpn_PR_LU": {
+      "Applikation": "Sam",
+      "Hersteller": "Vpn",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HigSys_PR_LU": {
+      "Applikation": "Hig",
+      "Hersteller": "Sys",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "WikGsd_PR_LU": {
+      "Applikation": "Wik",
+      "Hersteller": "Gsd",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "VceVmw_PR_LU": {
+      "Applikation": "Vce",
+      "Hersteller": "Vmw",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "TvaSwi_PR_CL": {
+      "Applikation": "Tva",
+      "Hersteller": "Swi",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "IdeCis_PR_LU": {
+      "Applikation": "Ide",
+      "Hersteller": "Cis",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IseCis_PR_LU": {
+      "Applikation": "Ise",
+      "Hersteller": "Cis",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PrmCis_PR_LU": {
+      "Applikation": "Prm",
+      "Hersteller": "Cis",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "VraVmw_PR_LU": {
+      "Applikation": "Vra",
+      "Hersteller": "Vmw",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ApsHin_PR_CL": {
+      "Applikation": "Aps",
+      "Hersteller": "Hin",
+      "PTK": "PR",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "DigKur_TE_LU": {
+      "Applikation": "Dig",
+      "Hersteller": "Kur",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CoyCoy_TE_LU": {
+      "Applikation": "Coy",
+      "Hersteller": "Coy",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "BriEpi_RE_LU": {
+      "Applikation": "Bri",
+      "Hersteller": "Epi",
+      "PTK": "RE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MfoNex_TE_LU": {
+      "Applikation": "Mfo",
+      "Hersteller": "Nex",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AimSyn_TE_LU": {
+      "Applikation": "Aim",
+      "Hersteller": "Syn",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LukLei_TE_LU": {
+      "Applikation": "Luk",
+      "Hersteller": "Lei",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MirOsm_TE_LU": {
+      "Applikation": "Mir",
+      "Hersteller": "Osm",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "Autor..._Autor..._Autor...": {
+      "Applikation": "Aut",
+      "Hersteller": "or.",
+      "PTK": "Autor...",
+      "Ort": "Autor...",
+      "Tags": "noch keine Tags"
+    },
+    "BriEpi_OT_LU": {
+      "Applikation": "Bri",
+      "Hersteller": "Epi",
+      "PTK": "OT",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IscPhi_TE_LU": {
+      "Applikation": "Isc",
+      "Hersteller": "Phi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EdeEye_TE_LU": {
+      "Applikation": "Ede",
+      "Hersteller": "Eye",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AdvTre_TE_LU": {
+      "Applikation": "Adv",
+      "Hersteller": "Tre",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ok_re..._ok_re..._ok_re...": {
+      "Applikation": "ok_",
+      "Hersteller": "re.",
+      "PTK": "ok_re...",
+      "Ort": "ok_re...",
+      "Tags": "noch keine Tags"
+    },
+    "nok_r..._nok_r..._nok_r...": {
+      "Applikation": "nok",
+      "Hersteller": "_r.",
+      "PTK": "nok_r...",
+      "Ort": "nok_r...",
+      "Tags": "noch keine Tags"
+    },
+    "SedBfs_TE_LU": {
+      "Applikation": "Sed",
+      "Hersteller": "Bfs",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "NisOmn_TE_LU": {
+      "Applikation": "Nis",
+      "Hersteller": "Omn",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DmsAde_TE_ST": {
+      "Applikation": "Dms",
+      "Hersteller": "Ade",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "IncEpi_OT_LU": {
+      "Applikation": "Inc",
+      "Hersteller": "Epi",
+      "PTK": "OT",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IsePhi_TE_LU": {
+      "Applikation": "Ise",
+      "Hersteller": "Phi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SemShi_TE_LU": {
+      "Applikation": "Sem",
+      "Hersteller": "Shi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SenSpa_TE_LU": {
+      "Applikation": "Sen",
+      "Hersteller": "Spa",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SupTrv_TE_ST": {
+      "Applikation": "Sup",
+      "Hersteller": "Trv",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "IbiIbt_TE_ST": {
+      "Applikation": "Ibi",
+      "Hersteller": "Ibt",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "IbiIbt_TE_LU": {
+      "Applikation": "Ibi",
+      "Hersteller": "Ibt",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "RadIsl_TE_LU": {
+      "Applikation": "Rad",
+      "Hersteller": "Isl",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "BriEpi_PO_LU": {
+      "Applikation": "Bri",
+      "Hersteller": "Epi",
+      "PTK": "PO",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LisMbd_TE_ST": {
+      "Applikation": "Lis",
+      "Hersteller": "Mbd",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "XlbDor_TE_LU": {
+      "Applikation": "Xlb",
+      "Hersteller": "Dor",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "BlbDor_TE_LU": {
+      "Applikation": "Blb",
+      "Hersteller": "Dor",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MlbDor_TE_LU": {
+      "Applikation": "Mlb",
+      "Hersteller": "Dor",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CobRoc_TE_LU": {
+      "Applikation": "Cob",
+      "Hersteller": "Roc",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LisAml_TE_ZH": {
+      "Applikation": "Lis",
+      "Hersteller": "Aml",
+      "PTK": "TE",
+      "Ort": "ZH",
+      "Tags": "noch keine Tags"
+    },
+    "Error..._Error..._Error...": {
+      "Applikation": "Err",
+      "Hersteller": "or.",
+      "PTK": "Error...",
+      "Ort": "Error...",
+      "Tags": "noch keine Tags"
+    },
+    "FilGal_TE_LU": {
+      "Applikation": "Fil",
+      "Hersteller": "Gal",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MmaSap_TE_LU": {
+      "Applikation": "Mma",
+      "Hersteller": "Sap",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "Testi..._Testi..._Testi...": {
+      "Applikation": "Tes",
+      "Hersteller": "ti.",
+      "PTK": "Testi...",
+      "Ort": "Testi...",
+      "Tags": "noch keine Tags"
+    },
+    "B2bXat_TE_LU": {
+      "Applikation": "B2b",
+      "Hersteller": "Xat",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "coyo ..._coyo ..._coyo ...": {
+      "Applikation": "coy",
+      "Hersteller": "o .",
+      "PTK": "coyo ...",
+      "Ort": "coyo ...",
+      "Tags": "noch keine Tags"
+    },
+    "Coyo ..._Coyo ..._Coyo ...": {
+      "Applikation": "Coy",
+      "Hersteller": "o .",
+      "PTK": "Coyo ...",
+      "Ort": "Coyo ...",
+      "Tags": "noch keine Tags"
+    },
+    "CoyCoy_TE_SU": {
+      "Applikation": "Coy",
+      "Hersteller": "Coy",
+      "PTK": "TE",
+      "Ort": "SU",
+      "Tags": "noch keine Tags"
+    },
+    "CoyCoy_TE_WO": {
+      "Applikation": "Coy",
+      "Hersteller": "Coy",
+      "PTK": "TE",
+      "Ort": "WO",
+      "Tags": "noch keine Tags"
+    },
+    "ShoHgl_TE_CL": {
+      "Applikation": "Sho",
+      "Hersteller": "Hgl",
+      "PTK": "TE",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "MwsSoh_TE_LU": {
+      "Applikation": "Mws",
+      "Hersteller": "Soh",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "FilGsd_TE_LU": {
+      "Applikation": "Fil",
+      "Hersteller": "Gsd",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IdoMco_TE_CL": {
+      "Applikation": "Ido",
+      "Hersteller": "Mco",
+      "PTK": "TE",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "IdoGhx_TE_CL": {
+      "Applikation": "Ido",
+      "Hersteller": "Ghx",
+      "PTK": "TE",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "WspLyr_TE_LU": {
+      "Applikation": "Wsp",
+      "Hersteller": "Lyr",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PagHbs_TE_LU": {
+      "Applikation": "Pag",
+      "Hersteller": "Hbs",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "DpsTcg_TE_LU": {
+      "Applikation": "Dps",
+      "Hersteller": "Tcg",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PrpPrs_TE_CL": {
+      "Applikation": "Prp",
+      "Hersteller": "Prs",
+      "PTK": "TE",
+      "Ort": "CL",
+      "Tags": "noch keine Tags"
+    },
+    "Chang..._Chang..._Chang...": {
+      "Applikation": "Cha",
+      "Hersteller": "ng.",
+      "PTK": "Chang...",
+      "Ort": "Chang...",
+      "Tags": "noch keine Tags"
+    },
+    "Disch..._Disch..._Disch...": {
+      "Applikation": "Dis",
+      "Hersteller": "ch.",
+      "PTK": "Disch...",
+      "Ort": "Disch...",
+      "Tags": "noch keine Tags"
+    },
+    "Cance..._Cance..._Cance...": {
+      "Applikation": "Can",
+      "Hersteller": "ce.",
+      "PTK": "Cance...",
+      "Ort": "Cance...",
+      "Tags": "noch keine Tags"
+    },
+    "Add-C..._Add-C..._Add-C...": {
+      "Applikation": "Add",
+      "Hersteller": "-C.",
+      "PTK": "Add-C...",
+      "Ort": "Add-C...",
+      "Tags": "noch keine Tags"
+    },
+    "BOA i..._BOA i..._BOA i...": {
+      "Applikation": "BOA",
+      "Hersteller": " i.",
+      "PTK": "BOA i...",
+      "Ort": "BOA i...",
+      "Tags": "noch keine Tags"
+    },
+    "BOA u..._BOA u..._BOA u...": {
+      "Applikation": "BOA",
+      "Hersteller": " u.",
+      "PTK": "BOA u...",
+      "Ort": "BOA u...",
+      "Tags": "noch keine Tags"
+    },
+    "BOA c..._BOA c..._BOA c...": {
+      "Applikation": "BOA",
+      "Hersteller": " c.",
+      "PTK": "BOA c...",
+      "Ort": "BOA c...",
+      "Tags": "noch keine Tags"
+    },
+    "EOA i..._EOA i..._EOA i...": {
+      "Applikation": "EOA",
+      "Hersteller": " i.",
+      "PTK": "EOA i...",
+      "Ort": "EOA i...",
+      "Tags": "noch keine Tags"
+    },
+    "EOA u..._EOA u..._EOA u...": {
+      "Applikation": "EOA",
+      "Hersteller": " u.",
+      "PTK": "EOA u...",
+      "Ort": "EOA u...",
+      "Tags": "noch keine Tags"
+    },
+    "EOA c..._EOA c..._EOA c...": {
+      "Applikation": "EOA",
+      "Hersteller": " c.",
+      "PTK": "EOA c...",
+      "Ort": "EOA c...",
+      "Tags": "noch keine Tags"
+    },
+    "LOA B..._LOA B..._LOA B...": {
+      "Applikation": "LOA",
+      "Hersteller": " B.",
+      "PTK": "LOA B...",
+      "Ort": "LOA B...",
+      "Tags": "noch keine Tags"
+    },
+    "LOA U..._LOA U..._LOA U...": {
+      "Applikation": "LOA",
+      "Hersteller": " U.",
+      "PTK": "LOA U...",
+      "Ort": "LOA U...",
+      "Tags": "noch keine Tags"
+    },
+    "LOA C..._LOA C..._LOA C...": {
+      "Applikation": "LOA",
+      "Hersteller": " C.",
+      "PTK": "LOA C...",
+      "Ort": "LOA C...",
+      "Tags": "noch keine Tags"
+    },
+    "Add a..._Add a..._Add a...": {
+      "Applikation": "Add",
+      "Hersteller": " a.",
+      "PTK": "Add a...",
+      "Ort": "Add a...",
+      "Tags": "noch keine Tags"
+    },
+    "FwFil..._FwFil..._FwFil...": {
+      "Applikation": "FwF",
+      "Hersteller": "il.",
+      "PTK": "FwFil...",
+      "Ort": "FwFil...",
+      "Tags": "noch keine Tags"
+    },
+    "sende..._sende..._sende...": {
+      "Applikation": "sen",
+      "Hersteller": "de.",
+      "PTK": "sende...",
+      "Ort": "sende...",
+      "Tags": "noch keine Tags"
+    },
+    "SAP G..._SAP G..._SAP G...": {
+      "Applikation": "SAP",
+      "Hersteller": " G.",
+      "PTK": "SAP G...",
+      "Ort": "SAP G...",
+      "Tags": "noch keine Tags"
+    },
+    "Async..._Async..._Async...": {
+      "Applikation": "Asy",
+      "Hersteller": "nc.",
+      "PTK": "Async...",
+      "Ort": "Async...",
+      "Tags": "noch keine Tags"
+    },
+    "ICD10..._ICD10..._ICD10...": {
+      "Applikation": "ICD",
+      "Hersteller": "10.",
+      "PTK": "ICD10...",
+      "Ort": "ICD10...",
+      "Tags": "noch keine Tags"
+    },
+    "EniBma_TE_LU": {
+      "Applikation": "Eni",
+      "Hersteller": "Bma",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "AriVar_TE_LU": {
+      "Applikation": "Ari",
+      "Hersteller": "Var",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EntIno_TE_LU": {
+      "Applikation": "Ent",
+      "Hersteller": "Ino",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HeyHei_TE_LU": {
+      "Applikation": "Hey",
+      "Hersteller": "Hei",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IbePhi_TE_LU": {
+      "Applikation": "Ibe",
+      "Hersteller": "Phi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IbmIbt_TE_SW": {
+      "Applikation": "Ibm",
+      "Hersteller": "Ibt",
+      "PTK": "TE",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "IegTie_TE_LU": {
+      "Applikation": "Ieg",
+      "Hersteller": "Tie",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IvfMie_TE_LU": {
+      "Applikation": "Ivf",
+      "Hersteller": "Mie",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MwsSoh_TE_SW": {
+      "Applikation": "Mws",
+      "Hersteller": "Soh",
+      "PTK": "TE",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "PacPho_TE_LU": {
+      "Applikation": "Pac",
+      "Hersteller": "Pho",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PasSox_TE_LU": {
+      "Applikation": "Pas",
+      "Hersteller": "Sox",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PthBas_TE_LU": {
+      "Applikation": "Pth",
+      "Hersteller": "Bas",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "RapPly_TE_LU": {
+      "Applikation": "Rap",
+      "Hersteller": "Ply",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SanBst_TE_LU": {
+      "Applikation": "San",
+      "Hersteller": "Bst",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PtmPhi_TE_LU": {
+      "Applikation": "Ptm",
+      "Hersteller": "Phi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SeaSec_TE_LU": {
+      "Applikation": "Sea",
+      "Hersteller": "Sec",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "VeeNuk_TE_LU": {
+      "Applikation": "Vee",
+      "Hersteller": "Nuk",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "CadCad_TE_LU": {
+      "Applikation": "Cad",
+      "Hersteller": "Cad",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EasNdd_TE_LU": {
+      "Applikation": "Eas",
+      "Hersteller": "Ndd",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IncEpi_PO_LU": {
+      "Applikation": "Inc",
+      "Hersteller": "Epi",
+      "PTK": "PO",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "EmeHci_TE_LU": {
+      "Applikation": "Eme",
+      "Hersteller": "Hci",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ToTes..._ToTes..._ToTes...": {
+      "Applikation": "ToT",
+      "Hersteller": "es.",
+      "PTK": "ToTes...",
+      "Ort": "ToTes...",
+      "Tags": "noch keine Tags"
+    },
+    "TEstT..._TEstT..._TEstT...": {
+      "Applikation": "TEs",
+      "Hersteller": "tT.",
+      "PTK": "TEstT...",
+      "Ort": "TEstT...",
+      "Tags": "noch keine Tags"
+    },
+    "AimSyn_XA_LU": {
+      "Applikation": "Aim",
+      "Hersteller": "Syn",
+      "PTK": "XA",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SedZas_TE_LU": {
+      "Applikation": "Sed",
+      "Hersteller": "Zas",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "HcmSap_TE_LU": {
+      "Applikation": "Hcm",
+      "Hersteller": "Sap",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IbmIbt_TE_ST": {
+      "Applikation": "Ibm",
+      "Hersteller": "Ibt",
+      "PTK": "TE",
+      "Ort": "ST",
+      "Tags": "noch keine Tags"
+    },
+    "KonSap_TE_LU": {
+      "Applikation": "Kon",
+      "Hersteller": "Sap",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "MdcCon_TE_LU": {
+      "Applikation": "Mdc",
+      "Hersteller": "Con",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "PatAd..._PatAd..._PatAd...": {
+      "Applikation": "Pat",
+      "Hersteller": "Ad.",
+      "PTK": "PatAd...",
+      "Ort": "PatAd...",
+      "Tags": "noch keine Tags"
+    },
+    "AtiSpi_TE_LU": {
+      "Applikation": "Ati",
+      "Hersteller": "Spi",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "IshSap_TE_SW": {
+      "Applikation": "Ish",
+      "Hersteller": "Sap",
+      "PTK": "TE",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "test..._test..._test...": {
+      "Applikation": "tes",
+      "Hersteller": "t..",
+      "PTK": "test...",
+      "Ort": "test...",
+      "Tags": "noch keine Tags"
+    },
+    "write..._write..._write...": {
+      "Applikation": "wri",
+      "Hersteller": "te.",
+      "PTK": "write...",
+      "Ort": "write...",
+      "Tags": "noch keine Tags"
+    },
+    "HKM n..._HKM n..._HKM n...": {
+      "Applikation": "HKM",
+      "Hersteller": " n.",
+      "PTK": "HKM n...",
+      "Ort": "HKM n...",
+      "Tags": "noch keine Tags"
+    },
+    "CwdEul_PR_LU": {
+      "Applikation": "Cwd",
+      "Hersteller": "Eul",
+      "PTK": "PR",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ToNot..._ToNot..._ToNot...": {
+      "Applikation": "ToN",
+      "Hersteller": "ot.",
+      "PTK": "ToNot...",
+      "Ort": "ToNot...",
+      "Tags": "noch keine Tags"
+    },
+    "LisIne_TE_NW": {
+      "Applikation": "Lis",
+      "Hersteller": "Ine",
+      "PTK": "TE",
+      "Ort": "NW",
+      "Tags": "noch keine Tags"
+    },
+    "IshSpi_TE_SW": {
+      "Applikation": "Ish",
+      "Hersteller": "Spi",
+      "PTK": "TE",
+      "Ort": "SW",
+      "Tags": "noch keine Tags"
+    },
+    "DirRec_TE_LU": {
+      "Applikation": "Dir",
+      "Hersteller": "Rec",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "LgqLuk_TE_LU": {
+      "Applikation": "Lgq",
+      "Hersteller": "Luk",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ApoLoc_TE_LU": {
+      "Applikation": "Apo",
+      "Hersteller": "Loc",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "ArcLuk_TE_LU": {
+      "Applikation": "Arc",
+      "Hersteller": "Luk",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    },
+    "SlxCap_TE_LU": {
+      "Applikation": "Slx",
+      "Hersteller": "Cap",
+      "PTK": "TE",
+      "Ort": "LU",
+      "Tags": "noch keine Tags"
+    }
+  }
+}

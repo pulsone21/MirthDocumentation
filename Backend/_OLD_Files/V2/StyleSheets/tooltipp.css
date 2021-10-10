@@ -1,0 +1,47 @@
+@import "defaults.css";
+
+.tableOptions{
+    margin-top: 10px;
+    margin-left: 2%;
+    display: flex; 
+    align-items: center; 
+    flex-direction: row;
+}
+
+.tooltip {
+    position: relative;
+}
+.tooltiptext {
+    display: block;
+    visibility: hidden;
+    width: 80px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    justify-self: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    box-shadow: 0px 0px 6px var(--color-tertiary);
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    margin-left: -85px;
+    bottom: 20%;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #555
+}
+.tooltip:hover .tooltiptext{
+    visibility: visible;
+    opacity: 0.9; 
+}
