@@ -1,0 +1,74 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mirth Doku 2.0 - Connector Table</title>
+        <link rel="icon" href="./Icons/Link.png" />
+        <link rel="stylesheet" href="./StyleSheets/defaults.css" />
+        <link rel="stylesheet" href="./StyleSheets/index.css" />
+        <link rel="stylesheet" href="./StyleSheets/navbar.css" />
+        <link rel="stylesheet" href="./StyleSheets/table.css" />
+        <link rel="stylesheet" href="./StyleSheets/tooltipp.css" />
+        <link rel="stylesheet" href="./StyleSheets/filterBar.css" />
+        <link rel="stylesheet" href="./StyleSheets/modalView.css" />
+        <script src="./Scripts/Librarys/BaseClasses.js"></script>
+        <script src="./Scripts/filterTable.js"></script>
+        <script src="./Scripts/Librarys/jquerry.js"></script>
+        <link href="./StyleSheets/fonts.css" rel="stylesheet" />
+        <script src="./Scripts/Librarys/CreateTableLib.js"></script>
+        <script src="./Scripts/contextSearch.js"></script>
+    </head>
+    <body>
+        <header class="section"></header>
+        <nav class="section tertiaryBackground"></nav>
+        <div id="FilterBar" class="section tertiaryBackground">
+            <div class="filterInput">
+                <input id="inputSearch00" type="text" onkeyup="SearchTable('CONNECTORTABLE')" placeholder="search for mirth server" />
+            </div>
+            <div class="filterInput">
+                <input id="inputSearch02" type="text" onkeyup="SearchTable('CONNECTORTABLE')" placeholder="search for connector" />
+            </div>
+            <div class="filterInput">
+                <input id="inputSearch03" type="text" onkeyup="SearchTable('CONNECTORTABLE')" placeholder="search for path" />
+            </div>
+            <div id="contextSearchParent" class="filterInput">
+                <input
+                    disabled
+                    class="contextSearch"
+                    type="text"
+                    id="contextSearch"
+                    name="context"
+                    onkeyup="ContextSearch(window.event)"
+                    placeholder="ContextSearch (ALPHA STATE)"
+                /><span></span>
+            </div>
+        </div>
+        <div class="tableOptions">
+            <button class="navBtn" onclick="ExpandAll()">Expand All</button>
+            <button class="navBtn" onclick="CollapseAll()">Collaps All</button>
+            <button class="navBtn activeBtn" onclick="ToogleDisabledConnector($(this))">Show Disabled</button>
+        </div>
+        <div id="tableContainer" class="section tertiaryBackground">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 3%">Server</th>
+                        <th style="width: 2%">Type</th>
+                        <th style="width: 25%">Connector</th>
+                        <th style="width: 50%">Pfad</th>
+                        <th style="width: 15%">File</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <button id="scrollTopBtn" class="scrollTopBtn" onclick="backToTop()">Back to Top</button>
+        <div>
+            <br />
+        </div>
+    </body>
+    <script src="./Scripts/ConnectorTable.js"></script>
+    <script src="./Scripts/scrollTopBtn.js"></script>
+    <script src="./Scripts/DetailView.js"></script>
+    <script src="./Scripts/header.js"></script>
+</html>

@@ -1,0 +1,210 @@
+{
+  "nodes": [
+    {
+      "name": "PatAzm_IncEpi_PO_LU_Xml_10_18039_HttpL",
+      "type": "source",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatAzm_IncEpi_PO_LU_Xml_10_18039_ChWri",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "type": "source",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatDat_IncEpi_TE_LU_Jso_10_18041_HttpS---Patient_Querry",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "https://ksl-lukistestic.gsdnet.ch/Interconnect-${environment}-OAuth2/api/epic/2020/Clinical/Patient/GetCHMEDPatient/",
+      "type": "path",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatAzm_IncEpi_TE_LU_Jso_10_18041_HttpS---Medication_Querry",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "https://ksl-lukistestic.gsdnet.ch/Interconnect-${environment}-OAuth2/api/epic/2020/Clinical/Order/GetCHMEDMedication/",
+      "type": "path",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatDat_EmeHci_TE_LU_Jso_10_18041_HttpS---PDF_Generierung",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "https://int.documedis.hcisolutions.ch/2020-01/app/patient/medicationplan",
+      "type": "path",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatDat_BriEpi_TE_LU_HL7_10_18041_TcpSe",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "ksl-lukistestic:${port}",
+      "type": "path",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatDat_AimSyn_TE_LU_Jso_10_18041_ChWri",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatMsg_AimSyn_TE_LU_HL7_24_10043_ChRdr",
+      "type": "source",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatMsg_AimSyn_TE_LU_HL7_24_10043_TcpSe",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "ksl-vlnx819:11545",
+      "type": "path",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatAzm_IncEpi_OT_LU_Xml_10_18042_HttpL",
+      "type": "source",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatAzm_IncEpi_OT_LU_Xml_10_18042_ChWri",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatAzm_IncEpi_TE_LU_Xml_10_18040_HttpL",
+      "type": "source",
+      "status": "enabled",
+      "server": "83"
+    },
+    {
+      "name": "PatAzm_IncEpi_TE_LU_Xml_10_18040_ChWri",
+      "type": "destination",
+      "status": "enabled",
+      "server": "83"
+    }
+  ],
+  "links": [
+    {
+      "source": "PatMsg_AimSyn_TE_LU_HL7_24_10043_TcpSe",
+      "target": "ksl-vlnx819:11545",
+      "value": 1
+    },
+    {
+      "source": "PatDat_BriEpi_TE_LU_HL7_10_18041_TcpSe",
+      "target": "ksl-lukistestic:${port}",
+      "value": 1
+    },
+    {
+      "source": "PatDat_EmeHci_TE_LU_Jso_10_18041_HttpS---PDF_Generierung",
+      "target": "https://int.documedis.hcisolutions.ch/2020-01/app/patient/medicationplan",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Jso_10_18041_HttpS---Medication_Querry",
+      "target": "https://ksl-lukistestic.gsdnet.ch/Interconnect-${environment}-OAuth2/api/epic/2020/Clinical/Order/GetCHMEDMedication/",
+      "value": 1
+    },
+    {
+      "source": "PatDat_IncEpi_TE_LU_Jso_10_18041_HttpS---Patient_Querry",
+      "target": "https://ksl-lukistestic.gsdnet.ch/Interconnect-${environment}-OAuth2/api/epic/2020/Clinical/Patient/GetCHMEDPatient/",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_PO_LU_Xml_10_18039_HttpL",
+      "target": "PatAzm_IncEpi_PO_LU_Xml_10_18039_ChWri",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_PO_LU_Xml_10_18039_ChWri",
+      "target": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "target": "PatDat_IncEpi_TE_LU_Jso_10_18041_HttpS---Patient_Querry",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "target": "PatAzm_IncEpi_TE_LU_Jso_10_18041_HttpS---Medication_Querry",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "target": "PatDat_EmeHci_TE_LU_Jso_10_18041_HttpS---PDF_Generierung",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "target": "PatDat_BriEpi_TE_LU_HL7_10_18041_TcpSe",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "target": "PatDat_AimSyn_TE_LU_Jso_10_18041_ChWri",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Xml_10_18040_HttpL",
+      "target": "PatAzm_IncEpi_TE_LU_Xml_10_18040_ChWri",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_TE_LU_Xml_10_18040_ChWri",
+      "target": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_OT_LU_Xml_10_18042_HttpL",
+      "target": "PatAzm_IncEpi_OT_LU_Xml_10_18042_ChWri",
+      "value": 1
+    },
+    {
+      "source": "PatAzm_IncEpi_OT_LU_Xml_10_18042_ChWri",
+      "target": "PatAzm_IncEpi_TE_LU_Xml_10_18041_ChRdr",
+      "value": 1
+    },
+    {
+      "source": "PatDat_AimSyn_TE_LU_Jso_10_18041_ChWri",
+      "target": "PatMsg_AimSyn_TE_LU_HL7_24_10043_ChRdr",
+      "value": 1
+    },
+    {
+      "source": "PatMsg_AimSyn_TE_LU_HL7_24_10043_ChRdr",
+      "target": "PatMsg_AimSyn_TE_LU_HL7_24_10043_TcpSe",
+      "value": 1
+    }
+  ]
+}

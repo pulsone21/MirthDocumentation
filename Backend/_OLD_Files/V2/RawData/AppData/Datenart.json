@@ -1,0 +1,554 @@
+[
+  {
+    "shortName": "Abr",
+    "longName": "Abrechnungen"
+  },
+  {
+    "shortName": "Adr",
+    "longName": "Adressen"
+  },
+  {
+    "shortName": "Adt",
+    "longName": "HL7 ADT / MFN"
+  },
+  {
+    "shortName": "Aer",
+    "longName": "Aerzte/Garanten"
+  },
+  {
+    "shortName": "Afp",
+    "longName": "Adt Fall & Pat Anlage"
+  },
+  {
+    "shortName": "Afs",
+    "longName": "Adt Fall stationär"
+  },
+  {
+    "shortName": "Afa",
+    "longName": "Adt Fall ambulant"
+  },
+  {
+    "shortName": "Anl",
+    "longName": "ANLAGE / PROJEKTE (DPSI_ANLAGEN)"
+  },
+  {
+    "shortName": "Aud",
+    "longName": "SAP Audit File "
+  },
+  {
+    "shortName": "Auf",
+    "longName": "Auftrag ORM"
+  },
+  {
+    "shortName": "Aut",
+    "longName": "Authentication"
+  },
+  {
+    "shortName": "Azm",
+    "longName": "Arzneimittel /Medikamente"
+  },
+  {
+    "shortName": "Ban",
+    "longName": "BANK DATA (DPSI_BANK)"
+  },
+  {
+    "shortName": "Bef",
+    "longName": "Pat Befunde ORU"
+  },
+  {
+    "shortName": "Ber",
+    "longName": "Berichte"
+  },
+  {
+    "shortName": "Bma",
+    "longName": "Büro-Material"
+  },
+  {
+    "shortName": "Bnr",
+    "longName": "Ausweis ID / Badge Nummer"
+  },
+  {
+    "shortName": "Bst",
+    "longName": "Bestellungen"
+  },
+  {
+    "shortName": "Cfg",
+    "longName": "Konfigurationen"
+  },
+  {
+    "shortName": "Chg",
+    "longName": "Chargen von SAP MM"
+  },
+  {
+    "shortName": "Chk",
+    "longName": "Check überwachung"
+  },
+  {
+    "shortName": "Clo",
+    "longName": "Close  schliessen"
+  },
+  {
+    "shortName": "Cnv",
+    "longName": "Conversion"
+  },
+  {
+    "shortName": "Cod",
+    "longName": "Codierungen (BFS / DRG)"
+  },
+  {
+    "shortName": "Cou",
+    "longName": "Counters"
+  },
+  {
+    "shortName": "Crd",
+    "longName": "SUPPLIER / CREDITOR / VENDOR (DPSI_CRD) (LUPS)"
+  },
+  {
+    "shortName": "Ctg",
+    "longName": "CTG"
+  },
+  {
+    "shortName": "Cur",
+    "longName": "TABLE CURRENCY (DPSI_CURRENCY)"
+  },
+  {
+    "shortName": "Dat",
+    "longName": "Daten"
+  },
+  {
+    "shortName": "Dbl",
+    "longName": "Disposition besonder Lage"
+  },
+  {
+    "shortName": "Ddi",
+    "longName": "DigiDikInventar"
+  },
+  {
+    "shortName": "Des",
+    "longName": "DESADV medical Columbus"
+  },
+  {
+    "shortName": "Dft",
+    "longName": "HL7 DFT Leistungen"
+  },
+  {
+    "shortName": "Dia",
+    "longName": "Diagnosen"
+  },
+  {
+    "shortName": "Div",
+    "longName": "Diverse"
+  },
+  {
+    "shortName": "Dns",
+    "longName": "DNS namen"
+  },
+  {
+    "shortName": "Doc",
+    "longName": "Dokumentation"
+  },
+  {
+    "shortName": "Dss",
+    "longName": "DigiDik Sprachdatei"
+  },
+  {
+    "shortName": "Dst",
+    "longName": "Dienste"
+  },
+  {
+    "shortName": "E01",
+    "longName": "SAP EXP01"
+  },
+  {
+    "shortName": "E06",
+    "longName": "SAP Exp06"
+  },
+  {
+    "shortName": "E07",
+    "longName": "SAP Exp07"
+  },
+  {
+    "shortName": "E09",
+    "longName": "SAP Exp09"
+  },
+  {
+    "shortName": "E09",
+    "longName": "SAP Exp90"
+  },
+  {
+    "shortName": "E30",
+    "longName": "SAP Exp30"
+  },
+  {
+    "shortName": "E31",
+    "longName": "SAP Exp31"
+  },
+  {
+    "shortName": "E32",
+    "longName": "SAP Exp32"
+  },
+  {
+    "shortName": "E33",
+    "longName": "SAP Exp33"
+  },
+  {
+    "shortName": "E34",
+    "longName": "SAP Exp34"
+  },
+  {
+    "shortName": "E36",
+    "longName": "SAP Exp36 LUPS"
+  },
+  {
+    "shortName": "E43",
+    "longName": "SAP Exp43 für eZeugnis"
+  },
+  {
+    "shortName": "E44",
+    "longName": "SAP Exp44 LUPS"
+  },
+  {
+    "shortName": "E45",
+    "longName": "SAP Exp45 LUPS"
+  },
+  {
+    "shortName": "E80",
+    "longName": "SAP Exp80"
+  },
+  {
+    "shortName": "E81",
+    "longName": "SAP Exp81"
+  },
+  {
+    "shortName": "E83",
+    "longName": "SAP Exp83"
+  },
+  {
+    "shortName": "E85",
+    "longName": "SAP Exp85 Infonica"
+  },
+  {
+    "shortName": "E86",
+    "longName": "SAP EXP86 OrgStamm erweiterter EXP33"
+  },
+  {
+    "shortName": "E99",
+    "longName": "SAP Exp99"
+  },
+  {
+    "shortName": "Eaf",
+    "longName": "Patienten Anfragen an Hospis"
+  },
+  {
+    "shortName": "Ear",
+    "longName": "Patienten Rückmeldung von Hospis"
+  },
+  {
+    "shortName": "Ekg",
+    "longName": "EKG Resultate"
+  },
+  {
+    "shortName": "Ein",
+    "longName": "einheiten"
+  },
+  {
+    "shortName": "Eml",
+    "longName": "E-Mail"
+  },
+  {
+    "shortName": "Emp",
+    "longName": "PURCHASER (DPSI_EMPLOYEE)"
+  },
+  {
+    "shortName": "Ent",
+    "longName": "Order Entry RIS / Entbindungsdaten SAP"
+  },
+  {
+    "shortName": "Eve",
+    "longName": "Event"
+  },
+  {
+    "shortName": "Fin",
+    "longName": "Finanzen (kat)"
+  },
+  {
+    "shortName": "Fot",
+    "longName": "Fotos Personal"
+  },
+  {
+    "shortName": "Geb",
+    "longName": "Gebäude / Geburtsdaten SAP"
+  },
+  {
+    "shortName": "Gen",
+    "longName": "Generika /Medikamente"
+  },
+  {
+    "shortName": "Grp",
+    "longName": "Gruppen"
+  },
+  {
+    "shortName": "Grv",
+    "longName": "Gruppen Verschachtelungen"
+  },
+  {
+    "shortName": "Hcm",
+    "longName": "SAP ISH HCM Nachrichten"
+  },
+  {
+    "shortName": "I04",
+    "longName": "SAP Imp 04 KT"
+  },
+  {
+    "shortName": "Ibi",
+    "longName": "Ibicare"
+  },
+  {
+    "shortName": "Ife",
+    "longName": "Immunfixation's Bilder"
+  },
+  {
+    "shortName": "Ink",
+    "longName": "Inkonfinienzen"
+  },
+  {
+    "shortName": "Int",
+    "longName": "IntensivDaten"
+  },
+  {
+    "shortName": "Inv",
+    "longName": "Inventar"
+  },
+  {
+    "shortName": "Kat",
+    "longName": "Katalog"
+  },
+  {
+    "shortName": "Key",
+    "longName": "Schlüssel Key etc"
+  },
+  {
+    "shortName": "Kgu",
+    "longName": "Kogu, Kostengutsprache"
+  },
+  {
+    "shortName": "Kpi",
+    "longName": "Key Performance Indicator"
+  },
+  {
+    "shortName": "Krz",
+    "longName": "Kürzel"
+  },
+  {
+    "shortName": "Kst",
+    "longName": "Kostenstellen"
+  },
+  {
+    "shortName": "Kto",
+    "longName": "KONTO (DPSI_KTO)"
+  },
+  {
+    "shortName": "Lei",
+    "longName": "Leistungen"
+  },
+  {
+    "shortName": "Lgb",
+    "longName": "Leihgaben"
+  },
+  {
+    "shortName": "Lgr",
+    "longName": "Lager Bestand"
+  },
+  {
+    "shortName": "Lid",
+    "longName": "Legic ID"
+  },
+  {
+    "shortName": "Lnk",
+    "longName": "Link  (ArchivLink)"
+  },
+  {
+    "shortName": "Log",
+    "longName": "Log-Daten"
+  },
+  {
+    "shortName": "Mac",
+    "longName": "Mac Adressen"
+  },
+  {
+    "shortName": "Mdm",
+    "longName": "HL7 MDm nachrichten"
+  },
+  {
+    "shortName": "Med",
+    "longName": "Medizinisch"
+  },
+  {
+    "shortName": "Mem",
+    "longName": "Measurement Kardiologie ISCV"
+  },
+  {
+    "shortName": "Mfn",
+    "longName": "HL7 Mfn Nachrichten"
+  },
+  {
+    "shortName": "Mie",
+    "longName": "Mieter"
+  },
+  {
+    "shortName": "Mis",
+    "longName": "Managementinformationen"
+  },
+  {
+    "shortName": "Msg",
+    "longName": "Message (mehrere Datenarten [Adt/Mfn/Oru])"
+  },
+  {
+    "shortName": "Ord",
+    "longName": "PURCHASE ORDERS (DPSI_ORDER)"
+  },
+  {
+    "shortName": "Org",
+    "longName": "Organisation / Organigramm"
+  },
+  {
+    "shortName": "Orm",
+    "longName": "HL7 ORM Aufträge"
+  },
+  {
+    "shortName": "Oru",
+    "longName": "HL7 ORU Resultate"
+  },
+  {
+    "shortName": "Pao",
+    "longName": "Pakete OS"
+  },
+  {
+    "shortName": "Pas",
+    "longName": "Pakete SW"
+  },
+  {
+    "shortName": "Per",
+    "longName": "Personal"
+  },
+  {
+    "shortName": "Pla",
+    "longName": "Planung"
+  },
+  {
+    "shortName": "Pri",
+    "longName": "Printer"
+  },
+  {
+    "shortName": "Prj",
+    "longName": "Projects"
+  },
+  {
+    "shortName": "Qia",
+    "longName": "Quiagen"
+  },
+  {
+    "shortName": "Que",
+    "longName": "Queue Drucker"
+  },
+  {
+    "shortName": "Rec",
+    "longName": "Rechnung"
+  },
+  {
+    "shortName": "Rei",
+    "longName": "Reinigung"
+  },
+  {
+    "shortName": "Res",
+    "longName": "Resultate / Reservationen"
+  },
+  {
+    "shortName": "Ris",
+    "longName": "Radiologie Kataloge"
+  },
+  {
+    "shortName": "Rpa",
+    "longName": "Roboter Augenklinik"
+  },
+  {
+    "shortName": "Rpt",
+    "longName": "INVOICE RECIPIENT/RECEIVING COMPANY (DPSI_RPT)"
+  },
+  {
+    "shortName": "Rsp",
+    "longName": "Response"
+  },
+  {
+    "shortName": "Ruc",
+    "longName": "Rückweisungen"
+  },
+  {
+    "shortName": "Sal",
+    "longName": "Saldodaten"
+  },
+  {
+    "shortName": "Srs",
+    "longName": "DICOM Structured Reporting Storage"
+  },
+  {
+    "shortName": "Sta",
+    "longName": "Status meldungen"
+  },
+  {
+    "shortName": "Stt",
+    "longName": "Statistik"
+  },
+  {
+    "shortName": "Tag",
+    "longName": "Tag's"
+  },
+  {
+    "shortName": "Tel",
+    "longName": "Telefonie Daten"
+  },
+  {
+    "shortName": "Ter",
+    "longName": "Termine"
+  },
+  {
+    "shortName": "Tes",
+    "longName": "Test Ergebnis"
+  },
+  {
+    "shortName": "Tim",
+    "longName": "Time --> zeiten"
+  },
+  {
+    "shortName": "Top",
+    "longName": "PAYMENT TERMS AND CONDITIONS (DPSI_TOP)"
+  },
+  {
+    "shortName": "Uni",
+    "longName": "Unit"
+  },
+  {
+    "shortName": "Vac",
+    "longName": "Vaccination / Impfungen"
+  },
+  {
+    "shortName": "Vat",
+    "longName": "VAT CODES (DPSI_VAT_CODES)"
+  },
+  {
+    "shortName": "Vir",
+    "longName": "Virtuelle Server"
+  },
+  {
+    "shortName": "Vis",
+    "longName": "Vitalstatus"
+  },
+  {
+    "shortName": "Wrk",
+    "longName": "Werk (netzWerk)"
+  },
+  {
+    "shortName": "Zer",
+    "longName": "(Covid) Zeritifkat"
+  }
+]

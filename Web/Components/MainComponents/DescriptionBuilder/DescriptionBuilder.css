@@ -1,0 +1,99 @@
+@import "../../../CSS/defaults.css";
+
+.Descriptionbuilder-Container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.Descriptionbuilder-Container .colLeft {
+  width: 35%;
+  min-width: 450px;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.Descriptionbuilder-Container .colRight {
+  width: 65%;
+  padding: 15px;
+}
+
+.Descriptionbuilder-Container .inputFieldContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Descriptionbuilder-Container input[type="text"] {
+  width: 100%;
+  /* padding: 5px 10px;
+  margin: 5px; */
+  border: none;
+  outline: 0;
+  transition: all 0.2s ease;
+  background-color: var(--color-primary);
+  color: var(--color-tertiary);
+}
+
+.Descriptionbuilder-Container input[type="text"]:hover,
+.Descriptionbuilder-Container input[type="text"]:focus {
+  border: 2px solid var(--color-secondary);
+  box-shadow: 0px 0px 8px var(--color-secondary);
+}
+
+.Descriptionbuilder-Container .HeaderText {
+  margin-left: 0px !important;
+  color: var(--color-secondary-highlight);
+  margin-left: 15px;
+}
+
+.Descriptionbuilder-Container .mTB {
+  margin: 15px 0px;
+}
+
+/* TESTING */
+
+.Descriptionbuilder-Container .outerContainer {
+  display: flex;
+  width: 75%;
+}
+
+.Descriptionbuilder-Container .innerContainer {
+  display: flex;
+  align-content: center;
+  width: 100%;
+}
+
+.Descriptionbuilder-Container .codeContainer {
+  background-color: var(--color-primary-highlight);
+  filter: brightness(1.2);
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  width: 95%;
+  height: 95%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Descriptionbuilder-Container .codeContainer:hover {
+  animation: hoverBlinkEffect 0.9s linear infinite;
+}
+
+.Descriptionbuilder-Container .codeContainer pre {
+  pointer-events: none;
+}
+
+@keyframes hoverBlinkEffect {
+  0% {
+    box-shadow: 0px 0px 15px var(--color-secondary);
+  }
+  50% {
+    box-shadow: 0px 0px 5px var(--color-secondary);
+  }
+  100% {
+    box-shadow: 0px 0px 15px var(--color-secondary);
+  }
+}

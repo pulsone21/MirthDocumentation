@@ -1,0 +1,722 @@
+[
+  {
+    "shortName": "Ab1",
+    "longName": "DMLAB1"
+  },
+  {
+    "shortName": "Ab2",
+    "longName": "DMLAB2"
+  },
+  {
+    "shortName": "Ade",
+    "longName": "Adeon"
+  },
+  {
+    "shortName": "Aer",
+    "longName": "Aerzte/Garanten"
+  },
+  {
+    "shortName": "Aml",
+    "longName": "Amazee Labs /&/ ANALYTICA Medizinische Laboratorien AG "
+  },
+  {
+    "shortName": "And",
+    "longName": "Andromeda Gmbh"
+  },
+  {
+    "shortName": "Ang",
+    "longName": "Angiologie"
+  },
+  {
+    "shortName": "Apx",
+    "longName": "APPX Logierwesen"
+  },
+  {
+    "shortName": "Ast",
+    "longName": "asthenis GmbH"
+  },
+  {
+    "shortName": "Bas",
+    "longName": "Basys Data GmbH"
+  },
+  {
+    "shortName": "Bdm",
+    "longName": "BD Medical   BD - Worldwide (siehe 'Bed')"
+  },
+  {
+    "shortName": "Beb",
+    "longName": "Betriebsbuchhaltung"
+  },
+  {
+    "shortName": "Bed",
+    "longName": "Becton & Dickinson (BD) Medical"
+  },
+  {
+    "shortName": "Bfs",
+    "longName": "Bundesamt für Statistik (sedex)"
+  },
+  {
+    "shortName": "Bit",
+    "longName": "Bundesamt für Informatik BIT"
+  },
+  {
+    "shortName": "Bma",
+    "longName": "Enigma connect by BeMax Solution"
+  },
+  {
+    "shortName": "Bst",
+    "longName": "BST Informatik"
+  },
+  {
+    "shortName": "Cad",
+    "longName": "CadWell EEG"
+  },
+  {
+    "shortName": "Cas",
+    "longName": "WinCasso"
+  },
+  {
+    "shortName": "Cen",
+    "longName": "RadCenter"
+  },
+  {
+    "shortName": "Chi",
+    "longName": "Chirurgie"
+  },
+  {
+    "shortName": "Cis",
+    "longName": "Cisco"
+  },
+  {
+    "shortName": "Con",
+    "longName": "Consight (Ausfallsystem SAP)"
+  },
+  {
+    "shortName": "Cmd",
+    "longName": "Heat CMDB"
+  },
+  {
+    "shortName": "Cob",
+    "longName": "CobasBloodscreening  // LIS Cobra Soft"
+  },
+  {
+    "shortName": "Con",
+    "longName": "Mirth Connect"
+  },
+  {
+    "shortName": "Coy",
+    "longName": "Coyo"
+  },
+  {
+    "shortName": "Cri",
+    "longName": "Crible Server"
+  },
+  {
+    "shortName": "Dir",
+    "longName": "Activ Directory"
+  },
+  {
+    "shortName": "Dme",
+    "longName": "Datamed LaborSys"
+  },
+  {
+    "shortName": "Dor",
+    "longName": "Dorner LIS"
+  },
+  {
+    "shortName": "Eas",
+    "longName": "OdsEasy"
+  },
+  {
+    "shortName": "Eca",
+    "longName": "PLS E.care bvba"
+  },
+  {
+    "shortName": "Elc",
+    "longName": "ELCA informatics Ltd. | www.elca.ch"
+  },
+  {
+    "shortName": "Emi",
+    "longName": "Emineo SAP"
+  },
+  {
+    "shortName": "Eml",
+    "longName": "E-Mail"
+  },
+  {
+    "shortName": "Ent",
+    "longName": "EntStatistics"
+  },
+  {
+    "shortName": "Epi",
+    "longName": "Epic"
+  },
+  {
+    "shortName": "Esy",
+    "longName": "Easy Learn  easylearn.ch"
+  },
+  {
+    "shortName": "Etz",
+    "longName": "Etzensperger Informatik AG EdooBox"
+  },
+  {
+    "shortName": "Eul",
+    "longName": "E&L medical systems GmbH ErlangenPACS"
+  },
+  {
+    "shortName": "Eur",
+    "longName": "ELO Euro-immun"
+  },
+  {
+    "shortName": "Exp",
+    "longName": "Device Expert"
+  },
+  {
+    "shortName": "Eye",
+    "longName": "Eye manager"
+  },
+  {
+    "shortName": "Ffs",
+    "longName": "FreeFormStar"
+  },
+  {
+    "shortName": "Fin",
+    "longName": "Finanz"
+  },
+  {
+    "shortName": "Fle",
+    "longName": "Kardio Fleisch"
+  },
+  {
+    "shortName": "Gal",
+    "longName": "Galliker Transport AG"
+  },
+  {
+    "shortName": "Ghx",
+    "longName": "Ghx"
+  },
+  {
+    "shortName": "Gsd",
+    "longName": "gsdnet.ch   Wiki.gsd etc"
+  },
+  {
+    "shortName": "Hbs",
+    "longName": "Pagero HBS"
+  },
+  {
+    "shortName": "Hci",
+    "longName": "HCI Solutions"
+  },
+  {
+    "shortName": "Hgl",
+    "longName": "HOGALOG"
+  },
+  {
+    "shortName": "Hin",
+    "longName": "Health Info Net AG HIN"
+  },
+  {
+    "shortName": "Hsp",
+    "longName": "Hospis"
+  },
+  {
+    "shortName": "Hei",
+    "longName": "Heidelberg"
+  },
+  {
+    "shortName": "Hvs",
+    "longName": "Hôpital Valais Sion"
+  },
+  {
+    "shortName": "Ian",
+    "longName": "Var  IAN  varian"
+  },
+  {
+    "shortName": "Ibi",
+    "longName": "IbiCare"
+  },
+  {
+    "shortName": "Ibm",
+    "longName": "IBM notes"
+  },
+  {
+    "shortName": "Ibr",
+    "longName": "iBrows"
+  },
+  {
+    "shortName": "Ibt",
+    "longName": "IbiTech"
+  },
+  {
+    "shortName": "Ieg",
+    "longName": "Iengine"
+  },
+  {
+    "shortName": "Iiq",
+    "longName": "IAM   SailPoint IdentityIQ"
+  },
+  {
+    "shortName": "Ili",
+    "longName": "ILIAS"
+  },
+  {
+    "shortName": "Ima",
+    "longName": "Imagic IMS"
+  },
+  {
+    "shortName": "Img",
+    "longName": "Images (Bilder)"
+  },
+  {
+    "shortName": "Imt",
+    "longName": "Imt International"
+  },
+  {
+    "shortName": "Ine",
+    "longName": "Ines -- "
+  },
+  {
+    "shortName": "Inf",
+    "longName": "e-Recruiting infoniqa"
+  },
+  {
+    "shortName": "Ino",
+    "longName": "ENTstatistics innoForce"
+  },
+  {
+    "shortName": "Int",
+    "longName": "Intern"
+  },
+  {
+    "shortName": "Ios",
+    "longName": "Nagios"
+  },
+  {
+    "shortName": "Isl",
+    "longName": "I-Solution"
+  },
+  {
+    "shortName": "Kab",
+    "longName": "Kaba Schlüssel"
+  },
+  {
+    "shortName": "Kas",
+    "longName": "Kasse"
+  },
+  {
+    "shortName": "Kim",
+    "longName": "NexusGeburtshilfe"
+  },
+  {
+    "shortName": "Koe",
+    "longName": "Konas Koelliker SAP Not"
+  },
+  {
+    "shortName": "Kpi",
+    "longName": "Key Performance Indicator"
+  },
+  {
+    "shortName": "Kst",
+    "longName": "Kostenstellen"
+  },
+  {
+    "shortName": "Kur",
+    "longName": "Digisono Kurmanavicius"
+  },
+  {
+    "shortName": "Lab",
+    "longName": "Labor"
+  },
+  {
+    "shortName": "Lei",
+    "longName": "Leistungen"
+  },
+  {
+    "shortName": "Lno",
+    "longName": "Lotus Notes"
+  },
+  {
+    "shortName": "Lnw",
+    "longName": "Labor Nidwalden"
+  },
+  {
+    "shortName": "Lsz",
+    "longName": "Labor Schwyz"
+  },
+  {
+    "shortName": "Loc",
+    "longName": "Loccioni"
+  },
+  {
+    "shortName": "Luk",
+    "longName": "LUKS"
+  },
+  {
+    "shortName": "Lup",
+    "longName": "LUPS"
+  },
+  {
+    "shortName": "Lyr",
+    "longName": "Lyreco AG"
+  },
+  {
+    "shortName": "Mar",
+    "longName": "Marketing Luks"
+  },
+  {
+    "shortName": "Mbd",
+    "longName": "MB Data Controll AG"
+  },
+  {
+    "shortName": "Mco",
+    "longName": "medical columbus AG"
+  },
+  {
+    "shortName": "Mdm",
+    "longName": "Mdm Mobil Device Management"
+  },
+  {
+    "shortName": "Med",
+    "longName": "Medisoft GmbH"
+  },
+  {
+    "shortName": "Mid",
+    "longName": "Surpass Midletree / MediData"
+  },
+  {
+    "shortName": "Mie",
+    "longName": "MedItEx IVF Labor  /   Mieter"
+  },
+  {
+    "shortName": "Mim",
+    "longName": "MeineImpfungen.ch"
+  },
+  {
+    "shortName": "Mis",
+    "longName": "Managementinformationen"
+  },
+  {
+    "shortName": "Mit",
+    "longName": "Senton Mobilit"
+  },
+  {
+    "shortName": "Mol",
+    "longName": "Molis Labor KSSW / und oder Montana LHM"
+  },
+  {
+    "shortName": "Mtr",
+    "longName": "MiddleTree (Surpas)"
+  },
+  {
+    "shortName": "Cap",
+    "longName": "Capsule Device Integration"
+  },
+  {
+    "shortName": "Mvw",
+    "longName": "IDExpert Medienverwaltung"
+  },
+  {
+    "shortName": "Ndd",
+    "longName": "Ndd Medical Technologies"
+  },
+  {
+    "shortName": "Ner",
+    "longName": "Dorner LIS"
+  },
+  {
+    "shortName": "Nex",
+    "longName": "Nexus"
+  },
+  {
+    "shortName": "Nuk",
+    "longName": "Nuklear Medizin ( Veenstra )"
+  },
+  {
+    "shortName": "Nxg",
+    "longName": "NextGen Corp (Mirth)"
+  },
+  {
+    "shortName": "Omn",
+    "longName": "Omnisoftory Engineering SA"
+  },
+  {
+    "shortName": "Opm",
+    "longName": "OpenMedical"
+  },
+  {
+    "shortName": "Org",
+    "longName": "Organisation"
+  },
+  {
+    "shortName": "Osm",
+    "longName": "OSM mirth Connect"
+  },
+  {
+    "shortName": "Oma",
+    "longName": "Omada - LUPS"
+  },
+  {
+    "shortName": "Pad",
+    "longName": "CheckPad"
+  },
+  {
+    "shortName": "Pas",
+    "longName": "Surpass Anästesie"
+  },
+  {
+    "shortName": "Pat",
+    "longName": "Patienten"
+  },
+  {
+    "shortName": "Pep",
+    "longName": "Personaleinsatzplanung"
+  },
+  {
+    "shortName": "Per",
+    "longName": "Personal"
+  },
+  {
+    "shortName": "Phi",
+    "longName": "Philipps"
+  },
+  {
+    "shortName": "Pho",
+    "longName": "Phönix Pacs"
+  },
+  {
+    "shortName": "Pis",
+    "longName": "Personal Informationen"
+  },
+  {
+    "shortName": "Plu",
+    "longName": "SunetPlus"
+  },
+  {
+    "shortName": "Ply",
+    "longName": "PolyPoint Erne"
+  },
+  {
+    "shortName": "Pps",
+    "longName": "PLANTA Projektmanagement-Systeme GmbH"
+  },
+  {
+    "shortName": "Prk",
+    "longName": "Protokoll"
+  },
+  {
+    "shortName": "Pro",
+    "longName": "Provis AG (https://www.provis.ch/de/Bauprojektmanagement)"
+  },
+  {
+    "shortName": "Prs",
+    "longName": "ProPharma Systems AG"
+  },
+  {
+    "shortName": "Qli",
+    "longName": "QlikTech International"
+  },
+  {
+    "shortName": "Qss",
+    "longName": "Qualitätssicherung"
+  },
+  {
+    "shortName": "Rec",
+    "longName": "Recos"
+  },
+  {
+    "shortName": "Ric",
+    "longName": "Ricoh Drucker"
+  },
+  {
+    "shortName": "Ris",
+    "longName": "Radiologiesystem (RadCenter)"
+  },
+  {
+    "shortName": "Roc",
+    "longName": "Cobas IT 1000 Roche"
+  },
+  {
+    "shortName": "Sap",
+    "longName": "SAP ERPlus"
+  },
+  {
+    "shortName": "Scr",
+    "longName": "winscribe"
+  },
+  {
+    "shortName": "Scw",
+    "longName": "Schwarzer"
+  },
+  {
+    "shortName": "Sen",
+    "longName": "Senox AG"
+  },
+  {
+    "shortName": "Sec",
+    "longName": "Seca, scale systems"
+  },
+  {
+    "shortName": "Shi",
+    "longName": "Schiller Reomed"
+  },
+  {
+    "shortName": "Sio",
+    "longName": "Spital in Sitten"
+  },
+  {
+    "shortName": "Sma",
+    "longName": "Smahrt Consulting AG"
+  },
+  {
+    "shortName": "Soh",
+    "longName": "Softhard.de (FCMS)"
+  },
+  {
+    "shortName": "Sol",
+    "longName": "Solution"
+  },
+  {
+    "shortName": "Sox",
+    "longName": "soXes GmbH  8608 Bubikon"
+  },
+  {
+    "shortName": "Spa",
+    "longName": "SpaceLabs"
+  },
+  {
+    "shortName": "Spi",
+    "longName": "SPIE ICS AG --> ISH Telefon"
+  },
+  {
+    "shortName": "Spl",
+    "longName": "Splunk"
+  },
+  {
+    "shortName": "Srv",
+    "longName": "Server (DHCP)"
+  },
+  {
+    "shortName": "Sta",
+    "longName": "ENTstatistics innoForce"
+  },
+  {
+    "shortName": "Swi",
+    "longName": "Swisscom"
+  },
+  {
+    "shortName": "Syn",
+    "longName": "Synedra AIM"
+  },
+  {
+    "shortName": "Sys",
+    "longName": "System High System"
+  },
+  {
+    "shortName": "Tbu",
+    "longName": "Telefon Buch"
+  },
+  {
+    "shortName": "Tcg",
+    "longName": "TCG Apado Tiketing oder TopCaptureGroup"
+  },
+  {
+    "shortName": "Tec",
+    "longName": "Tech (IBITECH)"
+  },
+  {
+    "shortName": "Tel",
+    "longName": "Telefonie"
+  },
+  {
+    "shortName": "Tie",
+    "longName": "the i-engineers AG"
+  },
+  {
+    "shortName": "Tik",
+    "longName": "Tiketing System"
+  },
+  {
+    "shortName": "Tin",
+    "longName": "Sentinel Kardio"
+  },
+  {
+    "shortName": "Tip",
+    "longName": "Tip MIS Management"
+  },
+  {
+    "shortName": "Tre",
+    "longName": "Treier Endoskopie Medivators"
+  },
+  {
+    "shortName": "Trv",
+    "longName": "Trivadis (LUPS Applikation)"
+  },
+  {
+    "shortName": "Tzp",
+    "longName": "ZP SAP Transaktion zusatzProgramm"
+  },
+  {
+    "shortName": "Uri",
+    "longName": "Kantonspital Uri"
+  },
+  {
+    "shortName": "Usv",
+    "longName": "Userverwaltung"
+  },
+  {
+    "shortName": "Var",
+    "longName": "Varian Medical Systems, Inc. RadioOnkologie"
+  },
+  {
+    "shortName": "Vfm",
+    "longName": "Vfm (TBS)"
+  },
+  {
+    "shortName": "Vit",
+    "longName": "Vitamins Feingut"
+  },
+  {
+    "shortName": "Vmw",
+    "longName": "VM Ware vCenter"
+  },
+  {
+    "shortName": "Vpn",
+    "longName": "Vpn"
+  },
+  {
+    "shortName": "Vpt",
+    "longName": "Voicepoint AG"
+  },
+  {
+    "shortName": "War",
+    "longName": "WaveWare"
+  },
+  {
+    "shortName": "Web",
+    "longName": "Webapplikation"
+  },
+  {
+    "shortName": "Wls",
+    "longName": "Worklist Server"
+  },
+  {
+    "shortName": "Xat",
+    "longName": "XATENA B2B"
+  },
+  {
+    "shortName": "Zas",
+    "longName": "Zentrale Ausgleichsstelle"
+  },
+  {
+    "shortName": "Zug",
+    "longName": "Zuger KS"
+  },
+  {
+    "shortName": "Zut",
+    "longName": "Zutritts verwaltungen"
+  },
+  {
+    "shortName": "ZZZ",
+    "longName": "ZZZ"
+  }
+]

@@ -1,0 +1,80 @@
+@import "../../../CSS/defaults.css";
+
+.baseBtn {
+  display: flex;
+  background-color: var(--color-secondary);
+  border-radius: 5px;
+  border: 1px solid var(--color-primary);
+  margin: 5px 15px;
+  padding: 4px;
+  cursor: pointer;
+  align-content: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: var(--color-tertiary);
+}
+
+.baseBtn p {
+  font: var(--font-Artical);
+  font-size: large;
+  color: var(--color-tertiary);
+}
+
+.baseBtn:hover {
+  box-shadow: 0px 0px 8px var(--color-secondary);
+}
+
+.baseBtn:active {
+  filter: brightness(0.8);
+}
+
+.activeBtn {
+  filter: brightness(85%);
+}
+
+.navBtn {
+  /* Button */
+  position: flex;
+  background-color: var(--color-secondary);
+  border-radius: 5px;
+  border: 1px solid var(--color-primary);
+  margin: 0px 15px !important;
+  padding: 6px 10px !important;
+  /* Inside Auto Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  font: var(--font-Artical);
+  font-size: large;
+  color: var(--color-tertiary);
+}
+
+.navBtn:hover {
+  box-shadow: 0px 0px 8px var(--color-secondary);
+}
+
+.navBtn:active {
+  filter: brightness(0.8);
+}
+
+.addDescriptionFieldBtn {
+  padding: 2px 6px !important;
+  max-height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.addDescriptionFieldBtn i {
+  color: var(--color-tertiary);
+}
+
+p {
+  margin: 0;
+}
