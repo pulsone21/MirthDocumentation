@@ -7,7 +7,7 @@ yarn-error.log*
 .vscode/
 
 _OLD_Files/
-Backend/dist/
+Backend/dist
 
 # Runtime data
 pids
