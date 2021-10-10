@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const app = express();
 import { ApolloServer } from "apollo-server-express";
 require("dotenv").config();
-
+import cors from "cors";
 import CreateSchema from "./GraphQl/graphQlSchema";
 
 startServer();
@@ -18,7 +18,12 @@ async function startServer() {
 
   mongoose.connect(`mongodb://${dbUser}:${dbPw}@${dbUrl}/${dbName}`, async () => {
     console.log("Connected to DB");
-
+    app.use(
+      cors({
+        credentials: true,
+        origin: ["http://localhost:3000", "https://studio.apollographql.com"],
+      })
+    );
     const schema = await CreateSchema();
 
     const server = new ApolloServer({
@@ -29,6 +34,7 @@ async function startServer() {
     server.applyMiddleware({
       app,
       path: "/graphql",
+      cors: false,
     });
 
     app.use(express.static("public"));

@@ -14,11 +14,10 @@ export default class User {
   readonly _id: ObjectId;
 
   @Field()
-  @Property({ minlength: 2, unique: true })
+  @Property({ unique: true })
   Username!: string;
 
-  @Field()
-  @Property({ minlength: 5 })
+  @Property()
   Password!: string;
 
   //   @Field(() => string)
@@ -36,6 +35,49 @@ export class UsernamePasswordInput {
   username!: string;
   @Field()
   password!: string;
+
+  public static ValidateInput(options: UsernamePasswordInput): UserResponse | undefined {
+    if (!options.username) {
+      return {
+        Errors: [
+          {
+            field: "username",
+            message: "Username is empty",
+          },
+        ],
+      };
+    } else if (options.username.length < 3) {
+      return {
+        Errors: [
+          {
+            field: "username",
+            message: "Username musst be longer then 3 characters",
+          },
+        ],
+      };
+    }
+
+    if (!options.password) {
+      return {
+        Errors: [
+          {
+            field: "password",
+            message: "Password is empty",
+          },
+        ],
+      };
+    } else if (options.password.length < 5) {
+      return {
+        Errors: [
+          {
+            field: "password",
+            message: "Password musst be longer then 5 characters",
+          },
+        ],
+      };
+    }
+    return;
+  }
 }
 
 @ObjectType()
