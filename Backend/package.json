@@ -1,0 +1,39 @@
+{
+  "name": "mirthdocumentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "start": "nodemon dist/server/server.js",
+    "dev": "nodemon --exec ts-node Server/server.ts",
+    "pretest": "tsc"
+  },
+  "keywords": [],
+  "author": "Johannes Böhm",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.10.1",
+    "ts-node": "^10.2.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "@typegoose/typegoose": "^9.0.1",
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0",
+    "argon2": "^0.28.2",
+    "class-validator": "^0.13.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.6.0",
+    "mongodb": "^4.1.2",
+    "mongoose": "^6.0.7",
+    "nodemon": "^2.0.13",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  }
+}

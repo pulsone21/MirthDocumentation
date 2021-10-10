@@ -1,0 +1,11 @@
+@import "../../../CSS/defaults.css";
+
+.FieldContainer {
+  margin-top: 10px;
+}
+
+.FieldContainer .ErrorMessage {
+  font: var(--font-Artical);
+  margin: 2px 0px 0px 5px;
+  color: var(--color-error-highlight);
+}
