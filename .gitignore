@@ -5,9 +5,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vscode/
-Backend/_OLD_Files/V2
 
 _OLD_Files/
+
+*/dist
 # Runtime data
 pids
 *.pid
