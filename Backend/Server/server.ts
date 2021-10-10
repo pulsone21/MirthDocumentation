@@ -6,41 +6,65 @@ import { ApolloServer } from "apollo-server-express";
 require("dotenv").config();
 import cors from "cors";
 import CreateSchema from "./GraphQl/graphQlSchema";
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import { MyContext } from "./Types/MyContext";
 
 startServer();
 
 async function startServer() {
-  const usedPort = process.env.PORT;
-  const dbUrl = process.env.DB_URL;
-  const dbUser = process.env.DB_USER;
-  const dbPw = process.env.DB_PASSWORD;
-  const dbName = process.env.DB_Name;
+    const usedPort = process.env.PORT;
+    const dbUrl = process.env.DB_URL;
+    const dbUser = process.env.DB_USER;
+    const dbPw = process.env.DB_PASSWORD;
+    const dbName = process.env.DB_Name;
+    const mongoUrl = `mongodb://${dbUser}:${dbPw}@${dbUrl}/${dbName}`;
 
-  mongoose.connect(`mongodb://${dbUser}:${dbPw}@${dbUrl}/${dbName}`, async () => {
-    console.log("Connected to DB");
-    app.use(
-      cors({
-        credentials: true,
-        origin: ["http://localhost:3000", "https://studio.apollographql.com"],
-      })
-    );
-    const schema = await CreateSchema();
+    mongoose.connect(mongoUrl, async () => {
+        console.log("Connected to DB");
+        const corsOptions = {
+            credentials: true,
+            origin: ["http://localhost:3000", "https://studio.apollographql.com"],
+        };
+        app.use(cors(corsOptions));
 
-    const server = new ApolloServer({
-      schema,
+        app.use(
+            session({
+                name: "qid",
+                secret: process.env.SESSION_SECRET || "MYDEFAULTSECRET",
+                saveUninitialized: false, // don't create session until something stored
+                resave: false, //don't save session if unmodified
+                store: MongoStore.create({
+                    mongoUrl,
+                    touchAfter: 3600,
+                }),
+                cookie: {
+                    maxAge: 1000 * 60 * 60 * 24 * 365,
+                    httpOnly: true,
+                    sameSite: "lax",
+                    secure: false, //TODO Update that to be variable for specific environments
+                },
+            })
+        );
+
+        // app.use(cors(corsOptions));
+        const schema = await CreateSchema();
+
+        const server = new ApolloServer({
+            schema,
+            context: ({ req, res }): MyContext => ({ req, res }),
+        });
+
+        await server.start();
+        server.applyMiddleware({
+            app,
+            path: "/graphql",
+        });
+
+        app.use(express.static("public"));
+
+        app.listen({ port: usedPort }, () => {
+            console.log(`🚀 Server ready at http://localhost:${usedPort}${server.graphqlPath}`);
+        });
     });
-
-    await server.start();
-    server.applyMiddleware({
-      app,
-      path: "/graphql",
-      cors: false,
-    });
-
-    app.use(express.static("public"));
-
-    app.listen({ port: usedPort }, () => {
-      console.log(`🚀 Server ready at http://localhost:${usedPort}${server.graphqlPath}`);
-    });
-  });
 }

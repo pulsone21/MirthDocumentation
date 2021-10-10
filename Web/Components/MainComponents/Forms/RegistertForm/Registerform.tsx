@@ -22,6 +22,7 @@ const Registerform: React.FC<RegisterformProps> = ({ }) => {
                 if (response.data?.RegisterUser.Errors) {
                     setErrors(ObjectToErrorMap(response.data.RegisterUser.Errors))
                 }
+
             }}
         >
             {({ handleSubmit }) => (
