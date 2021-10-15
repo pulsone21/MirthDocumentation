@@ -22,7 +22,7 @@ async function startServer() {
 
     mongoose.connect(mongoUrl, async () => {
         console.log("Connected to DB");
-        const corsOptions = {
+        const corsOptions: cors.CorsOptions = {
             credentials: true,
             origin: ["http://localhost:3000", "https://studio.apollographql.com"],
         };
@@ -32,7 +32,7 @@ async function startServer() {
             session({
                 name: "qid",
                 secret: process.env.SESSION_SECRET || "MYDEFAULTSECRET",
-                saveUninitialized: false, // don't create session until something stored
+                saveUninitialized: true, // don't create session until something stored
                 resave: false, //don't save session if unmodified
                 store: MongoStore.create({
                     mongoUrl,
@@ -40,9 +40,9 @@ async function startServer() {
                 }),
                 cookie: {
                     maxAge: 1000 * 60 * 60 * 24 * 365,
-                    httpOnly: true,
-                    sameSite: "lax",
-                    secure: false, //TODO Update that to be variable for specific environments
+                    // httpOnly: true,
+                    // sameSite: "lax",
+                    // secure: false, //TODO Update that to be variable for specific environments
                 },
             })
         );
@@ -59,6 +59,7 @@ async function startServer() {
         server.applyMiddleware({
             app,
             path: "/graphql",
+            cors: false,
         });
 
         app.use(express.static("public"));

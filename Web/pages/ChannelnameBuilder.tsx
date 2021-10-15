@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import HeaderSection from '../Components/HeaderSection';
 
@@ -6,7 +7,10 @@ interface ChannelNameBuilderProps {
 }
 
 const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
-    return (<div> <HeaderSection></HeaderSection></div>);
+    return (<div><Head>
+        <title>Mirth Documentation 2.0</title>
+        <link rel="shortcut icon" href="/MD2.png" />
+    </Head><HeaderSection></HeaderSection></div>);
 }
 
 export default ChannelNameBuilder;

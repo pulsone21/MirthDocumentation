@@ -35,11 +35,11 @@ export default class UserResolver {
         }
 
         console.log("setting Coockie in Session:");
-        console.log(req.session);
+        // console.log(req);
         req.session.userId = User.id;
 
         console.log("Cookie set");
-        console.log(req.session.userId);
+        console.log(req.session);
 
         return {
             User,

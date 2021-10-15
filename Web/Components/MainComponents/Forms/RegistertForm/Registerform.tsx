@@ -22,7 +22,8 @@ const Registerform: React.FC<RegisterformProps> = ({ }) => {
                 if (response.data?.RegisterUser.Errors) {
                     setErrors(ObjectToErrorMap(response.data.RegisterUser.Errors))
                 }
-
+                // const res = await fetch("http://localhost:5000/cookieTest")
+                // console.log(res)
             }}
         >
             {({ handleSubmit }) => (

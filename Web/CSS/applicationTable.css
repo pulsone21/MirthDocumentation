@@ -1,0 +1,30 @@
+@import "defaults.css";
+.applicationTable {
+    width: 98%;
+    box-shadow: 0px 0px 15px var(--color-secondary);
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--color-primary);
+    overflow: hidden;
+}
+
+.applicationTable th {
+    font: var(--font-SubTitle);
+    color: var(--color-tertiary);
+    background-color: var(--color-secondary-highlight);
+    padding: 2px;
+}
+
+.applicationTable td {
+    font: var(--font-Artical);
+    color: var(--color-secondary-highlight);
+    padding: 5px;
+}
+
+.applicationTable tbody tr:nth-child(odd) {
+    background-color: #1c252e;
+}
+
+.applicationTable tbody tr:nth-child(even) {
+    background-color: #303f4e;
+}
