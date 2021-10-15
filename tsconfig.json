@@ -23,6 +23,6 @@
         "resolveJsonModule": true,
         "baseUrl": "."
     },
-    "exclude": ["./node_modules"],
-    "include": ["./Server/**/*.ts"]
+    "exclude": ["node_modules"],
+    "include": ["./Backend/Server/**/*.ts", "./Web/**/*.ts", "./Web/**/*.tsx", "./Web/next-env.d.ts"]
 }

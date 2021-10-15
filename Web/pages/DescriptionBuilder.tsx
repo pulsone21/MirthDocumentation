@@ -1,10 +1,10 @@
+import Head from 'next/head';
 import * as React from 'react';
 import BasicButton from '../Components/BasicComponents/Button/BasicButton';
 import HeaderSection from '../Components/HeaderSection';
 import InputFieldMulti from '../Components/MainComponents/DescriptionBuilder/InputFieldMulti';
 import InputFieldSingle from "../Components/MainComponents/DescriptionBuilder/InputFieldSingle"
 import JSONDisplay from "../Components/MainComponents/DescriptionBuilder/JSONDisplay";
-
 
 interface DescriptionBuilderProps {
 
@@ -20,6 +20,10 @@ const DescriptionBuilder: React.FC<DescriptionBuilderProps> = () => {
 
     return (
         <div>
+            <Head>
+                <title>Mirth Documentation 2.0</title>
+                <link rel="shortcut icon" href="/MD2.png" />
+            </Head>
             <HeaderSection></HeaderSection>
             <div className="Descriptionbuilder-Container">
                 <div className="colLeft">

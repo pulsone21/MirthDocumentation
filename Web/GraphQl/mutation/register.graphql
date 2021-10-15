@@ -1,0 +1,11 @@
+mutation Register($username: String!, $password: String!) {
+  RegisterUser(options: { username: $username, password: $password }) {
+    Errors {
+      field
+      message
+    }
+    User {
+      Username
+    }
+  }
+}

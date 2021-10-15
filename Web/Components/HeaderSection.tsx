@@ -1,12 +1,13 @@
 import * as React from 'react';
 import Nav from "./Nav"
 import Registerform from './MainComponents/Forms/RegistertForm/Registerform';
-import BasicButton from './BasicComponents/Button/BasicButton';
 import { FaSignInAlt, FaUserPlus, FaUserSecret } from "react-icons/fa"
 import Popup from './MainComponents/Forms/Popup';
 import { useState } from 'react';
 import Loginform from './MainComponents/Forms/LoginForm/LoginForm';
 import IconButton from './BasicComponents/Button/IconButton';
+import Head from "next/head"
+
 interface HeaderSectionProps {
 
 }
