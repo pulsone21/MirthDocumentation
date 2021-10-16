@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Mirth Documentation 2.0</title>
-        <link rel="shortcut icon" href="/MD2.png" />
+        <link rel="shortcut icon" href="/MDlogoSimplified.png" />
       </Head>
       <HeaderSection></HeaderSection>
       <HomePage></HomePage>

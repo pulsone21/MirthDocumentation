@@ -1,42 +1,41 @@
-import React, { useState } from 'react';
-import Button from "../../BasicComponents/Button/IconButton"
-import { CreateClassNamesAsString } from "../../../CodeBase/Utils";
+import React, { InputHTMLAttributes } from 'react';
+import { FieldArray } from 'formik';
+import { FaPlus } from "react-icons/fa"
+import { LableSide } from 'Types/lableSideType';
 
 
-interface InputFieldMultiProps {
+type InputFieldMultiProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string
-    placeholder?: string
-    classes: string[] | undefined
+    fieldList: string[]
+    type?: string;
+    LableSide?: LableSide;
 }
 
-interface InputFieldState {
-    inputText: string | null;
-}
 
 const InputFieldMulti: React.FC<InputFieldMultiProps> = (props) => {
 
-    const [inputFields, setInputFields] = useState<InputFieldState[]>([{ inputText: "" }]);
-
-    const handleInputChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
-        const values = [...inputFields];
-        values[index].inputText = event.target.value;
-        setInputFields(values);
-    }
 
     return (
-        <div className="inputFieldContainer">
-            <p className="SubTitle" >{props.name}</p>
-            <div className="outerContainer">
-                <Button className="addDescriptionFieldBtn" onClick={() => setInputFields([...inputFields, { inputText: "" }])} />
-                <div className="innerContainer">
-                    <ul style={{ padding: "0px", listStyle: "none", margin: "0px", width: "100%" }}>
-                        {inputFields.map((inputText, index) => (
-                            <li style={{ display: "flex" }} key={index}><input autoComplete="off" id={props.name} className={(props.classes) ? CreateClassNamesAsString(props.classes) : ""} placeholder={props.placeholder} type="text" onChange={(event) => handleInputChange(index, event)} /></li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </div>);
+        <div className="MultiFieldOuterContainer">
+            <p className="MultiFieldLabel">{props.name}</p>
+            <FieldArray name={props.name}>
+                {({ push }) => (
+                    <div className="MultiFieldInnerContainer">
+                        <button className="baseBtn addDescriptionFieldBtn" type="button" onClick={() => push('')}><FaPlus /></button>
+                        <div className="FieldList">
+                            {props.fieldList && props.fieldList.length > 0 ? (
+                                props.fieldList.map((_, index) => (
+                                    <input key={index} id={`${props.name}.${index}`} name={`${props.name}.${index}`} placeholder={props.placeholder} />
+                                ))
+                            ) : (
+                                <button className="baseBtn addDescriptionFieldBtn" type="button" onClick={() => push('')}><FaPlus /></button>
+                            )}
+                        </div>
+                    </div>
+                )}
+            </FieldArray>
+        </div>
+    );
 }
 
 export default InputFieldMulti;

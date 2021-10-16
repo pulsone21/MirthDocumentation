@@ -1,12 +1,13 @@
 import { useField } from 'formik';
 import React, { InputHTMLAttributes } from 'react'
+import { LableSide } from "../../../Types/lableSideType"
 
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     id: string;
     name: string;
     type?: string;
+    LableSide?: LableSide;
 }
-
 const InputField: React.FC<InputFieldProps> = (props) => {
     const [field, { error }] = useField(props)
 

@@ -1,80 +1,76 @@
 :root {
-  --color-primary: #13191f;
-  --color-primary-highlight: #222d38;
-  --color-secondary: #1b578c;
-  --color-secondary-highlight: #1469b4;
-  --color-tertiary: #c8dbec;
-  --color-disabled: #717171;
-  --color-error: #ff0000;
-  --color-error-highlight: #ff4747;
-  --color-error-lowOpacity: #ff0000a8;
+    --color-primary: #13191f;
+    --color-primary-highlight: #222d38;
+    --color-secondary: #1b578c;
+    --color-secondary-highlight: #1469b4;
+    --color-tertiary: #c8dbec;
+    --color-disabled: #717171;
+    --color-error: #ff0000;
+    --color-error-highlight: #ff4747;
+    --color-error-lowOpacity: #ff0000a8;
 
-  --color-idea-primary: #011526;
-  --color-idea-secondary: #1b578c;
-  --color-idea-tertiary: #fff;
-  --color-idea-highlitghts: #2e97f2;
+    --empty-background: rgba(255, 255, 255, 0);
 
-  --empty-background: rgba(255, 255, 255, 0);
+    --font-size-big: 2.1em;
+    --font-size-medium: 1.8em;
+    --font-size-primary: 1em;
+    --font-size-small: 0.5em;
 
-  --font-size-big: 2.1em;
-  --font-size-medium: 1.8em;
-  --font-size-primary: 1em;
-  --font-size-small: 0.5em;
+    --font-Title: bold var(--font-size-big) "KoHo", sans-serif;
+    --font-SubTitle: bold var(--font-size-medium) "KoHo", sans-serif;
+    --font-Artical: 700 var(--font-size-primary) "Roboto", sans-serif;
+    --font-footer: italic var(--font-size-small) "KoHo", sans-serif;
 
-  --font-Title: bold var(--font-size-big) "KoHo", sans-serif;
-  --font-SubTitle: bold var(--font-size-medium) "KoHo", sans-serif;
-  --font-Artical: 700 var(--font-size-primary) "Roboto", sans-serif;
-  --font-footer: italic var(--font-size-small) "KoHo", sans-serif;
-
-  --menu-hover-backgound-color: rgba(255, 255, 255, 0.08);
-  --menu-focus-background-color: rgba(255, 255, 255, 0.26);
+    --menu-hover-backgound-color: rgba(255, 255, 255, 0.08);
+    --menu-focus-background-color: rgba(255, 255, 255, 0.26);
 }
 .primaryHighlightedBG {
-  background-color: var(--color-primary-highlight);
+    background-color: var(--color-primary-highlight);
 }
 
 .clickable {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .clickable:hover {
-  text-shadow: 0px 0px 5px var(--color-primary-highlight);
+    text-shadow: 0px 0px 5px var(--color-primary-highlight);
 }
 
 .articalText {
-  font: var(--font-Artical);
+    font: var(--font-Artical);
+    color: var(--color-secondary);
 }
 
 .HeaderText {
-  font: var(--font-Title);
-  color: var(--color-secondary);
+    font: var(--font-Title);
+    color: var(--color-secondary);
 }
 
 .disabled,
 .disabled:hover {
-  cursor: none !important;
-  background-color: gray !important;
-  color: darkgray !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-  border: none !important;
+    cursor: none !important;
+    background-color: gray !important;
+    color: darkgray !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border: none !important;
 }
 
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
 #root {
-  background-color: var(--color-primary-highlight);
+    background-color: var(--color-primary-highlight);
 }
 
 .SubTitle {
-  font: var(--font-SubTitle);
-  color: var(--color-primary-highlight);
+    font: var(--font-SubTitle);
+    color: var(--color-secondary-highlight);
 }
 
 .SideInfo {
-  font: var(--font-footer);
-  color: var(--color-secondary);
-  font-size: x-small;
+    font: var(--font-footer);
+    color: var(--color-secondary);
+    font-size: x-small;
 }

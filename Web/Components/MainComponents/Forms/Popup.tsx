@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaTimes } from 'react-icons/fa';
 import IconButton from '../../BasicComponents/Button/IconButton';
 

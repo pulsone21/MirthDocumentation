@@ -1,11 +1,23 @@
 @import "../../../CSS/defaults.css";
 
 .FieldContainer {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .FieldContainer .ErrorMessage {
-  font: var(--font-Artical);
-  margin: 2px 0px 0px 5px;
-  color: var(--color-error-highlight);
+    font: var(--font-Artical);
+    margin: 2px 0px 0px 5px;
+    color: var(--color-error-highlight);
+}
+
+.labelLeft {
+    float: left;
+    width: 10em;
+    margin-right: 1em;
+}
+
+.labelRight {
+    float: right;
+    width: 10em;
+    margin-left: 1em;
 }

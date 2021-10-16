@@ -6,7 +6,8 @@ import Popup from './MainComponents/Forms/Popup';
 import { useState } from 'react';
 import Loginform from './MainComponents/Forms/LoginForm/LoginForm';
 import IconButton from './BasicComponents/Button/IconButton';
-import Head from "next/head"
+import Image from "next/image"
+import MD2 from "../public/MD2.png"
 
 interface HeaderSectionProps {
 
@@ -19,7 +20,13 @@ const HeaderSection: React.FC<HeaderSectionProps> = () => {
 
     return (
         <header>
-            <h1 className="titles">Mirth Documentation</h1>
+            <div style={{ display: "flex", flexDirection: "row", alignContent: "center" }}>
+                <h1 className="titles">Mirth Documentation</h1>
+                <div className="MDlogo">
+                    <Image alt="Mirth Documentation Logo" src={MD2} width={65} height={65}></Image>
+                </div>
+            </div>
+
             <Nav />
             <div style={{ marginRight: "15px" }}>
                 <p className="SideInfo">Mirth Documentation Stand....TBD Function not Impletemented YET</p>
