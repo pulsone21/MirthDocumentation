@@ -5,6 +5,8 @@
     --color-secondary-highlight: #1469b4;
     --color-tertiary: #c8dbec;
     --color-disabled: #717171;
+    --color-correct: #34ad48;
+    --color-correct-highlight: #63b170;
     --color-error: #ff0000;
     --color-error-highlight: #ff4747;
     --color-error-lowOpacity: #ff0000a8;

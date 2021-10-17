@@ -107,7 +107,8 @@
     border: 2px solid var(--color-primary);
     border-radius: 5px;
     width: 95%;
-    height: 95%;
+    height: 100%;
+    min-height: 350px;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -121,6 +122,26 @@
 
 .Descriptionbuilder-Container .codeContainer pre {
     pointer-events: none;
+    color: var(--color-tertiary);
+}
+
+.Descriptionbuilder-Container .colRight .outer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+
+.Descriptionbuilder-Container .copieMessage {
+    color: var(--color-tertiary);
+    font: var(--font-Artical);
+    margin-top: 10px;
+    margin-left: 5px;
+    transition: all 0.5s ease;
+}
+
+.Descriptionbuilder-Container .copied {
+    color: var(--color-correct) !important;
 }
 
 .Descriptionbuilder-Container .navBtn {

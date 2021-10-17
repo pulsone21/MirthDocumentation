@@ -1,8 +1,7 @@
 import InputField from 'Components/BasicComponents/Forms/InputField';
-import Registerform from 'Components/MainComponents/Forms/RegistertForm/Registerform';
-import { Formik, FormikBag, FormikValues } from 'formik';
+import { Formik, FormikValues } from 'formik';
 import Head from 'next/head';
-import React, { MouseEventHandler, useState } from 'react';
+import React, { useState } from 'react';
 import HeaderSection from '../Components/HeaderSection';
 import InputFieldMulti from '../Components/MainComponents/DescriptionBuilder/InputFieldMulti';
 import JSONDisplay from "../Components/MainComponents/DescriptionBuilder/JSONDisplay";
@@ -28,6 +27,11 @@ const DescriptionBuilder: React.FC<DescriptionBuilderProps> = () => {
 
     const [jsonField, SetJsonField] = useState("fillout the form and hit 'Generate JSON'");
 
+    const handleChange = (values: FormikValues) => {
+        // console.log(values)
+        SetJsonField(JSON.stringify(values, null, 4))
+    }
+
     return (
         <div>
             <Head>
@@ -39,19 +43,15 @@ const DescriptionBuilder: React.FC<DescriptionBuilderProps> = () => {
                 <div className="colLeft">
                     <Formik
                         initialValues={initialValues}
-                        onSubmit={async (values) => {
-                            await new Promise((r) => setTimeout(r, 500))
-                            alert(JSON.stringify(values, null, 4))
+                        onSubmit={(_, { resetForm }) => { resetForm() }}
 
-                            //SetJsonField(JSON.stringify(values, null, 4))
-                        }}
                         enableReinitialize={false}
                     >
-                        {({ values, }) => (
-                            <form >
+                        {({ values }) => (
+                            <form onChange={() => handleChange(values)}>
                                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                                     <h1 className="HeaderText">Description Builder</h1>
-                                    <button style={{ maxHeight: "35px", alignSelf: "flex-end" }} className="navBtn" type="reset" >Clear Fields</button>
+                                    <button style={{ maxHeight: "35px", alignSelf: "flex-end" }} className="navBtn" type="submit" >Clear Fields</button>
                                 </div>
                                 <InputField LableSide="left" id="description" name="description" placeholder="main description" className="articalText" />
                                 <InputField LableSide="left" id="comment" name="comment" placeholder="special things" className="articalText" />
@@ -62,7 +62,6 @@ const DescriptionBuilder: React.FC<DescriptionBuilderProps> = () => {
                                 <InputFieldMulti fieldList={values.changes} LableSide="left" id="changes" name="changes" placeholder="what when why who" className="articalText" />
                                 <InputFieldMulti fieldList={values["known issues"]} LableSide="left" id="known issues" name="known issues" placeholder="what/resolution steps" className="articalText" />
                                 <InputFieldMulti fieldList={values["tags/keywords"]} LableSide="left" id="tags/keywords" name="tags/keywords" placeholder="search tags/keywords parameter" className="articalText" />
-                                <button style={{ width: "100%" }} className="navBtn baseBtn" type="submit">Generate JSON</button>
                             </form>
                         )}
                     </Formik>
@@ -76,3 +75,5 @@ const DescriptionBuilder: React.FC<DescriptionBuilderProps> = () => {
 }
 
 export default DescriptionBuilder;
+
+
