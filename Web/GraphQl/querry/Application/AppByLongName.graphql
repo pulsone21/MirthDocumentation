@@ -1,0 +1,10 @@
+query AppByLongName($longName: String!) {
+    GetApplicationByLongName(longName: $longName) {
+        _id
+        longName
+        shortName
+        vendor {
+            _id
+        }
+    }
+}

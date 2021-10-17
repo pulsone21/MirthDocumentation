@@ -89,7 +89,7 @@ export type Mutation = {
   CreateDataArea: DataArea;
   CreateDataTopic: DataTopic;
   CreateDataType: DataType;
-  CreateVendor: Vendor;
+  CreateVendor: VendorResponse;
   Login: UserResponse;
   RegisterUser: UserResponse;
   UpdateApplication: Application;
@@ -154,6 +154,7 @@ export type MutationCreateDataTypeArgs = {
 
 
 export type MutationCreateVendorArgs = {
+  appLongname?: Maybe<Scalars['String']>;
   longName: Scalars['String'];
   shortName: Scalars['String'];
 };
@@ -333,6 +334,12 @@ export type Vendor = {
   shortName: Scalars['String'];
 };
 
+export type VendorResponse = {
+  __typename?: 'VendorResponse';
+  Errors?: Maybe<Array<ErrorMessage>>;
+  Vendor?: Maybe<Vendor>;
+};
+
 export type LogInMutationVariables = Exact<{
   username: Scalars['String'];
   password: Scalars['String'];
@@ -348,6 +355,22 @@ export type RegisterMutationVariables = Exact<{
 
 
 export type RegisterMutation = { __typename?: 'Mutation', RegisterUser: { __typename?: 'UserResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, User?: { __typename?: 'User', Username: string } | null | undefined } };
+
+export type CreateVendorMutationVariables = Exact<{
+  longName: Scalars['String'];
+  shortName: Scalars['String'];
+  appLongname?: Maybe<Scalars['String']>;
+}>;
+
+
+export type CreateVendorMutation = { __typename?: 'Mutation', CreateVendor: { __typename?: 'VendorResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Vendor?: { __typename?: 'Vendor', _id: any } | null | undefined } };
+
+export type AppByLongNameQueryVariables = Exact<{
+  longName: Scalars['String'];
+}>;
+
+
+export type AppByLongNameQuery = { __typename?: 'Query', GetApplicationByLongName: { __typename?: 'Application', _id: any, longName: string, shortName: string, vendor: { __typename?: 'Vendor', _id: any } } };
 
 
 export const LogInDocument = gql`
@@ -383,4 +406,41 @@ export const RegisterDocument = gql`
 
 export function useRegisterMutation() {
   return Urql.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument);
+};
+export const CreateVendorDocument = gql`
+    mutation CreateVendor($longName: String!, $shortName: String!, $appLongname: String) {
+  CreateVendor(
+    longName: $longName
+    shortName: $shortName
+    appLongname: $appLongname
+  ) {
+    Errors {
+      field
+      message
+    }
+    Vendor {
+      _id
+    }
+  }
+}
+    `;
+
+export function useCreateVendorMutation() {
+  return Urql.useMutation<CreateVendorMutation, CreateVendorMutationVariables>(CreateVendorDocument);
+};
+export const AppByLongNameDocument = gql`
+    query AppByLongName($longName: String!) {
+  GetApplicationByLongName(longName: $longName) {
+    _id
+    longName
+    shortName
+    vendor {
+      _id
+    }
+  }
+}
+    `;
+
+export function useAppByLongNameQuery(options: Omit<Urql.UseQueryArgs<AppByLongNameQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<AppByLongNameQuery>({ query: AppByLongNameDocument, ...options });
 };

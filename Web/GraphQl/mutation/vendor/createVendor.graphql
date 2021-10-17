@@ -1,0 +1,11 @@
+mutation CreateVendor($longName: String!, $shortName: String!, $appLongname: String) {
+    CreateVendor(longName: $longName, shortName: $shortName, appLongname: $appLongname) {
+        Errors {
+            field
+            message
+        }
+        Vendor {
+            _id
+        }
+    }
+}

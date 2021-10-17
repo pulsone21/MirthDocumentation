@@ -7,6 +7,7 @@ import "../Components/MainComponents/Forms/popUp.css";
 import "../Components/MainComponents/Forms/RegistertForm/RegisterForm.css";
 import "../Components/BasicComponents/Forms/InputField.css"
 import "../CSS/applicationTable.css"
+import "../Components/MainComponents/ChannelnameBuilder/channelNameBuilder.css"
 import type { AppProps } from 'next/app'
 import { Provider, createClient } from 'urql';
 import { URQL_CLIENT_URL } from '../config';

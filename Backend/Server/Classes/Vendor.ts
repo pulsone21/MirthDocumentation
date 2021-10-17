@@ -2,6 +2,7 @@ import { getModelForClass, prop as Property, Ref } from "@typegoose/typegoose";
 import { WhatIsIt } from "@typegoose/typegoose/lib/internal/constants";
 // import { MaxLength } from "class-validator";
 import { ObjectId } from "mongodb";
+import ErrorMessage from "../Types/ErrorMessage";
 import { Field, ObjectType } from "type-graphql";
 import Application from "./Application";
 
@@ -28,6 +29,14 @@ export default class Vendor {
     //     this.longName = longName;
     //     this.applications = new Array<Application>();
     // }
+}
+
+@ObjectType()
+export class VendorResponse {
+    @Field(() => [ErrorMessage], { nullable: true })
+    Errors?: ErrorMessage[];
+    @Field(() => Vendor, { nullable: true })
+    Vendor?: Vendor;
 }
 
 export const VendorModel = getModelForClass(Vendor);
