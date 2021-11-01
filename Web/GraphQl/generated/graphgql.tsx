@@ -30,6 +30,20 @@ export type ApplicationResponse = {
   Errors?: Maybe<Array<ErrorMessage>>;
 };
 
+export type BaseApplication = {
+  __typename?: 'BaseApplication';
+  _id: Scalars['ObjectId'];
+  longName: Scalars['String'];
+  shortName: Scalars['String'];
+};
+
+export type BaseVendor = {
+  __typename?: 'BaseVendor';
+  _id: Scalars['ObjectId'];
+  longName: Scalars['String'];
+  shortName: Scalars['String'];
+};
+
 export type ChannelName = {
   __typename?: 'ChannelName';
   _id: Scalars['ObjectId'];
@@ -223,13 +237,13 @@ export type MutationUpdateVendorArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  GetAllApplikations: Array<Application>;
+  GetAllApplikations: Array<BaseApplication>;
   GetAllChannelNames: Array<ChannelName>;
   GetAllConnectionTypes: Array<ConnectionType>;
   GetAllDataAreas: Array<DataArea>;
   GetAllDataTopics: Array<DataTopic>;
   GetAllDataTypes: Array<DataType>;
-  GetAllVendors: Array<Vendor>;
+  GetAllVendors: Array<BaseVendor>;
   GetApplicationByID: ApplicationResponse;
   GetApplicationByLongName: ApplicationResponse;
   GetApplicationByShortName: ApplicationResponse;
@@ -446,7 +460,7 @@ export type CreateVendorMutation = { __typename?: 'Mutation', CreateVendor: { __
 export type GetAllApplikationsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllApplikationsQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string }> };
+export type GetAllApplikationsQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'BaseApplication', _id: any, shortName: string, longName: string }> };
 
 export type GetAllConnectionTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -466,7 +480,7 @@ export type GetAllDataTopicsQuery = { __typename?: 'Query', GetAllDataTopics: Ar
 export type GetAllDataTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllDataTypesQuery = { __typename?: 'Query', GetAllDataTypes: Array<{ __typename?: 'DataType', shortName: string, _id: any, longName: string }> };
+export type GetAllDataTypesQuery = { __typename?: 'Query', GetAllDataTypes: Array<{ __typename?: 'DataType', _id: any, shortName: string, longName: string }> };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -476,7 +490,7 @@ export type MeQuery = { __typename?: 'Query', Me?: { __typename?: 'User', _id: a
 export type GetAllVendorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllVendorsQuery = { __typename?: 'Query', GetAllVendors: Array<{ __typename?: 'Vendor', _id: any, shortName: string, longName: string }> };
+export type GetAllVendorsQuery = { __typename?: 'Query', GetAllVendors: Array<{ __typename?: 'BaseVendor', _id: any, shortName: string, longName: string }> };
 
 export const RegularUserFragmentDoc = gql`
     fragment RegularUser on User {
@@ -675,8 +689,8 @@ export function useGetAllDataTopicsQuery(options: Omit<Urql.UseQueryArgs<GetAllD
 export const GetAllDataTypesDocument = gql`
     query GetAllDataTypes {
   GetAllDataTypes {
-    shortName
     _id
+    shortName
     longName
   }
 }

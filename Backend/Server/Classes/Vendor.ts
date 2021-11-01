@@ -3,7 +3,7 @@ import { WhatIsIt } from "@typegoose/typegoose/lib/internal/constants";
 // import { MaxLength } from "class-validator";
 import { ObjectId } from "mongodb";
 import ErrorMessage from "../Types/ErrorMessage";
-import { Field, InputType, ObjectType } from "type-graphql";
+import { Field, ObjectType } from "type-graphql";
 import Application from "./Application";
 import { BaseNameComponent } from "./BaseNameComponent";
 
@@ -34,23 +34,26 @@ export default class Vendor extends BaseNameComponent {
         return;
     }
 }
-
-@InputType()
-export class UsernamePasswordInput {
-    @Field()
-    shortName?: string;
-    @Field()
-    longName?: string;
-    @Field((_type) => [Application])
-    applications?: Ref<Application>[];
-}
-
 @ObjectType()
 export class VendorResponse {
     @Field(() => [ErrorMessage], { nullable: true })
     Errors?: ErrorMessage[];
     @Field(() => Vendor, { nullable: true })
     Vendor?: Vendor;
+}
+
+@ObjectType()
+export class BaseVendor {
+    @Field()
+    readonly _id: ObjectId;
+
+    @Field()
+    @Property({ unique: true })
+    public shortName: String;
+
+    @Field()
+    @Property()
+    public longName: String;
 }
 
 export const VendorModel = getModelForClass(Vendor);

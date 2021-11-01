@@ -1,18 +1,14 @@
 import { ObjectId } from "mongoose";
 import { Arg, Query, Resolver, Mutation } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
-import Vendor, { VendorModel, VendorResponse } from "../../Classes/Vendor";
+import Vendor, { VendorModel, VendorResponse, BaseVendor } from "../../Classes/Vendor";
 import { ApplicationModel } from "../../Classes/Application";
 
 @Resolver(Vendor)
 export default class VendorResolver {
-    @Query(() => [Vendor])
-    async GetAllVendors() {
-        try {
-            return await VendorModel.find({});
-        } catch (err) {
-            throw new Error("No Vendors found in the DB!");
-        }
+    @Query(() => [BaseVendor])
+    async GetAllVendors(): Promise<BaseVendor[]> {
+        return await VendorModel.find({});
     }
 
     @Query(() => Vendor)

@@ -13,12 +13,8 @@ import ErrorMessage from "../../Types/ErrorMessage";
 @Resolver(ChannelName)
 export default class ChannelNameResolver {
     @Query(() => [ChannelName])
-    async GetAllChannelNames() {
-        try {
-            return await ChannelNameModel.find({});
-        } catch (err) {
-            throw new Error("No ChannelName found in the DB!");
-        }
+    async GetAllChannelNames(): Promise<ChannelName[]> {
+        return await ChannelNameModel.find({});
     }
 
     @Query(() => ChannelName)

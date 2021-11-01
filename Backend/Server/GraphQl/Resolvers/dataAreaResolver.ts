@@ -6,12 +6,8 @@ import { ObjectIdScalar } from "../myScalars/ObjectId";
 @Resolver(DataArea)
 export default class DataAreaResolver {
     @Query(() => [DataArea])
-    async GetAllDataAreas() {
-        try {
-            return await DataAreaModel.find({});
-        } catch (err) {
-            throw new Error("No DataArea found in the DB!");
-        }
+    async GetAllDataAreas(): Promise<DataArea[]> {
+        return await DataAreaModel.find({});
     }
 
     @Query(() => DataAreaResponse)

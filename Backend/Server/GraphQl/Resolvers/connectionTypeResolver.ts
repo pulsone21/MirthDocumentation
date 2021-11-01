@@ -6,12 +6,8 @@ import { ObjectIdScalar } from "../myScalars/ObjectId";
 @Resolver(ConnectionType)
 export default class ConnectionTypeResolver {
     @Query(() => [ConnectionType])
-    async GetAllConnectionTypes() {
-        try {
-            return await ConnectionTypeModel.find({});
-        } catch (err) {
-            throw new Error("No ConnectionType found in the DB!");
-        }
+    async GetAllConnectionTypes(): Promise<ConnectionType[]> {
+        return await ConnectionTypeModel.find({});
     }
     @Query(() => ConnectionTypeResponse)
     async GetConnectionTypeByShortName(@Arg("shortName") shortName: String): Promise<ConnectionTypeResponse> {

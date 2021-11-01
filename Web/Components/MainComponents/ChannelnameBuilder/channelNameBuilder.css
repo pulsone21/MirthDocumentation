@@ -97,7 +97,7 @@
     border: 2px solid var(--color-primary);
     border-radius: 5px;
     font: var(--font-Title);
-    font-size: 5em;
+    font-size: 2.5em;
     color: var(--color-secondary-highlight);
     cursor: pointer;
 }

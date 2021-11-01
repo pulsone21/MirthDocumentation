@@ -6,12 +6,8 @@ import { ObjectIdScalar } from "../myScalars/ObjectId";
 @Resolver(DataType)
 export default class DataTypeResolver {
     @Query(() => [DataType])
-    async GetAllDataTypes() {
-        try {
-            return await DataTypeModel.find({});
-        } catch (err) {
-            throw new Error("No DataType found in the DB!");
-        }
+    async GetAllDataTypes(): Promise<DataType[]> {
+        return await DataTypeModel.find({});
     }
     @Query(() => DataTypeResponse)
     async GetDataTypeByShortName(@Arg("shortName") shortName: String): Promise<DataTypeResponse> {

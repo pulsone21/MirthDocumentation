@@ -1,17 +1,33 @@
-import { ErrorMessage } from "../GraphQl/generated/graphgql";
+import { dropDownElement } from "Types/dropDownElement";
+import { DataArea, DataTopic, DataType, ErrorMessage, ConnectionType, BaseApplication, BaseVendor } from "../GraphQl/generated/graphgql";
 
 export const CreateClassNamesAsString = (classNames: string[]): string => {
-  let outString = "";
-  classNames.forEach((el) => {
-    outString += el + " ";
-  });
-  return outString.trim();
+    let outString = "";
+    classNames.forEach((el) => {
+        outString += el + " ";
+    });
+    return outString.trim();
 };
 
 export const ObjectToErrorMap = (errors: ErrorMessage[]) => {
-  const errorMap: Record<string, string> = {};
-  errors.forEach(({ field, message }) => {
-    errorMap[field] = message;
-  });
-  return errorMap;
+    const errorMap: Record<string, string> = {};
+    errors.forEach(({ field, message }) => {
+        errorMap[field] = message;
+    });
+    return errorMap;
+};
+
+export const GenerateDopDownFromQuery = (
+    response: ConnectionType[] | DataArea[] | DataType[] | DataTopic[] | BaseApplication[] | BaseVendor[]
+): dropDownElement[] => {
+    let newDropDownArray: dropDownElement[] = [];
+    response.forEach((el) => {
+        let newDropDownElement: dropDownElement = {
+            value: el._id,
+            label: el.longName,
+            shortName: el.shortName,
+        };
+        newDropDownArray.push(newDropDownElement);
+    });
+    return newDropDownArray;
 };

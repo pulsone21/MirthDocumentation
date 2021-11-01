@@ -6,13 +6,10 @@ import { ObjectIdScalar } from "../myScalars/ObjectId";
 @Resolver(DataTopic)
 export default class DataTopicResolver {
     @Query(() => [DataTopic])
-    async GetAllDataTopics() {
-        try {
-            return await DataTopicModel.find({});
-        } catch (err) {
-            throw new Error("No DataTopic found in the DB!");
-        }
+    async GetAllDataTopics(): Promise<DataTopic[]> {
+        return await DataTopicModel.find();
     }
+
     @Query(() => DataTopicResponse)
     async GetDataTopicByShortName(@Arg("shortName") shortName: String): Promise<DataTopicResponse> {
         const DataTopic = await DataTopicModel.findOne({ shortName });

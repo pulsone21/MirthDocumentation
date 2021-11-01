@@ -41,4 +41,18 @@ export class ApplicationResponse {
     Application?: Application;
 }
 
+@ObjectType()
+export class BaseApplication {
+    @Field()
+    readonly _id: ObjectId;
+
+    @Field()
+    @Property({ unique: true })
+    shortName: String;
+
+    @Field()
+    @Property()
+    longName: String;
+}
+
 export const ApplicationModel = getModelForClass(Application);

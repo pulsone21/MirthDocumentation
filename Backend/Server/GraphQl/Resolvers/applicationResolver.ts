@@ -1,13 +1,13 @@
 import { ObjectId } from "mongoose";
-import Application, { ApplicationModel, ApplicationResponse } from "../../Classes/Application";
+import Application, { ApplicationModel, ApplicationResponse, BaseApplication } from "../../Classes/Application";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
 import { VendorModel } from "../../Classes/Vendor";
 
 @Resolver(Application)
 export default class ApplicationResolver {
-    @Query(() => [Application])
-    async GetAllApplikations(): Promise<Application[]> {
+    @Query(() => [BaseApplication])
+    async GetAllApplikations(): Promise<BaseApplication[]> {
         return await ApplicationModel.find({});
     }
 
