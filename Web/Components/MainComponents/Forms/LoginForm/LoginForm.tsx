@@ -4,23 +4,29 @@ import InputField from '../../../BasicComponents/Forms/InputField';
 import { FaSignInAlt } from "react-icons/fa"
 import { useLogInMutation } from 'GraphQl/generated/graphgql';
 import { ObjectToErrorMap } from 'CodeBase/Utils';
+import { useRouter } from 'next/dist/client/router';
 
 interface LoginformProps {
-
+    refreshPage?: boolean;
 }
 
 
-const Loginform: React.FC<LoginformProps> = ({ }) => {
+const Loginform: React.FC<LoginformProps> = ({ refreshPage }) => {
     const [, login] = useLogInMutation();
+
+    const router = useRouter();
 
     return (
         <Formik
             initialValues={{ username: "", password: "" }}
             onSubmit={async (values, { setErrors }) => {
-                const response = await login(values);
-                console.log(response);
+                const response = await login(values)
+                console.log(response)
                 if (response.data?.Login.Errors) {
                     setErrors(ObjectToErrorMap(response.data.Login.Errors))
+                }
+                if (refreshPage) {
+                    router.reload();
                 }
             }}
         >

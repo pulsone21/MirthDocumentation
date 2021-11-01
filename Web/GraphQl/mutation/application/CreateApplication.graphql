@@ -1,0 +1,11 @@
+mutation CreateApplication($longName: String!, $shortName: String!, $vendorLongname: String) {
+    CreateApplication(longName: $longName, shortName: $shortName, VendorLongname: $vendorLongname) {
+        Errors {
+            message
+            field
+        }
+        Application {
+            _id
+        }
+    }
+}

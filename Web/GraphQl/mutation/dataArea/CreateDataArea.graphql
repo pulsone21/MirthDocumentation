@@ -1,0 +1,11 @@
+mutation CreateDataArea($longName: String!, $shortName: String!) {
+    CreateDataArea(longName: $longName, shortName: $shortName) {
+        Errors {
+            field
+            message
+        }
+        DataArea {
+            _id
+        }
+    }
+}

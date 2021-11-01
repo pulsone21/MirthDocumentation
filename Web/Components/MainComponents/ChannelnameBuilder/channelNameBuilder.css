@@ -8,21 +8,16 @@
     grid-template-areas:
         "Toolbar BuildingArea BuildingArea"
         "Toolbar ChannelNameDisplay ChannelNameDisplay"
+        "Toolbar . ."
+        "Toolbar . ."
+        "Toolbar . ."
+        "Toolbar . ."
         "Toolbar . .";
 }
 
 .channelNameBuilder-Container .Toolbar {
     grid-area: Toolbar;
     padding: 5px;
-}
-.channelNameBuilder-Container .ChannelNameDisplay {
-    background-color: red;
-    grid-area: ChannelNameDisplay;
-}
-
-.channelNameBuilder-Container .BuildingArea {
-    background-color: yellow;
-    grid-area: BuildingArea;
 }
 
 .channelNameBuilder-Container .Toolbar input:hover {
@@ -57,7 +52,7 @@
 }
 
 .channelNameBuilder-Container .Toolbar h2 {
-    color: var(--color-secondary-highlight);
+    color: var(--color-tertiary);
     margin: 0px;
     margin-bottom: 5px;
 }
@@ -65,4 +60,72 @@
 .channelNameBuilder-Container .Toolbar .navBtn {
     margin: 0px !important;
     margin-top: 5px !important;
+}
+
+.channelNameBuilder-Container .Toolbar .ContainerPalceholder {
+    color: var(--color-secondary);
+    font: var(--font-Artical);
+    pointer-events: none;
+}
+
+.channelNameBuilder-Container .Toolbar .container {
+    cursor: pointer;
+}
+
+.channelNameBuilder-Container .Toolbar .container .iconButton {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    color: var(--color-secondary-highlight);
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+}
+.channelNameBuilder-Container .Toolbar .container .iconButton:hover {
+    box-shadow: 0px 0px 5px var(--color-tertiary);
+    background-color: var(--color-tertiary);
+}
+
+.channelNameBuilder-Container .ChannelNameDisplay {
+    grid-area: ChannelNameDisplay;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.channelNameBuilder-Container .ChannelNameDisplay .ChannelNameOutput {
+    padding: 25px;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    font: var(--font-Title);
+    font-size: 5em;
+    color: var(--color-secondary-highlight);
+    cursor: pointer;
+}
+
+.channelNameBuilder-Container .ChannelNameDisplay .copieMessage {
+    color: var(--color-tertiary);
+    font: var(--font-Artical);
+    margin-top: 10px;
+    margin-left: 5px;
+    transition: all 0.5s ease;
+}
+
+.channelNameBuilder-Container .ChannelNameDisplay .copied {
+    color: var(--color-correct) !important;
+}
+
+.channelNameBuilder-Container .BuildingArea {
+    grid-area: BuildingArea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.channelNameBuilder-Container .BuildingArea .searchContainer {
+    background-color: var(--color-primary) !important;
+}
+
+.channelNameBuilder-Container .BuildingArea h2 {
+    font: var(--font-Title);
+    color: var(--color-secondary-highlight);
 }

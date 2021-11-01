@@ -1,53 +1,42 @@
 import * as React from 'react';
 import Nav from "./Nav"
-import Registerform from './MainComponents/Forms/RegistertForm/Registerform';
-import { FaSignInAlt, FaUserPlus, FaUserSecret } from "react-icons/fa"
-import Popup from './MainComponents/Forms/Popup';
-import { useState } from 'react';
-import Loginform from './MainComponents/Forms/LoginForm/LoginForm';
+
+import { FaSignOutAlt, FaUser } from "react-icons/fa"
 import IconButton from './BasicComponents/Button/IconButton';
 import Image from "next/image"
 import MD2 from "../public/MD2.png"
-
+import { cssDefaults } from "../CSS/defaultcss";
+import { useLogOutMutation } from 'GraphQl/generated/graphgql';
 interface HeaderSectionProps {
 
 }
 
 const HeaderSection: React.FC<HeaderSectionProps> = () => {
 
-    const [logInForm, SetLogInForm] = useState(false)
-    const [registerForm, SetRegisterForm] = useState(false)
+    const [, logout] = useLogOutMutation()
 
+    const handleClickProfile = () => {
+        console.log("directing to profile Page")
+    }
     return (
         <header>
-            <div style={{ display: "flex", flexDirection: "row", alignContent: "center" }}>
+            <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                 <h1 className="titles">Mirth Documentation</h1>
                 <div className="MDlogo">
-                    <Image alt="Mirth Documentation Logo" src={MD2} width={65} height={65}></Image>
+                    <Image alt="Mirth Documentation Logo" src={MD2} width={70} height={70}></Image>
                 </div>
             </div>
 
             <Nav />
             <div style={{ marginRight: "15px" }}>
                 <p className="SideInfo">Mirth Documentation Stand....TBD Function not Impletemented YET</p>
-                <div style={{ display: 'flex', flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: "10px" }}>
-                    <FaUserSecret size="2em" color="#222d38" stroke="#1b578c" />
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                        <IconButton className="baseBtn" onClick={() => SetLogInForm(true)}>
-                            <FaSignInAlt style={{ marginRight: "15px", alignSelf: "center" }} />
-                            <p>Login</p>
-                        </IconButton>
-                        <IconButton className="baseBtn" onClick={() => SetRegisterForm(true)}>
-                            <FaUserPlus style={{ marginRight: "15px", alignSelf: "center" }} />
-                            <p>Register</p>
-                        </IconButton>
-                    </div>
-                    <Popup trigger={registerForm} setTrigger={SetRegisterForm}>
-                        <Registerform></Registerform>
-                    </Popup>
-                    <Popup trigger={logInForm} setTrigger={SetLogInForm}>
-                        <Loginform></Loginform>
-                    </Popup>
+                <div style={{ display: 'flex', flexDirection: "row", marginTop: "10px", justifyContent: "flex-end" }}>
+                    <IconButton onClick={handleClickProfile} className="baseBtn m-0 mr-5" >
+                        <FaUser size="1.5em" color={cssDefaults.colorTertiary} stroke="#1b578c" className="m-1 " />
+                    </IconButton>
+                    <IconButton onClick={() => { logout() }} className="baseBtn m-0">
+                        <FaSignOutAlt size="1.5em" color={cssDefaults.colorTertiary} stroke="#1b578c" className="m-1 ml-2 " />
+                    </IconButton>
                 </div>
             </div>
         </header>);

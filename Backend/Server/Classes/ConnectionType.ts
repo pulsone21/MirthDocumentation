@@ -1,24 +1,26 @@
 import { getModelForClass, prop as Property } from "@typegoose/typegoose";
 import { ObjectId } from "mongodb";
 import { Field, ObjectType } from "type-graphql";
-
+import ErrorMessage from "../Types/ErrorMessage";
 @ObjectType()
 export default class ConnectionType {
     @Field()
     readonly _id: ObjectId;
 
     @Field()
-    @Property({ maxlength: 5, minlength: 5 })
+    @Property({ unique: true })
     shortName: String;
 
     @Field()
     @Property()
     longName: String;
-
-    constructor(shortName: string, longName: string) {
-        this.shortName = shortName;
-        this.longName = longName;
-    }
 }
 
+@ObjectType()
+export class ConnectionTypeResponse {
+    @Field(() => [ErrorMessage], { nullable: true })
+    Errors?: ErrorMessage[];
+    @Field(() => ConnectionType, { nullable: true })
+    ConnectionType?: ConnectionType;
+}
 export const ConnectionTypeModel = getModelForClass(ConnectionType);

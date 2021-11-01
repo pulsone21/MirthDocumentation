@@ -11,18 +11,46 @@ import "../Components/MainComponents/ChannelnameBuilder/channelNameBuilder.css"
 import type { AppProps } from 'next/app'
 import { Provider, createClient } from 'urql';
 import { URQL_CLIENT_URL } from '../config';
-
+import Loginform from 'Components/MainComponents/Forms/LoginForm/LoginForm';
+import { useMeQuery } from 'GraphQl/generated/graphgql';
+import { withUrqlClient } from 'next-urql';
+import "tailwindcss/tailwind.css"
+import { myExchange } from '../CodeBase/urqlExchangeSetUp';
 
 const client = createClient({
-  url: URQL_CLIENT_URL
+  url: URQL_CLIENT_URL,
+  fetchOptions: {
+    credentials: "include",
+  },
+  exchanges: myExchange,
 })
 
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  //TODO Buil in some kind of Login State 
+  //? How do i get the cookie from the 
+
+  const [{ data, fetching, error }] = useMeQuery({});
+
+  let pageContent;
+
+  if (fetching) {
+    pageContent = (<div className="flex justify-center items-center h-screen"><h1 className="SubTitle">FETICHING....</h1></div>)
+  } else if (error) {
+    pageContent = (<div className="flex justify-center items-center h-screen"><h1 className="SubTitle">FETICHING....</h1></div>)
+    console.error(error)
+  } else if (data?.Me?._id) {
+    pageContent = (<Component {...pageProps} />)
+  } else if (!data?.Me?._id) {
+    pageContent = (<div className="flex justify-center items-center h-screen"><Loginform refreshPage></Loginform></div>)
+  }
+
   return (
     <Provider value={client}>
-      <Component {...pageProps} />
+      {pageContent}
     </Provider>
   )
 }
-export default MyApp
+
+export default withUrqlClient((_ssrExchange, _) => (client))(MyApp)

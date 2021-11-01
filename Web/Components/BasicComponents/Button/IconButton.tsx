@@ -4,8 +4,12 @@ type IconButtonProps = HTMLAttributes<HTMLDivElement>
 
 
 const IconButton: React.FC<IconButtonProps> = (props) => {
+    let className = "baseBtn"
+    if (props.className) {
+        className = props.className;
+    }
     return (
-        <div id={props.id} className={props.className} onClick={props.onClick}>
+        <div id={props.id} className={className} onClick={props.onClick}>
             {props.children}
         </div>
     );

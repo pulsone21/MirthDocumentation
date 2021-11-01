@@ -76,3 +76,15 @@
     color: var(--color-secondary);
     font-size: x-small;
 }
+
+.clickToCopyEvent {
+    animation: blink-onClick-keyframes 0.7s;
+}
+@keyframes blink-onClick-keyframes {
+    from {
+        box-shadow: 0px 0px 25px var(--color-tertiary);
+    }
+    to {
+        box-shadow: 0px 0px 0px var(--color-tertiary);
+    }
+}

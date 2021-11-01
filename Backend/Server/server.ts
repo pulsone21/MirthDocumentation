@@ -30,9 +30,9 @@ async function startServer() {
 
         app.use(
             session({
-                name: "qid",
+                name: process.env.SESSION_COOKIE_NAME || "uid",
                 secret: process.env.SESSION_SECRET || "MYDEFAULTSECRET",
-                saveUninitialized: true, // don't create session until something stored
+                saveUninitialized: false, // don't create session until something stored
                 resave: false, //don't save session if unmodified
                 store: MongoStore.create({
                     mongoUrl,
@@ -40,14 +40,13 @@ async function startServer() {
                 }),
                 cookie: {
                     maxAge: 1000 * 60 * 60 * 24 * 365,
-                    // httpOnly: true,
-                    // sameSite: "lax",
+                    httpOnly: true,
+                    sameSite: "lax",
                     // secure: false, //TODO Update that to be variable for specific environments
                 },
             })
         );
 
-        // app.use(cors(corsOptions));
         const schema = await CreateSchema();
 
         const server = new ApolloServer({
@@ -61,8 +60,6 @@ async function startServer() {
             path: "/graphql",
             cors: false,
         });
-
-        app.use(express.static("public"));
 
         app.listen({ port: usedPort }, () => {
             console.log(`🚀 Server ready at http://localhost:${usedPort}${server.graphqlPath}`);

@@ -1,10 +1,22 @@
 import User, { UserModel, UsernamePasswordInput, UserResponse } from "../../Classes/User";
-import { Arg, Ctx, Mutation, Resolver } from "type-graphql";
+import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import * as argon2 from "argon2";
 import { MyContext } from "Server/Types/MyContext";
+require("dotenv").config();
 
 @Resolver(User)
 export default class UserResolver {
+    @Query(() => User, { nullable: true })
+    Me(@Ctx() { req }: MyContext) {
+        // console.log(req.session);
+        if (!req.session.userId) {
+            return null;
+        }
+        const id = req.session.userId;
+        console.log(id);
+        return UserModel.findOne({ id });
+    }
+
     @Mutation(() => UserResponse)
     async Login(@Arg("options") options: UsernamePasswordInput, @Ctx() { req }: MyContext): Promise<UserResponse> {
         const validate = UsernamePasswordInput.ValidateInput(options);
@@ -46,6 +58,7 @@ export default class UserResolver {
         };
     }
 
+    //TODO rebuild to just create an User as admin person, we shouldnt allow self regisiter
     @Mutation(() => UserResponse)
     async RegisterUser(@Arg("options") options: UsernamePasswordInput, @Ctx() { req }: MyContext): Promise<UserResponse> {
         const validate = UsernamePasswordInput.ValidateInput(options);
@@ -80,5 +93,20 @@ export default class UserResolver {
         req.session.userId = User.id;
 
         return { User };
+    }
+
+    @Mutation(() => Boolean)
+    async LogOut(@Ctx() { req, res }: MyContext): Promise<Boolean> {
+        return await new Promise((resolve) =>
+            req.session.destroy((err) => {
+                res.clearCookie(process.env.SESSION_COOKIE_NAME ? process.env.SESSION_COOKIE_NAME : "uid");
+                if (err) {
+                    console.log(err);
+                    resolve(false);
+                    return;
+                }
+                resolve(true);
+            })
+        );
     }
 }

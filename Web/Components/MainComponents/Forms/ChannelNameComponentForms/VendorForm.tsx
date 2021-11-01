@@ -1,6 +1,7 @@
+import { ObjectToErrorMap } from 'CodeBase/Utils';
 import InputField from 'Components/BasicComponents/Forms/InputField';
-import { Formik, FormikValues } from 'formik';
-import { useAppByLongNameQuery, useCreateVendorMutation } from 'GraphQl/generated/graphgql';
+import { Formik } from 'formik';
+import { useCreateVendorMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
 
 interface VendorFormProps {
@@ -14,27 +15,21 @@ const initialValues = {
     application: ""
 }
 
-
 const VendorForm: React.FC<VendorFormProps> = ({ }) => {
 
     const [, CreateVendor] = useCreateVendorMutation()
-    const [, GetApp] = useAppByLongNameQuery()
-
-
-    const submitting = async (values: FormikValues) => {
-        console.log(JSON.stringify(values, null, 4))
-        const app = await GetApp()
-
-        //Get Application ID 
-        //Create Vendor
-    }
 
     return (
         <Formik
             initialValues={initialValues}
-            onSubmit={async (values) => {
-                console.log(JSON.stringify(values, null, 4))
-                const app = await GetApp(values.application)
+            onSubmit={async (values, { setErrors, resetForm }) => {
+                const vend = await CreateVendor({ shortName: values.shortName, longName: values.longName, appLongname: values.application })
+
+                if (vend.data?.CreateVendor.Errors) {
+                    setErrors((ObjectToErrorMap(vend.data?.CreateVendor.Errors)))
+                } else {
+                    resetForm()
+                }
             }}
         >
             {({ handleSubmit }) => (

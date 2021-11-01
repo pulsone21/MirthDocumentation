@@ -48,12 +48,22 @@ export default class VendorResolver {
         @Arg("longName") longName: String,
         @Arg("appLongname", { nullable: true }) applongName: String
     ): Promise<VendorResponse> {
-        const Vendor = await VendorModel.create({ shortName, longName });
+        const validation = await BaseValidation(shortName);
+        if (validation) {
+            return validation;
+        }
+        if (!longName) {
+            return {
+                Errors: [{ field: "longName", message: "please enter a Longname" }],
+            };
+        }
+
+        const vendor = await VendorModel.create({ shortName, longName });
         if (applongName) {
             const app = await ApplicationModel.find({ applongName });
             if (app.length === 1) {
-                Vendor.applications.push(app[0]);
-                Vendor.save();
+                vendor.applications.push(app[0]);
+                vendor.save();
             } else if (app.length > 1) {
                 return {
                     Errors: [
@@ -75,12 +85,21 @@ export default class VendorResolver {
             }
         }
         return {
-            Vendor,
+            Vendor: vendor,
         };
     }
 
     @Mutation(() => Vendor)
-    async UpdateVendor(@Arg("id", () => ObjectIdScalar) id: ObjectId, @Arg("shortName") shortName: String, @Arg("longName") longName: String) {
+    async UpdateVendor(
+        @Arg("id", () => ObjectIdScalar) id: ObjectId,
+        @Arg("shortName") shortName: String,
+        @Arg("longName") longName: String
+    ): Promise<VendorResponse> {
+        const validation = await BaseValidation(shortName);
+        if (validation) {
+            return validation;
+        }
+
         const vend = await VendorModel.findById(id);
         if (vend) {
             if (shortName != undefined) {
@@ -92,10 +111,13 @@ export default class VendorResolver {
                 vend.longName = longName;
                 vend.save();
             }
-            return vend;
-        } else {
-            return null;
+            return {
+                Vendor: vend,
+            };
         }
+        return {
+            Errors: [{ field: "id", message: "Something went wrong!" }],
+        };
     }
 
     @Mutation(() => Vendor)
@@ -115,4 +137,16 @@ export default class VendorResolver {
             return null;
         }
     }
+}
+
+async function BaseValidation(shortName: String): Promise<VendorResponse | undefined> {
+    const validation = Vendor.CheckShortName(shortName);
+    if (validation) {
+        return validation;
+    }
+    const exist = Vendor.CheckShortnameAvailable(shortName);
+    if (exist) {
+        return exist;
+    }
+    return;
 }

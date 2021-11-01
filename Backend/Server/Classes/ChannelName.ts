@@ -7,6 +7,7 @@ import DataArea from "./DataArea";
 import DataTopic from "./DataTopic";
 import DataType from "./DataType";
 import Vendor from "./Vendor";
+import ErrorMessage from "../Types/ErrorMessage";
 
 export enum Environment {
     POC = "Poc",
@@ -24,7 +25,7 @@ export default class ChannelName {
     readonly _id: ObjectId;
 
     @Field()
-    @Property()
+    @Property({ unique: true })
     public name: String;
 
     @Property({ ref: DataType })
@@ -62,29 +63,14 @@ export default class ChannelName {
     @Property({ match: /\d{5}/ })
     @Field()
     channelNumber: string;
+}
 
-    // constructor(
-    //     dataType: DataType,
-    //     dataTopic: DataTopic,
-    //     dataArea: DataArea,
-    //     conType: ConnectionType,
-    //     vendor: Vendor,
-    //     app: Application,
-    //     env: Environment,
-    //     version: Number,
-    //     channelNumber: string
-    // ) {
-    //     this.name = channelName;
-    //     this.dataType = dataType;
-    //     this.dataTopic = dataTopic;
-    //     this.dataArea = dataArea;
-    //     this.connectionType = conType;
-    //     this.vendor = vendor;
-    //     this.application = app;
-    //     this.environment = env;
-    //     this.version = version;
-    //     this.channelNumber = channelNumber;
-    // }
+@ObjectType()
+export class ChannelNameResponse {
+    @Field(() => [ErrorMessage], { nullable: true })
+    Errors?: ErrorMessage[];
+    @Field(() => ChannelName, { nullable: true })
+    ChannelName?: ChannelName;
 }
 
 export const ChannelNameModel = getModelForClass(ChannelName);

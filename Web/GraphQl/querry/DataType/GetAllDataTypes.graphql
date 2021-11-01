@@ -1,0 +1,7 @@
+query GetAllDataTypes {
+    GetAllDataTypes {
+        shortName
+        _id
+        longName
+    }
+}

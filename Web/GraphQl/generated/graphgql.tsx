@@ -24,6 +24,12 @@ export type Application = {
   vendor: Vendor;
 };
 
+export type ApplicationResponse = {
+  __typename?: 'ApplicationResponse';
+  Application?: Maybe<Application>;
+  Errors?: Maybe<Array<ErrorMessage>>;
+};
+
 export type ChannelName = {
   __typename?: 'ChannelName';
   _id: Scalars['ObjectId'];
@@ -39,11 +45,23 @@ export type ChannelName = {
   version: Scalars['Int'];
 };
 
+export type ChannelNameResponse = {
+  __typename?: 'ChannelNameResponse';
+  ChannelName?: Maybe<ChannelName>;
+  Errors?: Maybe<Array<ErrorMessage>>;
+};
+
 export type ConnectionType = {
   __typename?: 'ConnectionType';
   _id: Scalars['ObjectId'];
   longName: Scalars['String'];
   shortName: Scalars['String'];
+};
+
+export type ConnectionTypeResponse = {
+  __typename?: 'ConnectionTypeResponse';
+  ConnectionType?: Maybe<ConnectionType>;
+  Errors?: Maybe<Array<ErrorMessage>>;
 };
 
 export type DataArea = {
@@ -53,6 +71,12 @@ export type DataArea = {
   shortName: Scalars['String'];
 };
 
+export type DataAreaResponse = {
+  __typename?: 'DataAreaResponse';
+  DataArea?: Maybe<DataArea>;
+  Errors?: Maybe<Array<ErrorMessage>>;
+};
+
 export type DataTopic = {
   __typename?: 'DataTopic';
   _id: Scalars['ObjectId'];
@@ -60,11 +84,23 @@ export type DataTopic = {
   shortName: Scalars['String'];
 };
 
+export type DataTopicResponse = {
+  __typename?: 'DataTopicResponse';
+  DataTopic?: Maybe<DataTopic>;
+  Errors?: Maybe<Array<ErrorMessage>>;
+};
+
 export type DataType = {
   __typename?: 'DataType';
   _id: Scalars['ObjectId'];
   longName: Scalars['String'];
   shortName: Scalars['String'];
+};
+
+export type DataTypeResponse = {
+  __typename?: 'DataTypeResponse';
+  DataType?: Maybe<DataType>;
+  Errors?: Maybe<Array<ErrorMessage>>;
 };
 
 export enum Environment {
@@ -82,17 +118,18 @@ export type ErrorMessage = {
 export type Mutation = {
   __typename?: 'Mutation';
   AddApplikationToVendor: Vendor;
-  AddVendorToApplication: Application;
-  CreateApplication: Application;
-  CreateChannelName: ChannelName;
-  CreateConnectionType: ConnectionType;
-  CreateDataArea: DataArea;
-  CreateDataTopic: DataTopic;
-  CreateDataType: DataType;
+  AddVendorToApplication: ApplicationResponse;
+  CreateApplication: ApplicationResponse;
+  CreateChannelName: ChannelNameResponse;
+  CreateConnectionType: ConnectionTypeResponse;
+  CreateDataArea: DataAreaResponse;
+  CreateDataTopic: DataTopicResponse;
+  CreateDataType: DataTypeResponse;
   CreateVendor: VendorResponse;
+  LogOut: Scalars['Boolean'];
   Login: UserResponse;
   RegisterUser: UserResponse;
-  UpdateApplication: Application;
+  UpdateApplication: ApplicationResponse;
   UpdateVendor: Vendor;
 };
 
@@ -110,7 +147,7 @@ export type MutationAddVendorToApplicationArgs = {
 
 
 export type MutationCreateApplicationArgs = {
-  VendorID: Scalars['ObjectId'];
+  VendorLongname?: Maybe<Scalars['String']>;
   longName: Scalars['String'];
   shortName: Scalars['String'];
 };
@@ -171,10 +208,10 @@ export type MutationRegisterUserArgs = {
 
 
 export type MutationUpdateApplicationArgs = {
-  VendorID: Scalars['ObjectId'];
+  VendorLongname?: Maybe<Scalars['String']>;
   id: Scalars['ObjectId'];
-  longName: Scalars['String'];
-  shortName: Scalars['String'];
+  longName?: Maybe<Scalars['String']>;
+  shortName?: Maybe<Scalars['String']>;
 };
 
 
@@ -193,25 +230,26 @@ export type Query = {
   GetAllDataTopics: Array<DataTopic>;
   GetAllDataTypes: Array<DataType>;
   GetAllVendors: Array<Vendor>;
-  GetApplicationByID: Application;
-  GetApplicationByLongName: Application;
-  GetApplicationByShortName: Application;
+  GetApplicationByID: ApplicationResponse;
+  GetApplicationByLongName: ApplicationResponse;
+  GetApplicationByShortName: ApplicationResponse;
   GetChannelNameByID: ChannelName;
-  GetConnectionTypeByLongName: ConnectionType;
-  GetConnectionTypeByShortName: ConnectionType;
-  GetConnectionTypesByID: ConnectionType;
-  GetDataAreaByID: DataArea;
-  GetDataAreaByLongName: DataArea;
-  GetDataAreaByShortName: DataArea;
-  GetDataTopicByID: DataTopic;
-  GetDataTopicByLongName: DataTopic;
-  GetDataTopicByShortName: DataTopic;
-  GetDataTypeByID: DataType;
-  GetDataTypeByLongName: DataType;
-  GetDataTypeByShortName: DataType;
+  GetConnectionTypeByID: ConnectionTypeResponse;
+  GetConnectionTypeByLongName: ConnectionTypeResponse;
+  GetConnectionTypeByShortName: ConnectionTypeResponse;
+  GetDataAreaByID: DataAreaResponse;
+  GetDataAreaByLongName: DataAreaResponse;
+  GetDataAreaByShortName: DataAreaResponse;
+  GetDataTopicByID: DataTopicResponse;
+  GetDataTopicByLongName: DataTopicResponse;
+  GetDataTopicByShortName: DataTopicResponse;
+  GetDataTypeByID: DataTypeResponse;
+  GetDataTypeByLongName: DataTypeResponse;
+  GetDataTypeByShortName: DataTypeResponse;
   GetVendorByID: Vendor;
   GetVendorByLongName: Vendor;
   GetVendorShortName: Vendor;
+  Me?: Maybe<User>;
 };
 
 
@@ -235,6 +273,11 @@ export type QueryGetChannelNameByIdArgs = {
 };
 
 
+export type QueryGetConnectionTypeByIdArgs = {
+  id: Scalars['ObjectId'];
+};
+
+
 export type QueryGetConnectionTypeByLongNameArgs = {
   longName: Scalars['String'];
 };
@@ -242,11 +285,6 @@ export type QueryGetConnectionTypeByLongNameArgs = {
 
 export type QueryGetConnectionTypeByShortNameArgs = {
   shortName: Scalars['String'];
-};
-
-
-export type QueryGetConnectionTypesByIdArgs = {
-  id: Scalars['ObjectId'];
 };
 
 
@@ -340,13 +378,53 @@ export type VendorResponse = {
   Vendor?: Maybe<Vendor>;
 };
 
+export type RegularUserFragment = { __typename?: 'User', _id: any, Username: string };
+
+export type CreateApplicationMutationVariables = Exact<{
+  longName: Scalars['String'];
+  shortName: Scalars['String'];
+  vendorLongname?: Maybe<Scalars['String']>;
+}>;
+
+
+export type CreateApplicationMutation = { __typename?: 'Mutation', CreateApplication: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', message: string, field: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any } | null | undefined } };
+
+export type CreateDataAreaMutationVariables = Exact<{
+  longName: Scalars['String'];
+  shortName: Scalars['String'];
+}>;
+
+
+export type CreateDataAreaMutation = { __typename?: 'Mutation', CreateDataArea: { __typename?: 'DataAreaResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, DataArea?: { __typename?: 'DataArea', _id: any } | null | undefined } };
+
+export type CreateDataTopicMutationVariables = Exact<{
+  longName: Scalars['String'];
+  shortName: Scalars['String'];
+}>;
+
+
+export type CreateDataTopicMutation = { __typename?: 'Mutation', CreateDataTopic: { __typename?: 'DataTopicResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, DataTopic?: { __typename?: 'DataTopic', _id: any } | null | undefined } };
+
+export type CreateDataTypeMutationVariables = Exact<{
+  longName: Scalars['String'];
+  shortName: Scalars['String'];
+}>;
+
+
+export type CreateDataTypeMutation = { __typename?: 'Mutation', CreateDataType: { __typename?: 'DataTypeResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, DataType?: { __typename?: 'DataType', _id: any } | null | undefined } };
+
 export type LogInMutationVariables = Exact<{
   username: Scalars['String'];
   password: Scalars['String'];
 }>;
 
 
-export type LogInMutation = { __typename?: 'Mutation', Login: { __typename?: 'UserResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, User?: { __typename?: 'User', Username: string } | null | undefined } };
+export type LogInMutation = { __typename?: 'Mutation', Login: { __typename?: 'UserResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, User?: { __typename?: 'User', _id: any, Username: string } | null | undefined } };
+
+export type LogOutMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LogOutMutation = { __typename?: 'Mutation', LogOut: boolean };
 
 export type RegisterMutationVariables = Exact<{
   username: Scalars['String'];
@@ -354,7 +432,7 @@ export type RegisterMutationVariables = Exact<{
 }>;
 
 
-export type RegisterMutation = { __typename?: 'Mutation', RegisterUser: { __typename?: 'UserResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, User?: { __typename?: 'User', Username: string } | null | undefined } };
+export type RegisterMutation = { __typename?: 'Mutation', RegisterUser: { __typename?: 'UserResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, User?: { __typename?: 'User', _id: any, Username: string } | null | undefined } };
 
 export type CreateVendorMutationVariables = Exact<{
   longName: Scalars['String'];
@@ -365,14 +443,119 @@ export type CreateVendorMutationVariables = Exact<{
 
 export type CreateVendorMutation = { __typename?: 'Mutation', CreateVendor: { __typename?: 'VendorResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Vendor?: { __typename?: 'Vendor', _id: any } | null | undefined } };
 
-export type AppByLongNameQueryVariables = Exact<{
-  longName: Scalars['String'];
-}>;
+export type GetAllApplikationsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AppByLongNameQuery = { __typename?: 'Query', GetApplicationByLongName: { __typename?: 'Application', _id: any, longName: string, shortName: string, vendor: { __typename?: 'Vendor', _id: any } } };
+export type GetAllApplikationsQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string }> };
+
+export type GetAllConnectionTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
+export type GetAllConnectionTypesQuery = { __typename?: 'Query', GetAllConnectionTypes: Array<{ __typename?: 'ConnectionType', _id: any, shortName: string, longName: string }> };
+
+export type GetAllDataAreasQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllDataAreasQuery = { __typename?: 'Query', GetAllDataAreas: Array<{ __typename?: 'DataArea', _id: any, longName: string, shortName: string }> };
+
+export type GetAllDataTopicsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllDataTopicsQuery = { __typename?: 'Query', GetAllDataTopics: Array<{ __typename?: 'DataTopic', shortName: string, _id: any, longName: string }> };
+
+export type GetAllDataTypesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllDataTypesQuery = { __typename?: 'Query', GetAllDataTypes: Array<{ __typename?: 'DataType', shortName: string, _id: any, longName: string }> };
+
+export type MeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MeQuery = { __typename?: 'Query', Me?: { __typename?: 'User', _id: any, Username: string } | null | undefined };
+
+export type GetAllVendorsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllVendorsQuery = { __typename?: 'Query', GetAllVendors: Array<{ __typename?: 'Vendor', _id: any, shortName: string, longName: string }> };
+
+export const RegularUserFragmentDoc = gql`
+    fragment RegularUser on User {
+  _id
+  Username
+}
+    `;
+export const CreateApplicationDocument = gql`
+    mutation CreateApplication($longName: String!, $shortName: String!, $vendorLongname: String) {
+  CreateApplication(
+    longName: $longName
+    shortName: $shortName
+    VendorLongname: $vendorLongname
+  ) {
+    Errors {
+      message
+      field
+    }
+    Application {
+      _id
+    }
+  }
+}
+    `;
+
+export function useCreateApplicationMutation() {
+  return Urql.useMutation<CreateApplicationMutation, CreateApplicationMutationVariables>(CreateApplicationDocument);
+};
+export const CreateDataAreaDocument = gql`
+    mutation CreateDataArea($longName: String!, $shortName: String!) {
+  CreateDataArea(longName: $longName, shortName: $shortName) {
+    Errors {
+      field
+      message
+    }
+    DataArea {
+      _id
+    }
+  }
+}
+    `;
+
+export function useCreateDataAreaMutation() {
+  return Urql.useMutation<CreateDataAreaMutation, CreateDataAreaMutationVariables>(CreateDataAreaDocument);
+};
+export const CreateDataTopicDocument = gql`
+    mutation CreateDataTopic($longName: String!, $shortName: String!) {
+  CreateDataTopic(longName: $longName, shortName: $shortName) {
+    Errors {
+      field
+      message
+    }
+    DataTopic {
+      _id
+    }
+  }
+}
+    `;
+
+export function useCreateDataTopicMutation() {
+  return Urql.useMutation<CreateDataTopicMutation, CreateDataTopicMutationVariables>(CreateDataTopicDocument);
+};
+export const CreateDataTypeDocument = gql`
+    mutation CreateDataType($longName: String!, $shortName: String!) {
+  CreateDataType(longName: $longName, shortName: $shortName) {
+    Errors {
+      field
+      message
+    }
+    DataType {
+      _id
+    }
+  }
+}
+    `;
+
+export function useCreateDataTypeMutation() {
+  return Urql.useMutation<CreateDataTypeMutation, CreateDataTypeMutationVariables>(CreateDataTypeDocument);
+};
 export const LogInDocument = gql`
     mutation LogIn($username: String!, $password: String!) {
   Login(options: {username: $username, password: $password}) {
@@ -381,14 +564,23 @@ export const LogInDocument = gql`
       message
     }
     User {
-      Username
+      ...RegularUser
     }
   }
 }
-    `;
+    ${RegularUserFragmentDoc}`;
 
 export function useLogInMutation() {
   return Urql.useMutation<LogInMutation, LogInMutationVariables>(LogInDocument);
+};
+export const LogOutDocument = gql`
+    mutation LogOut {
+  LogOut
+}
+    `;
+
+export function useLogOutMutation() {
+  return Urql.useMutation<LogOutMutation, LogOutMutationVariables>(LogOutDocument);
 };
 export const RegisterDocument = gql`
     mutation Register($username: String!, $password: String!) {
@@ -398,11 +590,11 @@ export const RegisterDocument = gql`
       message
     }
     User {
-      Username
+      ...RegularUser
     }
   }
 }
-    `;
+    ${RegularUserFragmentDoc}`;
 
 export function useRegisterMutation() {
   return Urql.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument);
@@ -428,19 +620,92 @@ export const CreateVendorDocument = gql`
 export function useCreateVendorMutation() {
   return Urql.useMutation<CreateVendorMutation, CreateVendorMutationVariables>(CreateVendorDocument);
 };
-export const AppByLongNameDocument = gql`
-    query AppByLongName($longName: String!) {
-  GetApplicationByLongName(longName: $longName) {
+export const GetAllApplikationsDocument = gql`
+    query GetAllApplikations {
+  GetAllApplikations {
     _id
-    longName
     shortName
-    vendor {
-      _id
-    }
+    longName
   }
 }
     `;
 
-export function useAppByLongNameQuery(options: Omit<Urql.UseQueryArgs<AppByLongNameQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<AppByLongNameQuery>({ query: AppByLongNameDocument, ...options });
+export function useGetAllApplikationsQuery(options: Omit<Urql.UseQueryArgs<GetAllApplikationsQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllApplikationsQuery>({ query: GetAllApplikationsDocument, ...options });
+};
+export const GetAllConnectionTypesDocument = gql`
+    query GetAllConnectionTypes {
+  GetAllConnectionTypes {
+    _id
+    shortName
+    longName
+  }
+}
+    `;
+
+export function useGetAllConnectionTypesQuery(options: Omit<Urql.UseQueryArgs<GetAllConnectionTypesQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllConnectionTypesQuery>({ query: GetAllConnectionTypesDocument, ...options });
+};
+export const GetAllDataAreasDocument = gql`
+    query GetAllDataAreas {
+  GetAllDataAreas {
+    _id
+    longName
+    shortName
+  }
+}
+    `;
+
+export function useGetAllDataAreasQuery(options: Omit<Urql.UseQueryArgs<GetAllDataAreasQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllDataAreasQuery>({ query: GetAllDataAreasDocument, ...options });
+};
+export const GetAllDataTopicsDocument = gql`
+    query GetAllDataTopics {
+  GetAllDataTopics {
+    shortName
+    _id
+    longName
+  }
+}
+    `;
+
+export function useGetAllDataTopicsQuery(options: Omit<Urql.UseQueryArgs<GetAllDataTopicsQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllDataTopicsQuery>({ query: GetAllDataTopicsDocument, ...options });
+};
+export const GetAllDataTypesDocument = gql`
+    query GetAllDataTypes {
+  GetAllDataTypes {
+    shortName
+    _id
+    longName
+  }
+}
+    `;
+
+export function useGetAllDataTypesQuery(options: Omit<Urql.UseQueryArgs<GetAllDataTypesQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllDataTypesQuery>({ query: GetAllDataTypesDocument, ...options });
+};
+export const MeDocument = gql`
+    query Me {
+  Me {
+    ...RegularUser
+  }
+}
+    ${RegularUserFragmentDoc}`;
+
+export function useMeQuery(options: Omit<Urql.UseQueryArgs<MeQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<MeQuery>({ query: MeDocument, ...options });
+};
+export const GetAllVendorsDocument = gql`
+    query GetAllVendors {
+  GetAllVendors {
+    _id
+    shortName
+    longName
+  }
+}
+    `;
+
+export function useGetAllVendorsQuery(options: Omit<Urql.UseQueryArgs<GetAllVendorsQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllVendorsQuery>({ query: GetAllVendorsDocument, ...options });
 };

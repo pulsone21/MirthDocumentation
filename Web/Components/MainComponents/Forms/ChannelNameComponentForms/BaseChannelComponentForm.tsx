@@ -1,9 +1,13 @@
+import { ObjectToErrorMap } from 'CodeBase/Utils';
 import InputField from 'Components/BasicComponents/Forms/InputField';
-import { Formik, FormikValues } from 'formik';
+import { Formik, FormikErrors, FormikValues } from 'formik';
+import { useCreateApplicationMutation, useCreateDataAreaMutation, useCreateDataTopicMutation, useCreateDataTypeMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
 
+
+
 interface BaseChannelComponentFormProps {
-    componentName: string
+    componentName: "DataType" | "DataArea" | "DataTopic"
 }
 
 const initialValues = {
@@ -11,20 +15,48 @@ const initialValues = {
     longName: ""
 }
 
-
 const BaseChannelComponentForm: React.FC<BaseChannelComponentFormProps> = ({ componentName }) => {
-    const handleSubmit = (values: FormikValues) => {
-        console.log(JSON.stringify(values, null, 4))
+    const [, createDataType] = useCreateDataTypeMutation();
+    const [, createDataArea] = useCreateDataAreaMutation();
+    const [, createDataTopic] = useCreateDataTopicMutation();
 
-        //Create component
-    }
     return (
         <Formik
             initialValues={initialValues}
-            onSubmit={(values) => handleSubmit(values)}
-        >
-            {({ }) => (
-                <form>
+            onSubmit={async (values, { setErrors, resetForm }) => {
+                const { shortName, longName } = values
+                let response;
+                let errors = false;
+                switch (componentName) {
+                    case "DataType":
+                        response = await createDataType({ shortName, longName, });
+                        if (response.data?.CreateDataType.Errors) {
+                            setErrors(ObjectToErrorMap(response.data.CreateDataType.Errors))
+                            errors = true
+                        }
+                        console.log(response.data?.CreateDataType.DataType)
+                        break;
+                    case "DataArea":
+                        response = await createDataArea({ shortName, longName, });
+                        if (response.data?.CreateDataArea.Errors) {
+                            setErrors(ObjectToErrorMap(response.data.CreateDataArea.Errors))
+                            errors = true
+                        }
+                        console.log(response.data?.CreateDataArea.DataArea)
+                        break;
+                    case "DataTopic":
+                        response = await createDataTopic({ shortName, longName, });
+                        if (response.data?.CreateDataTopic.Errors) {
+                            setErrors(ObjectToErrorMap(response.data.CreateDataTopic.Errors))
+                            errors = true
+
+                        }
+                        break;
+                }
+                if (!errors) resetForm()
+            }}>
+            {({ handleSubmit }) => (
+                <form onSubmit={handleSubmit}>
                     <h2>{`Create new ${componentName}`}</h2>
                     <InputField name="longName" id="longName" placeholder={`Longname of the ${componentName}`}></InputField>
                     <InputField name="shortName" id="shortName" placeholder={`Shortname for the ${componentName}`}></InputField>

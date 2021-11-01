@@ -1,52 +1,116 @@
 import { ObjectId } from "mongoose";
-import DataTopic, { DataTopicModel } from "../../Classes/DataTopic";
+import DataTopic, { DataTopicModel, DataTopicResponse } from "../../Classes/DataTopic";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
 
 @Resolver(DataTopic)
 export default class DataTopicResolver {
-  @Query(() => [DataTopic])
-  async GetAllDataTopics() {
-    try {
-      return await DataTopicModel.find({});
-    } catch (err) {
-      throw new Error("No DataTopic found in the DB!");
+    @Query(() => [DataTopic])
+    async GetAllDataTopics() {
+        try {
+            return await DataTopicModel.find({});
+        } catch (err) {
+            throw new Error("No DataTopic found in the DB!");
+        }
     }
-  }
-
-  @Query(() => DataTopic)
-  async GetDataTopicByID(@Arg("id", () => ObjectIdScalar) id: ObjectId) {
-    try {
-      return await DataTopicModel.findById(id);
-    } catch (err) {
-      throw new Error("No DataTopic found in the DB!");
+    @Query(() => DataTopicResponse)
+    async GetDataTopicByShortName(@Arg("shortName") shortName: String): Promise<DataTopicResponse> {
+        const DataTopic = await DataTopicModel.findOne({ shortName });
+        if (!DataTopic) {
+            return {
+                Errors: [
+                    {
+                        field: "shortName",
+                        message: `No DataTopic found with Shortname: ${shortName}`,
+                    },
+                ],
+            };
+        } else {
+            return {
+                DataTopic,
+            };
+        }
     }
-  }
 
-  @Query(() => DataTopic)
-  async GetDataTopicByShortName(@Arg("shortName") ShortName: String) {
-    try {
-      return await DataTopicModel.findOne({ shortName: ShortName });
-    } catch (err) {
-      throw new Error("No DataTopic found in the DB!");
+    @Query(() => DataTopicResponse)
+    async GetDataTopicByLongName(@Arg("longName") longName: String): Promise<DataTopicResponse> {
+        const DataTopic = await DataTopicModel.findOne({ longName });
+        if (!DataTopic) {
+            return {
+                Errors: [
+                    {
+                        field: "longName",
+                        message: `No DataTopic found with Longname: ${longName}`,
+                    },
+                ],
+            };
+        } else {
+            return {
+                DataTopic,
+            };
+        }
     }
-  }
 
-  @Query(() => DataTopic)
-  async GetDataTopicByLongName(@Arg("longName") LongName: String) {
-    try {
-      return await DataTopicModel.findOne({ longName: LongName });
-    } catch (err) {
-      throw new Error("No DataTopic found in the DB!");
+    @Query(() => DataTopicResponse)
+    async GetDataTopicByID(@Arg("id", () => ObjectIdScalar) id: ObjectId): Promise<DataTopicResponse> {
+        const DataTopic = await DataTopicModel.findOne({ id });
+        if (!DataTopic) {
+            return {
+                Errors: [
+                    {
+                        field: "ID",
+                        message: `No DataTopic found with ID: ${id}`,
+                    },
+                ],
+            };
+        } else {
+            return {
+                DataTopic,
+            };
+        }
     }
-  }
 
-  @Mutation(() => DataTopic)
-  async CreateDataTopic(
-    @Arg("shortName", () => String, { nullable: false }) shortName: String,
-    @Arg("longName", () => String, { nullable: false }) longName: String
-  ) {
-    const dataTopic = await DataTopicModel.create({ shortName, longName });
-    return dataTopic;
-  }
+    @Mutation(() => DataTopicResponse)
+    async CreateDataTopic(
+        @Arg("shortName", () => String, { nullable: false }) shortName: String,
+        @Arg("longName", () => String, { nullable: false }) longName: String
+    ): Promise<DataTopicResponse> {
+        const validation = await BaseValidation(shortName);
+        if (validation) {
+            return validation;
+        }
+
+        if (!longName) {
+            return {
+                Errors: [{ field: "longName", message: "please enter a Longname" }],
+            };
+        }
+
+        const DataTopic = await DataTopicModel.create({ shortName, longName });
+        if (!DataTopic) {
+            return {
+                Errors: [
+                    {
+                        field: "shortName",
+                        message: "Somehting went wrong!",
+                    },
+                ],
+            };
+        }
+        return {
+            DataTopic,
+        };
+    }
+}
+
+async function BaseValidation(shortName: String): Promise<DataTopicResponse | undefined> {
+    const validation = DataTopic.CheckShortName(shortName);
+    if (validation) {
+        return validation;
+    }
+    const exist = DataTopicModel.CheckShortnameAvailable(shortName);
+    if (exist) {
+        return exist;
+    }
+    return;
 }

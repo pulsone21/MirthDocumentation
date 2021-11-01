@@ -1,0 +1,11 @@
+mutation CreateDataTopic($longName: String!, $shortName: String!) {
+    CreateDataTopic(longName: $longName, shortName: $shortName) {
+        Errors {
+            field
+            message
+        }
+        DataTopic {
+            _id
+        }
+    }
+}

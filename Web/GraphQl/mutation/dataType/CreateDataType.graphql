@@ -1,0 +1,11 @@
+mutation CreateDataType($longName: String!, $shortName: String!) {
+    CreateDataType(longName: $longName, shortName: $shortName) {
+        Errors {
+            field
+            message
+        }
+        DataType {
+            _id
+        }
+    }
+}

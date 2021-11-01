@@ -9,17 +9,29 @@ type JSONDisplayProps = {
 
 const JSONDisplay: React.FC<JSONDisplayProps> = ({ JsonToDisplay }) => {
 
+    const [prevJson, setPrevJson] = React.useState("")
     const [copieMessage, setCopieMessage] = React.useState("Click to copy the description")
     const [copieMessageClasses, setCopieMessageClasses] = React.useState("copieMessage")
 
-    const handleonClick = (string: string) => {
-        copy(string, { message: "JSON copied to clipboard" })
+    const handleonClick = () => {
+        copy(JsonToDisplay)
         setCopieMessage("Description copied to clipboard")
         setCopieMessageClasses(prevState => `${prevState} copied`)
     }
+
+    React.useEffect(() => {
+        console.log("prevJSON", prevJson)
+        console.log("jsonToDisplay", JsonToDisplay)
+        if (prevJson != JsonToDisplay) {
+            setCopieMessage("Click to copy the description")
+            setCopieMessageClasses("copieMessage")
+            setPrevJson(JsonToDisplay)
+        }
+    }, [prevJson, JsonToDisplay])
+
     return (
         <div className="outer" >
-            <div onClick={() => handleonClick(JsonToDisplay)} className="codeContainer" >
+            <div onClick={() => handleonClick()} className="codeContainer" >
                 <pre>{JsonToDisplay}</pre>
 
             </div>
