@@ -1,8 +1,14 @@
 import { ObjectId } from "mongoose";
+require("dotenv").config();
 import Application, { ApplicationModel, ApplicationResponse, BaseApplication } from "../../Classes/Application";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
 import { VendorModel } from "../../Classes/Vendor";
+import { GraphQLUpload } from "graphql-upload";
+import { Upload } from "../../Types/UploadType";
+import { createWriteStream } from "fs";
+import shortid from "shortid";
+import DeletionMessage from "../../Types/DeletionMessage";
 
 @Resolver(Application)
 export default class ApplicationResolver {
@@ -68,12 +74,35 @@ export default class ApplicationResolver {
         }
     }
 
+    @Mutation(() => Boolean)
+    async addAppLogo(@Arg("logo", () => GraphQLUpload) logo: Upload): Promise<boolean> {
+        let res = await SaveLogoToServer(logo);
+        return res.response;
+    }
+
     @Mutation(() => ApplicationResponse)
     async CreateApplication(
         @Arg("shortName") shortName: String,
         @Arg("longName") longName: String,
+        @Arg("logo", () => GraphQLUpload, { nullable: true }) logo: Upload,
         @Arg("VendorLongname", { nullable: true }) vendLongName: String
     ): Promise<ApplicationResponse> {
+        let logoUrl = "";
+        if (logo) {
+            let { response, url } = await SaveLogoToServer(logo);
+            if (!response) {
+                return {
+                    Errors: [
+                        {
+                            field: "Logo",
+                            message: "Something went wrong during the image saving, nothing was saved!",
+                        },
+                    ],
+                };
+            }
+            logoUrl = url;
+        }
+
         let vendor;
         if (vendLongName) {
             vendor = await VendorModel.findOne({ longName: vendLongName });
@@ -91,13 +120,13 @@ export default class ApplicationResolver {
         }
 
         if (vendor) {
-            const app = await ApplicationModel.create({ shortName, longName, vendor });
+            const app = await ApplicationModel.create({ shortName, longName, logoUrl, vendor });
             vendor?.applications.push(app);
             return {
                 Application: app,
             };
         } else {
-            const app = await ApplicationModel.create({ shortName, longName });
+            const app = await ApplicationModel.create({ shortName, longName, logoUrl });
             return {
                 Errors: [
                     {
@@ -110,14 +139,36 @@ export default class ApplicationResolver {
         }
     }
 
+    @Mutation(() => DeletionMessage)
+    async DeleteApplication(@Arg("id", () => ObjectIdScalar) id: ObjectId): Promise<DeletionMessage> {
+        const App = await ApplicationModel.findOne({ id });
+
+        if (!App) {
+            return {
+                Errors: [{ field: "id", message: "No App with this id found" }],
+            };
+        }
+        let logoDeletion = await Application.DeleteMyLogo(App.logoUrl.toString());
+        if (!logoDeletion) {
+            return {
+                Errors: [{ field: "id", message: "could not delete logo, please remove the logo manually from: " + App.logoUrl }],
+            };
+        }
+        let res = await ApplicationModel.deleteOne({ id });
+
+        if (res.deletedCount > 0) return { deletion: true };
+        return { deletion: false, Errors: [{ field: "id", message: "something went wrong, could not delete the document" }] };
+    }
+
     @Mutation(() => ApplicationResponse)
     async UpdateApplication(
         @Arg("id", () => ObjectIdScalar) id: ObjectId,
         @Arg("shortName", { nullable: true }) shortName: String,
         @Arg("longName", { nullable: true }) longName: String,
+        @Arg("logo", () => GraphQLUpload, { nullable: true }) logo: Upload,
         @Arg("VendorLongname", { nullable: true }) vendLongName: String
     ): Promise<ApplicationResponse> {
-        if (shortName == undefined && vendLongName == undefined && longName == undefined) {
+        if (shortName == undefined && vendLongName == undefined && longName == undefined && logo == undefined) {
             return {
                 Errors: [{ field: "id", message: "Please add atleast one field to update" }],
             };
@@ -135,6 +186,12 @@ export default class ApplicationResolver {
 
             if (longName != undefined) {
                 Application.longName = longName;
+                Application.save();
+            }
+
+            if (logo != undefined) {
+                let res = await SaveLogoToServer(logo);
+                Application.logoUrl = res.url;
                 Application.save();
             }
 
@@ -193,4 +250,25 @@ async function BaseValidation(shortName: String): Promise<ApplicationResponse | 
         return exist;
     }
     return;
+}
+
+type SaveToServer = {
+    response: any;
+    url: string;
+};
+
+async function SaveLogoToServer(logo: Upload): Promise<SaveToServer> {
+    let id = shortid.generate();
+    let url = `${process.env.IMAGE_DIR}/${id}`;
+    let response = await new Promise(async (resolve) => {
+        logo.createReadStream()
+            .pipe(createWriteStream(url))
+            .on("finish", () => resolve(true))
+            .on("error", () => resolve(false));
+    });
+
+    return {
+        response,
+        url,
+    };
 }

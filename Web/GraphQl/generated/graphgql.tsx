@@ -133,6 +133,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   AddApplikationToVendor: Vendor;
   AddVendorToApplication: ApplicationResponse;
+  ChannelnameExist: Scalars['Boolean'];
   CreateApplication: ApplicationResponse;
   CreateChannelName: ChannelNameResponse;
   CreateConnectionType: ConnectionTypeResponse;
@@ -157,6 +158,11 @@ export type MutationAddApplikationToVendorArgs = {
 export type MutationAddVendorToApplicationArgs = {
   ApplicationID: Scalars['ObjectId'];
   VendorID: Scalars['ObjectId'];
+};
+
+
+export type MutationChannelnameExistArgs = {
+  name: Scalars['String'];
 };
 
 
@@ -247,6 +253,7 @@ export type Query = {
   GetApplicationByID: ApplicationResponse;
   GetApplicationByLongName: ApplicationResponse;
   GetApplicationByShortName: ApplicationResponse;
+  GetChannelNameByFullName: ChannelName;
   GetChannelNameByID: ChannelName;
   GetConnectionTypeByID: ConnectionTypeResponse;
   GetConnectionTypeByLongName: ConnectionTypeResponse;
@@ -279,6 +286,11 @@ export type QueryGetApplicationByLongNameArgs = {
 
 export type QueryGetApplicationByShortNameArgs = {
   shortName: Scalars['String'];
+};
+
+
+export type QueryGetChannelNameByFullNameArgs = {
+  name: Scalars['String'];
 };
 
 
@@ -394,6 +406,13 @@ export type VendorResponse = {
 
 export type RegularUserFragment = { __typename?: 'User', _id: any, Username: string };
 
+export type ChannelnameExistMutationVariables = Exact<{
+  name: Scalars['String'];
+}>;
+
+
+export type ChannelnameExistMutation = { __typename?: 'Mutation', ChannelnameExist: boolean };
+
 export type CreateApplicationMutationVariables = Exact<{
   longName: Scalars['String'];
   shortName: Scalars['String'];
@@ -498,6 +517,15 @@ export const RegularUserFragmentDoc = gql`
   Username
 }
     `;
+export const ChannelnameExistDocument = gql`
+    mutation ChannelnameExist($name: String!) {
+  ChannelnameExist(name: $name)
+}
+    `;
+
+export function useChannelnameExistMutation() {
+  return Urql.useMutation<ChannelnameExistMutation, ChannelnameExistMutationVariables>(ChannelnameExistDocument);
+};
 export const CreateApplicationDocument = gql`
     mutation CreateApplication($longName: String!, $shortName: String!, $vendorLongname: String) {
   CreateApplication(

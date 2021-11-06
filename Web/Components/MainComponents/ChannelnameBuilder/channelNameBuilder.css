@@ -114,6 +114,10 @@
     color: var(--color-correct) !important;
 }
 
+..channelNameBuilder-Container .ChannelNameDisplay .error {
+    color: var(--color-error) !important;
+}
+
 .channelNameBuilder-Container .BuildingArea {
     grid-area: BuildingArea;
     display: flex;

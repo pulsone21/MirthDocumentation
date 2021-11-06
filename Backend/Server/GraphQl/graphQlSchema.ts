@@ -12,20 +12,23 @@ import UserResolver from "./Resolvers/userResolver";
 import VendorResolver from "./Resolvers/vendorResolver";
 
 export default async function CreateSchema() {
-  const schema = await buildSchema({
-    resolvers: [
-      ApplicationResolver,
-      VendorResolver,
-      DataTypeResolver,
-      DataTopicResolver,
-      DataAreaResolver,
-      ConnectionTypeResolver,
-      ChannelNameResolver,
-      UserResolver,
-    ],
-    globalMiddlewares: [TypegooseMiddleware],
-    scalarsMap: [{ type: ObjectId, scalar: ObjectIdScalar }],
-    validate: false,
-  });
-  return schema;
+    const schema = await buildSchema({
+        resolvers: [
+            ApplicationResolver,
+            VendorResolver,
+            DataTypeResolver,
+            DataTopicResolver,
+            DataAreaResolver,
+            ConnectionTypeResolver,
+            ChannelNameResolver,
+            UserResolver,
+        ],
+        globalMiddlewares: [TypegooseMiddleware],
+        scalarsMap: [{ type: ObjectId, scalar: ObjectIdScalar }],
+        validate: false,
+        // authChecker: ({ context: { req } }) => {
+        //     return !!req.session.userId;
+        // },
+    });
+    return schema;
 }

@@ -26,6 +26,18 @@ export default class ChannelNameResolver {
         }
     }
 
+    @Query(() => ChannelName)
+    async GetChannelNameByFullName(@Arg("name") name: string) {
+        return await ChannelNameModel.find({ name });
+    }
+
+    @Mutation(() => Boolean)
+    async ChannelnameExist(@Arg("name") name: string): Promise<Boolean> {
+        let channelName = await ChannelNameModel.find({ name });
+        if (channelName) return true;
+        return false;
+    }
+
     @Mutation(() => ChannelNameResponse)
     async CreateChannelName(
         @Arg("dataTypeID", () => ObjectIdScalar) dataTypeID: ObjectId,

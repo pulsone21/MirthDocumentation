@@ -7,9 +7,4 @@ export default class ErrorMessage {
 
     @Field({ nullable: false })
     message: string;
-
-    constructor(field: string, message: string) {
-        this.field = field;
-        this.message = message;
-    }
 }

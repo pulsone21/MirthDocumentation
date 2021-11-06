@@ -6,11 +6,9 @@ import HeaderSection from '../Components/HeaderSection';
 import { dropDownElement } from '../Types/dropDownElement';
 import Select from 'react-select';
 import { customStyles } from 'Components/MainComponents/Forms/ChannelNameComponentForms/styleConfig';
-import { useGetAllApplikationsQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
+import { useChannelnameExistMutation, useGetAllApplikationsQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
 import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
 import { ConnectorNameAcessor, ConnectorNameHelper, GenerateNameFromHelper, initConnectorName } from 'Types/ConnectorTypeHelper';
-
-
 
 interface ChannelNameBuilderProps {
 
@@ -21,9 +19,8 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
     const [copieEvent, setCopieEvent] = useState(false)
     const [copieMessage, setCopieMessage] = useState("Click the Name to copy the the Channelname")
     const [copieMessageClasses, setCopieMessageClasses] = useState("copieMessage")
-    const [connectorNameHelper, SetConnectorNameHelper] = useState<ConnectorNameHelper>(initConnectorName);
-
-
+    const [connectorNameHelper, _] = useState<ConnectorNameHelper>(initConnectorName);
+    const [, channelNameExist] = useChannelnameExistMutation();
 
     const [{ data: dataTypeRawData, fetching: dataTypeFetch }] = useGetAllDataTypesQuery();
     let dataTypeData: dropDownElement[] = []
@@ -36,7 +33,6 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
     if (!appFetch) {
         if (appRawData?.GetAllApplikations) appData = GenerateDopDownFromQuery(appRawData.GetAllApplikations)
     }
-
 
     const [{ data: dataAreaRawData, fetching: dataAreaFetch }] = useGetAllDataAreasQuery();
     let dataAreaData: dropDownElement[] = []
@@ -64,16 +60,22 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
         setCopieMessageClasses(prevState => `${prevState} copied`)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         connectorNameHelper.name = GenerateNameFromHelper(connectorNameHelper);
-        /* //TODO Check if ConnectorName is already present
-        if yes
-            easy way is check by channel FullName....
-            return error Message somewhere... 
-        if not 
-            create it and display it  
-        */
-        if (connectorNameHelper.name) SetChannelName(connectorNameHelper.name)
+        let response;
+        let nameExist = false;
+
+        if (connectorNameHelper.name) {
+            response = await channelNameExist({ name: connectorNameHelper.name })
+            if (response?.data?.ChannelnameExist === true) {
+                nameExist = true;
+                setCopieMessage("CHANNELNAME ALREADY EXIST!")
+                setCopieMessageClasses(prevState => `${prevState} error`)
+                return;
+            }
+            SetChannelName(connectorNameHelper.name)
+            //? we dont want to create the Channel, since it could be that the channel is not created. Saving Numbers and Storage
+        }
     }
 
     const onSelectChange = (newValue: any, nameAccessor: ConnectorNameAcessor) => {

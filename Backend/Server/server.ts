@@ -1,8 +1,9 @@
 import "reflect-metadata";
 import express from "express";
 import mongoose from "mongoose";
-const app = express();
 import { ApolloServer } from "apollo-server-express";
+import { graphqlUploadExpress } from "graphql-upload";
+
 require("dotenv").config();
 import cors from "cors";
 import CreateSchema from "./GraphQl/graphQlSchema";
@@ -10,6 +11,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import { MyContext } from "./Types/MyContext";
 
+const app = express();
 startServer();
 
 async function startServer() {
@@ -46,6 +48,8 @@ async function startServer() {
                 },
             })
         );
+
+        app.use(graphqlUploadExpress()); //enabling fileUploades
 
         const schema = await CreateSchema();
 

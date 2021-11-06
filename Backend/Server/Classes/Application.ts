@@ -4,6 +4,7 @@ import ErrorMessage from "../Types/ErrorMessage";
 import { Field, ObjectType } from "type-graphql";
 import Vendor from "./Vendor";
 import { BaseNameComponent } from "./BaseNameComponent";
+import { unlink } from "fs";
 
 @ObjectType()
 export default class Application extends BaseNameComponent {
@@ -18,6 +19,10 @@ export default class Application extends BaseNameComponent {
     @Property()
     longName: String;
 
+    @Field()
+    @Property({ unique: true })
+    logoUrl: String;
+
     @Property({ ref: Vendor })
     @Field((_type) => Vendor)
     vendor: Ref<Vendor>;
@@ -30,6 +35,14 @@ export default class Application extends BaseNameComponent {
             };
         }
         return;
+    }
+
+    public static async DeleteMyLogo(url: string): Promise<Boolean> {
+        unlink(url, (err) => {
+            if (err) return false;
+            return true;
+        });
+        return true;
     }
 }
 

@@ -31,3 +31,11 @@ export const GenerateDopDownFromQuery = (
     });
     return newDropDownArray;
 };
+
+export const GenerateTableRowsFromInput = (input: BaseApplication[]): string[][] => {
+    let output: string[][] = [];
+    input.forEach((el) => {
+        output.push([el.shortName, el.longName]);
+    });
+    return output;
+};

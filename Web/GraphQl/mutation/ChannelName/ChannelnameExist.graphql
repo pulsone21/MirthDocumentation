@@ -1,0 +1,3 @@
+mutation ChannelnameExist($name: String!) {
+    ChannelnameExist(name: $name)
+}
