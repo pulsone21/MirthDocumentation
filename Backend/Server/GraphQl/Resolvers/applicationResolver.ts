@@ -160,6 +160,13 @@ export default class ApplicationResolver {
         return { deletion: false, Errors: [{ field: "id", message: "something went wrong, could not delete the document" }] };
     }
 
+    @Mutation(() => Boolean)
+    async DeleteLogoFromApp(@Arg("id", () => ObjectIdScalar) id: ObjectId): Promise<Boolean> {
+        const app = await ApplicationModel.findOne({ id });
+        if (!app) return false;
+        return await Application.DeleteMyLogo(app.logoUrl.toString());
+    }
+
     @Mutation(() => ApplicationResponse)
     async UpdateApplication(
         @Arg("id", () => ObjectIdScalar) id: ObjectId,
@@ -259,7 +266,7 @@ type SaveToServer = {
 
 async function SaveLogoToServer(logo: Upload): Promise<SaveToServer> {
     let id = shortid.generate();
-    let url = `${process.env.IMAGE_DIR}/${id}`;
+    let url = `${process.env.IMAGE_DIR}/${id}.${logo.mimetype.split("/")[1]}`;
     let response = await new Promise(async (resolve) => {
         logo.createReadStream()
             .pipe(createWriteStream(url))

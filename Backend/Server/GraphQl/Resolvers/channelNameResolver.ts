@@ -54,27 +54,27 @@ export default class ChannelNameResolver {
 
         const dataType = await DataTypeModel.findById(dataTypeID);
         if (!dataType) {
-            Errors.push(new ErrorMessage("DataType", `No DataType with ${dataTypeID} found!`));
+            Errors.push({ field: "DataType", message: `No DataType with ${dataTypeID} found!` });
         }
         const dataTopic = await DataTopicModel.findById(dataTopicID);
         if (!dataType) {
-            Errors.push(new ErrorMessage("DataTopic", `No DataTopic with ${dataTopicID} found!`));
+            Errors.push({ field: "DataTopic", message: `No DataTopic with ${dataTopicID} found!` });
         }
         const dataArea = await DataAreaModel.findById(dataAreaID);
         if (!dataArea) {
-            Errors.push(new ErrorMessage("DataArea", `No DataArea with ${dataAreaID} found!`));
+            Errors.push({ field: "DataArea", message: `No DataArea with ${dataAreaID} found!` });
         }
         const connectionType = await ConnectionTypeModel.findById(conTypeID);
         if (!connectionType) {
-            Errors.push(new ErrorMessage("ConnectionType", `No ConnectionType with ${conTypeID} found!`));
+            Errors.push({ field: "ConnectionType", message: `No ConnectionType with ${conTypeID} found!` });
         }
         const vendor = await VendorModel.findById(vendorID);
         if (!vendor) {
-            Errors.push(new ErrorMessage("Vendor", `No Vendor with ${vendorID} found!`));
+            Errors.push({ field: "Vendor", message: `No Vendor with ${vendorID} found!` });
         }
         const application = await ApplicationModel.findById(appID);
         if (!application) {
-            Errors.push(new ErrorMessage("Application", `No Application with ${appID} found!`));
+            Errors.push({ field: "Application", message: `No Application with ${appID} found!` });
         }
 
         if (Errors.length > 0) {
