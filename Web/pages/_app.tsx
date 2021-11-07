@@ -27,10 +27,6 @@ const client = createClient({
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-
-  //TODO Buil in some kind of Login State 
-  //? How do i get the cookie from the 
-
   const [{ data, fetching, error }] = useMeQuery({});
 
   let pageContent;
