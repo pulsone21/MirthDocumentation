@@ -76,6 +76,7 @@ export default class ApplicationResolver {
 
     @Mutation(() => Boolean)
     async addAppLogo(@Arg("logo", () => GraphQLUpload) logo: Upload): Promise<boolean> {
+        console.log(logo);
         let res = await SaveLogoToServer(logo);
         return res.response;
     }
@@ -85,11 +86,12 @@ export default class ApplicationResolver {
         @Arg("shortName") shortName: String,
         @Arg("longName") longName: String,
         @Arg("logo", () => GraphQLUpload, { nullable: true }) logo: Upload,
-        @Arg("VendorLongname", { nullable: true }) vendLongName: String
+        @Arg("VendorId", () => ObjectIdScalar) vendorId: ObjectId
     ): Promise<ApplicationResponse> {
         let logoUrl = "";
         if (logo) {
             let { response, url } = await SaveLogoToServer(logo);
+            console.log(response, url);
             if (!response) {
                 return {
                     Errors: [
@@ -104,8 +106,8 @@ export default class ApplicationResolver {
         }
 
         let vendor;
-        if (vendLongName) {
-            vendor = await VendorModel.findOne({ longName: vendLongName });
+        if (vendorId) {
+            vendor = await VendorModel.findOne({ id: vendorId });
         }
 
         const validation = await BaseValidation(shortName);
@@ -131,7 +133,7 @@ export default class ApplicationResolver {
                 Errors: [
                     {
                         field: "VendorLongName",
-                        message: `Vendor with ID ${vendLongName} couldnt be found.`,
+                        message: `Vendor with ID ${vendorId} couldnt be found.`,
                     },
                 ],
                 Application: app,
@@ -265,6 +267,7 @@ type SaveToServer = {
 };
 
 async function SaveLogoToServer(logo: Upload): Promise<SaveToServer> {
+    console.log("in save to Server");
     let id = shortid.generate();
     let url = `${process.env.IMAGE_DIR}/${id}.${logo.mimetype.split("/")[1]}`;
     let response = await new Promise(async (resolve) => {
@@ -273,7 +276,7 @@ async function SaveLogoToServer(logo: Upload): Promise<SaveToServer> {
             .on("finish", () => resolve(true))
             .on("error", () => resolve(false));
     });
-
+    console.log("saved it to the server");
     return {
         response,
         url,

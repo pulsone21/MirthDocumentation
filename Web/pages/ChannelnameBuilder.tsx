@@ -63,12 +63,9 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
     const handleSubmit = async () => {
         connectorNameHelper.name = GenerateNameFromHelper(connectorNameHelper);
         let response;
-        let nameExist = false;
-
         if (connectorNameHelper.name) {
             response = await channelNameExist({ name: connectorNameHelper.name })
             if (response?.data?.ChannelnameExist === true) {
-                nameExist = true;
                 setCopieMessage("CHANNELNAME ALREADY EXIST!")
                 setCopieMessageClasses(prevState => `${prevState} error`)
                 return;
@@ -100,7 +97,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
             <div className="channelNameBuilder-Container">
                 <div className="Toolbar">
                     <h2 style={{ marginLeft: "5px" }}>Missing an Component?</h2>
-                    <ComponentContainer componentName="Application" />
+                    <ComponentContainer vendorList={vendData} componentName="Application" />
                     <ComponentContainer componentName="Vendor" />
                     <ComponentContainer componentName="DataType" />
                     <ComponentContainer componentName="DataArea" />

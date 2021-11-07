@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import { FaMinusSquare, FaPlusSquare } from 'react-icons/fa';
+import { dropDownElement } from 'Types/dropDownElement';
 import ApplicationForm from './ApplicationForm';
 import BaseChannelComponentForm from './BaseChannelComponentForm';
 import VendorForm from './VendorForm';
 
 interface ComponentContainerProps {
     componentName: "Application" | "DataType" | "DataArea" | "DataTopic" | "Vendor"
+    vendorList?: dropDownElement[]
 
 }
 
-const ComponentContainer: React.FC<ComponentContainerProps> = ({ componentName }) => {
+const ComponentContainer: React.FC<ComponentContainerProps> = ({ componentName, vendorList }) => {
     const [myState, setMyState] = useState(false)
 
     let html: any;
@@ -18,7 +20,7 @@ const ComponentContainer: React.FC<ComponentContainerProps> = ({ componentName }
             html = <VendorForm />
             break;
         case "Application":
-            html = <ApplicationForm />
+            html = <ApplicationForm vendorList={vendorList ? vendorList : []} />
             break;
         default:
             html = <BaseChannelComponentForm componentName={componentName} />

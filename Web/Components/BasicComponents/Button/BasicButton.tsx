@@ -1,25 +1,19 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 
-interface BasicButtonProps {
-    btnName: string
-    btnFunction?: (any: any) => void
-    classes?: string[]
-}
+type BasicButtonProps = HTMLAttributes<HTMLDivElement>
 
-const BasicButton: React.FC<BasicButtonProps> = (props) => {
+const BasicButton: React.FC<BasicButtonProps> = ({ className, ...props }) => {
+    let classNames
+    if (className) {
+        classNames = className
+    } else {
+        classNames = "baseBtn"
+    }
+
     return (
-        <div className={(props.classes) ? GetClassNames(props.classes) : "baseBtn"} onClick={(props.btnFunction) ? props.btnFunction : undefined}><p>{props.btnName}</p></div>
+        <div className={classNames} onClick={props.onClick}><p>{props.title}</p></div>
     );
 }
 
 export default BasicButton;
-
-
-function GetClassNames(classNameArray: string[]): string {
-    let classNames = "baseBtn ";
-    classNameArray.forEach(el => {
-        classNames += el + " ";
-    })
-    return classNames.substring(0, classNames.length - 1);
-}

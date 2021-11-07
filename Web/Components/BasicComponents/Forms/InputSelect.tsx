@@ -1,31 +1,30 @@
-import React, { useState } from 'react'
-import { dropDownElement } from 'Types/dropDownElement'
+import React, { InputHTMLAttributes } from 'react'
+import { dropDownElement } from '../../../Types/dropDownElement'
+import Select, { StylesConfig } from 'react-select'
+import { useField } from 'formik';
+import { customStyles } from 'Components/MainComponents/Forms/ChannelNameComponentForms/styleConfig';
 
-type InputSelectProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type InputSelectProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string
     listContent: dropDownElement[]
+    handleChange: (value: any) => {}
 }
 
-
-const InputSelect: React.FC<InputSelectProps> = ({ name, listContent, ...props }) => {
-    const [dropDownClasses, setDropDownClasses] = useState("dropDown hide")
-    let startList: dropDownElement[];
-    if (listContent.length > 0) {
-        startList = listContent
-    } else {
-        startList = [{ longName: "", key: "", shortName: "" }]
-    }
-    const [items, _] = useState(startList)
-
+let styles: StylesConfig = {
+    ...customStyles,
+    container: (provided, _state) => ({
+        ...provided,
+        margin: "0px",
+        width: "260px",
+    }),
+}
+const InputSelect: React.FC<InputSelectProps> = (props) => {
+    const [, { error }] = useField(props)
     return (
-        <div>
-            <label htmlFor={name}>{name}</label>
-            <input name={name} type="text" placeholder={props.placeholder} onFocus={() => setDropDownClasses("dropDown")} onBlur={() => setDropDownClasses("dropDown hide")} />
-            <div className={dropDownClasses}>
-                {items.map((el, index) => (
-                    <div className="dropDownElement" key={index} id={el.key}>{el.longName}</div>
-                ))}
-            </div>
+        <div className="FieldContainer">
+            <label htmlFor={props.name}>{props.name}</label>
+            <Select styles={styles} onChange={(newValue) => props.handleChange(newValue)} placeholder="Seach for an Application" options={props.listContent} />
+            {error ? <p className="ErrorMessage">{error}</p> : null}
         </div>
     );
 }

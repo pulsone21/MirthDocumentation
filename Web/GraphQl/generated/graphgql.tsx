@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { Upload } from 'Types/UploadType';
 import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -14,11 +15,14 @@ export type Scalars = {
   Float: number;
   /** Mongo object id scalar type */
   ObjectId: any;
+  /** The `Upload` scalar type represents a file upload. */
+  Upload: Upload;
 };
 
 export type Application = {
   __typename?: 'Application';
   _id: Scalars['ObjectId'];
+  logoUrl: Scalars['String'];
   longName: Scalars['String'];
   shortName: Scalars['String'];
   vendor: Vendor;
@@ -117,6 +121,12 @@ export type DataTypeResponse = {
   Errors?: Maybe<Array<ErrorMessage>>;
 };
 
+export type DeletionMessage = {
+  __typename?: 'DeletionMessage';
+  Errors?: Maybe<Array<ErrorMessage>>;
+  deletion?: Maybe<Scalars['Boolean']>;
+};
+
 export enum Environment {
   Poc = 'POC',
   Prd = 'PRD',
@@ -141,11 +151,14 @@ export type Mutation = {
   CreateDataTopic: DataTopicResponse;
   CreateDataType: DataTypeResponse;
   CreateVendor: VendorResponse;
+  DeleteApplication: DeletionMessage;
+  DeleteLogoFromApp: Scalars['Boolean'];
   LogOut: Scalars['Boolean'];
   Login: UserResponse;
   RegisterUser: UserResponse;
   UpdateApplication: ApplicationResponse;
   UpdateVendor: Vendor;
+  addAppLogo: Scalars['Boolean'];
 };
 
 
@@ -167,7 +180,8 @@ export type MutationChannelnameExistArgs = {
 
 
 export type MutationCreateApplicationArgs = {
-  VendorLongname?: Maybe<Scalars['String']>;
+  VendorId: Scalars['ObjectId'];
+  logo?: Maybe<Scalars['Upload']>;
   longName: Scalars['String'];
   shortName: Scalars['String'];
 };
@@ -217,6 +231,16 @@ export type MutationCreateVendorArgs = {
 };
 
 
+export type MutationDeleteApplicationArgs = {
+  id: Scalars['ObjectId'];
+};
+
+
+export type MutationDeleteLogoFromAppArgs = {
+  id: Scalars['ObjectId'];
+};
+
+
 export type MutationLoginArgs = {
   options: UsernamePasswordInput;
 };
@@ -230,6 +254,7 @@ export type MutationRegisterUserArgs = {
 export type MutationUpdateApplicationArgs = {
   VendorLongname?: Maybe<Scalars['String']>;
   id: Scalars['ObjectId'];
+  logo?: Maybe<Scalars['Upload']>;
   longName?: Maybe<Scalars['String']>;
   shortName?: Maybe<Scalars['String']>;
 };
@@ -239,6 +264,11 @@ export type MutationUpdateVendorArgs = {
   id: Scalars['ObjectId'];
   longName: Scalars['String'];
   shortName: Scalars['String'];
+};
+
+
+export type MutationAddAppLogoArgs = {
+  logo: Scalars['Upload'];
 };
 
 export type Query = {
@@ -414,13 +444,14 @@ export type ChannelnameExistMutationVariables = Exact<{
 export type ChannelnameExistMutation = { __typename?: 'Mutation', ChannelnameExist: boolean };
 
 export type CreateApplicationMutationVariables = Exact<{
+  vendorId: Scalars['ObjectId'];
   longName: Scalars['String'];
   shortName: Scalars['String'];
-  vendorLongname?: Maybe<Scalars['String']>;
+  logo?: Maybe<Scalars['Upload']>;
 }>;
 
 
-export type CreateApplicationMutation = { __typename?: 'Mutation', CreateApplication: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', message: string, field: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any } | null | undefined } };
+export type CreateApplicationMutation = { __typename?: 'Mutation', CreateApplication: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any } | null | undefined } };
 
 export type CreateDataAreaMutationVariables = Exact<{
   longName: Scalars['String'];
@@ -527,15 +558,16 @@ export function useChannelnameExistMutation() {
   return Urql.useMutation<ChannelnameExistMutation, ChannelnameExistMutationVariables>(ChannelnameExistDocument);
 };
 export const CreateApplicationDocument = gql`
-    mutation CreateApplication($longName: String!, $shortName: String!, $vendorLongname: String) {
+    mutation CreateApplication($vendorId: ObjectId!, $longName: String!, $shortName: String!, $logo: Upload) {
   CreateApplication(
+    VendorId: $vendorId
     longName: $longName
     shortName: $shortName
-    VendorLongname: $vendorLongname
+    logo: $logo
   ) {
     Errors {
-      message
       field
+      message
     }
     Application {
       _id

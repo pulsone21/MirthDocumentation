@@ -1,8 +1,8 @@
-mutation CreateApplication($longName: String!, $shortName: String!, $vendorLongname: String) {
-    CreateApplication(longName: $longName, shortName: $shortName, VendorLongname: $vendorLongname) {
+mutation CreateApplication($vendorId: ObjectId!, $longName: String!, $shortName: String!, $logo: Upload) {
+    CreateApplication(VendorId: $vendorId, longName: $longName, shortName: $shortName, logo: $logo) {
         Errors {
-            message
             field
+            message
         }
         Application {
             _id

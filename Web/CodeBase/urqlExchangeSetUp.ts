@@ -1,5 +1,6 @@
-import { dedupExchange, fetchExchange } from "@urql/core";
+import { dedupExchange } from "@urql/core";
 import { cacheExchange, Cache, QueryInput } from "@urql/exchange-graphcache";
+import { multipartFetchExchange } from "@urql/exchange-multipart-fetch";
 import { MeDocument, MeQuery, LogOutMutation } from "../GraphQl/generated/graphgql";
 
 function betterUpdateQuery<Result, Query>(cache: Cache, qi: QueryInput, result: any, fn: (r: Result, q: Query) => Query) {
@@ -17,5 +18,5 @@ export const myExchange = [
             },
         },
     }),
-    fetchExchange,
+    multipartFetchExchange,
 ];

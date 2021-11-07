@@ -8,7 +8,8 @@ yarn-error.log*
 
 _OLD_Files/
 Backend/dist
-
+Backend/Server/Interface/Images
+Backend/Server/Interface/In
 # Runtime data
 pids
 *.pid

@@ -1,7 +1,7 @@
 import { ObjectToErrorMap } from 'CodeBase/Utils';
 import InputField from 'Components/BasicComponents/Forms/InputField';
-import { Formik, FormikErrors, FormikValues } from 'formik';
-import { useCreateApplicationMutation, useCreateDataAreaMutation, useCreateDataTopicMutation, useCreateDataTypeMutation } from 'GraphQl/generated/graphgql';
+import { Formik } from 'formik';
+import { useCreateDataAreaMutation, useCreateDataTopicMutation, useCreateDataTypeMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
 
 
@@ -49,7 +49,6 @@ const BaseChannelComponentForm: React.FC<BaseChannelComponentFormProps> = ({ com
                         if (response.data?.CreateDataTopic.Errors) {
                             setErrors(ObjectToErrorMap(response.data.CreateDataTopic.Errors))
                             errors = true
-
                         }
                         break;
                 }
