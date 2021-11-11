@@ -73,6 +73,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
         let response;
         if (connectorNameHelper.name) {
             response = await channelNameExist({ name: connectorNameHelper.name })
+            console.log(response)
             if (response?.data?.ChannelnameExist === true) {
                 setCopieMessage("CHANNELNAME ALREADY EXIST!")
                 setCopieMessageClasses(prevState => `${prevState} error`)

@@ -9,6 +9,7 @@ import { ConnectionTypeModel } from "../../Classes/ConnectionType";
 import { ApplicationModel } from "../../Classes/Application";
 import { VendorModel } from "../../Classes/Vendor";
 import ErrorMessage from "../../Types/ErrorMessage";
+import { Channel } from "diagnostics_channel";
 
 @Resolver(ChannelName)
 export default class ChannelNameResolver {
@@ -34,7 +35,7 @@ export default class ChannelNameResolver {
     @Mutation(() => Boolean)
     async ChannelnameExist(@Arg("name") name: string): Promise<Boolean> {
         let channelName = await ChannelNameModel.find({ name });
-        if (channelName) return true;
+        if (channelName.length > 0) return true;
         return false;
     }
 
