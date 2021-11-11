@@ -96,7 +96,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
             </div>
             <div className="channelNameBuilder-Container">
                 <div className="Toolbar">
-                    <h2 style={{ marginLeft: "5px" }}>Missing an Component?</h2>
+                    <h2 style={{ marginLeft: "5px", fontWeight: "bold", fontSize: "1.5em" }}>Missing an Component?</h2>
                     <ComponentContainer vendorList={vendData} componentName="Application" />
                     <ComponentContainer componentName="Vendor" />
                     <ComponentContainer componentName="DataType" />
@@ -117,7 +117,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "environment" })} placeholder="Seach for an Environment" options={environments} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "channelNumber" })} placeholder="Seach for an Number" options={environments} />
                     </div>
-                    <button type="submit" onClick={handleSubmit} className="baseBtn">Generate Channel Name</button>
+                    <button type="submit" onClick={handleSubmit} className="baseBtn p-2"><p>Generate Channel Name</p></button>
                 </div>
                 <div className="ChannelNameDisplay">
                     <h1 onClick={() => handleClick()} onAnimationEnd={() => setCopieEvent(false)} className={copieEvent ? 'clickToCopyEvent ChannelNameOutput' : 'ChannelNameOutput'}>{channelName}</h1>

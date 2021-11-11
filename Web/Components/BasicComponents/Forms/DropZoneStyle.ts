@@ -12,7 +12,7 @@ export const baseStyle = {
     borderStyle: "dashed",
     color: cssDefaults.colorSecondary,
     outline: "none",
-    transition: "border .24s ease-in-out",
+    transition: "all .24s ease-in-out",
     maxWidth: "305px",
     naxHeight: "95",
 };

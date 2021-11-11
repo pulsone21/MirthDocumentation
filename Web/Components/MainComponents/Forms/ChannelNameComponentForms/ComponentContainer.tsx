@@ -30,14 +30,17 @@ const ComponentContainer: React.FC<ComponentContainerProps> = ({ componentName, 
     return (
         <div className="container">
             {myState ?
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    {html}
-                    <FaMinusSquare className="iconButton" onClick={() => setMyState(false)} />
-                </div> :
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
-                    <p className="ContainerPalceholder">Create {componentName}</p>
-                    <FaPlusSquare className="iconButton" onClick={() => setMyState(true)} />
-                </div>
+                (
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        {html}
+                        <FaMinusSquare className="iconButton" style={{ minHeight: "25px", minWidth: "25px" }} onClick={() => setMyState(false)} />
+                    </div>
+                ) : (
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
+                        <p className="ContainerPalceholder">Create {componentName}</p>
+                        <FaPlusSquare className="iconButton" onClick={() => setMyState(true)} />
+                    </div>
+                )
             }
         </div>
     );

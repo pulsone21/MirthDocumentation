@@ -59,7 +59,7 @@ const BaseChannelComponentForm: React.FC<BaseChannelComponentFormProps> = ({ com
                     <h2>{`Create new ${componentName}`}</h2>
                     <InputField name="longName" id="longName" placeholder={`Longname of the ${componentName}`}></InputField>
                     <InputField name="shortName" id="shortName" placeholder={`Shortname for the ${componentName}`}></InputField>
-                    <button className="navBtn" type="submit">Create</button>
+                    <button className="w-full mt-3 baseBtn" type="submit"><p>Create</p></button>
                 </form>
             )}
         </Formik>

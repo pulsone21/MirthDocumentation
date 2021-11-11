@@ -9,8 +9,8 @@ export const customStyles: StylesConfig = {
     }),
     container: (provided, _state) => ({
         ...provided,
-        margin: "5px",
-        width: "260px",
+        margin: "10px",
+        width: "280px",
     }),
     control: (provided, _state) => ({
         ...provided,

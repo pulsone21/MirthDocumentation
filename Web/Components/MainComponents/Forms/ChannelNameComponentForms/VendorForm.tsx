@@ -38,7 +38,7 @@ const VendorForm: React.FC<VendorFormProps> = ({ }) => {
                     <InputField name="longName" id="longName" placeholder="Longname of the vendor"></InputField>
                     <InputField name="shortName" id="shortName" placeholder="Shortname for the vendor"></InputField>
                     <InputField name="application" id="application" placeholder="link application by longname"></InputField>
-                    <button className="navBtn" type="submit">Create</button>
+                    <button className="w-full mt-3 baseBtn" type="submit"><p>Create</p></button>
                 </form>
             )}
         </Formik>

@@ -21,3 +21,8 @@
     width: 10em;
     margin-left: 1em;
 }
+
+form h2 {
+    font-size: 1.5em;
+    font-weight: "bold";
+}
