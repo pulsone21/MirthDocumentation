@@ -14,8 +14,8 @@ const ApplicationTable: React.FC<ApplicationTableProps> = () => {
     let tableHTML;
     const headerElements = ["Application Logo", "Applicationname", "Vendorname", "Tags", "Link"];
 
-    if (fetching) { tableHTML = (<h1>LOADING</h1>) } //TODO Implement Loading animation
-    else if (error) { tableHTML = (<h1>Error</h1>) } //TODO Implement Error handling 
+    if (fetching) { tableHTML = (<h1>LOADING</h1>) } //TODO Implement appropriate Loading animation
+    else if (error) { tableHTML = (<h1>Error</h1>) } //TODO Implement appropriate Error handling 
     else if (data?.GetAllApplikations) {
 
 

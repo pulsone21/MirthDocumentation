@@ -8,7 +8,7 @@ export default class ConnectionType {
     readonly _id: ObjectId;
 
     @Field()
-    @Property({ unique: true })
+    @Property({ unique: true, minlength: 5, maxlength: 5 })
     shortName: String;
 
     @Field()

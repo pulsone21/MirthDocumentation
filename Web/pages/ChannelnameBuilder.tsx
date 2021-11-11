@@ -6,10 +6,11 @@ import HeaderSection from '../Components/HeaderSection';
 import { dropDownElement } from '../Types/dropDownElement';
 import Select from 'react-select';
 import { customStyles } from 'Components/MainComponents/Forms/ChannelNameComponentForms/styleConfig';
-import { useChannelnameExistMutation, useGetAllApplikationsQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
+import { useChannelnameExistMutation, useGetAllApplikationsQuery, useGetAllConnectionTypesQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
 import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
 import { ConnectorNameAcessor, ConnectorNameHelper, GenerateNameFromHelper, initConnectorName } from 'Types/ConnectorTypeHelper';
 
+//TODO Implement the Numbering Convention ---> maybe complete automatic with possible settings in a config file.....
 interface ChannelNameBuilderProps {
 
 }
@@ -52,6 +53,12 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
         if (vendRawData?.GetAllVendors) vendData = GenerateDopDownFromQuery(vendRawData.GetAllVendors)
     }
 
+    const [{ data: conTypRawData, fetching: conTypFetch }] = useGetAllConnectionTypesQuery();
+    let conTypData: dropDownElement[] = []
+    if (!conTypFetch) {
+        if (conTypRawData?.GetAllConnectionTypes) conTypData = GenerateDopDownFromQuery(conTypRawData.GetAllConnectionTypes)
+    }
+
 
     const handleClick = () => {
         copyToClipboard(channelName);
@@ -62,6 +69,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
 
     const handleSubmit = async () => {
         connectorNameHelper.name = GenerateNameFromHelper(connectorNameHelper);
+        console.log(connectorNameHelper.name)
         let response;
         if (connectorNameHelper.name) {
             response = await channelNameExist({ name: connectorNameHelper.name })
@@ -90,13 +98,13 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
                 <link rel="shortcut icon" href="/MDlogoSimplified.png" />
             </Head>
             <HeaderSection></HeaderSection>
-            <div style={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
-                <h2 style={{ marginLeft: "10px", marginBottom: "0px" }} className="HeaderText">Channelname Builder</h2>
-                <p style={{ marginLeft: "40px", alignSelf: "end" }} className="articalText">Here you can build out the Channelname</p>
-            </div>
             <div className="channelNameBuilder-Container">
                 <div className="Toolbar">
-                    <h2 style={{ marginLeft: "5px", fontWeight: "bold", fontSize: "1.5em" }}>Missing an Component?</h2>
+                    <div style={{ marginTop: "15px" }}>
+                        <h1 style={{ marginLeft: "10px", marginBottom: "0px" }} className="HeaderText">Channelname Builder</h1>
+                        <p style={{ marginLeft: "40px" }} className="articalText">Here you can build out the Channelname</p>
+                    </div>
+                    <h2 style={{ marginTop: "5px", marginLeft: "5px", fontWeight: "bold", fontSize: "1.5em" }}>Missing an Component?</h2>
                     <ComponentContainer vendorList={vendData} componentName="Application" />
                     <ComponentContainer componentName="Vendor" />
                     <ComponentContainer componentName="DataType" />
@@ -113,7 +121,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
                     </div>
                     <div className="flex mt-5 mb-5">
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "dataTopic" })} placeholder="Seach for an DataTopic" options={dataTopicData} />
-                        <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "connectionType" })} placeholder="Seach for an ConnectorType" options={environments} />
+                        <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "connectionType" })} placeholder="Seach for an ConnectorType" options={conTypData} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "environment" })} placeholder="Seach for an Environment" options={environments} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "channelNumber" })} placeholder="Seach for an Number" options={environments} />
                     </div>

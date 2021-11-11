@@ -4,8 +4,6 @@ import { Formik } from 'formik';
 import { useCreateDataAreaMutation, useCreateDataTopicMutation, useCreateDataTypeMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
 
-
-
 interface BaseChannelComponentFormProps {
     componentName: "DataType" | "DataArea" | "DataTopic"
 }
@@ -59,7 +57,7 @@ const BaseChannelComponentForm: React.FC<BaseChannelComponentFormProps> = ({ com
                     <h2>{`Create new ${componentName}`}</h2>
                     <InputField name="longName" id="longName" placeholder={`Longname of the ${componentName}`}></InputField>
                     <InputField name="shortName" id="shortName" placeholder={`Shortname for the ${componentName}`}></InputField>
-                    <button className="w-full mt-3 baseBtn" type="submit"><p>Create</p></button>
+                    <button className="w-11/12 mt-3 baseBtn" type="submit"><p>Create</p></button>
                 </form>
             )}
         </Formik>

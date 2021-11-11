@@ -2,7 +2,7 @@
     padding: 10px;
     display: grid;
     min-height: 1000px;
-    grid-template-columns: 0.4fr 1.1fr 1.4fr;
+    grid-template-columns: 0.5fr 1.1fr 1.3fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 5px 5px;
     grid-template-areas:
@@ -30,7 +30,7 @@
     margin-top: 5px;
     font: var(--font-Artical);
     padding: 5px;
-    width: 85%;
+    width: 100%;
     border: 1px solid var(--color-primary-highlight);
     outline: 0;
     transition: all 0.2s ease;
@@ -120,6 +120,7 @@
 
 .channelNameBuilder-Container .BuildingArea {
     grid-area: BuildingArea;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;

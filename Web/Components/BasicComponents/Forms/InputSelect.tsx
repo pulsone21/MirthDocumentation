@@ -15,7 +15,7 @@ let styles: StylesConfig = {
     container: (provided, _state) => ({
         ...provided,
         margin: "0px",
-        width: "260px",
+        width: "280px",
     }),
 }
 const InputSelect: React.FC<InputSelectProps> = (props) => {
