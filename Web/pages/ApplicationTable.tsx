@@ -2,7 +2,7 @@ import BasicTable from '../Components/BasicComponents/Table/BasicTable';
 import * as React from 'react';
 import HeaderSection from '../Components/HeaderSection';
 import Head from 'next/head';
-import { useGetAllApplikationsQuery } from 'GraphQl/generated/graphgql';
+import { useGetAllApplikationsRichQuery } from 'GraphQl/generated/graphgql';
 
 interface ApplicationTableProps {
 
@@ -10,9 +10,9 @@ interface ApplicationTableProps {
 
 const ApplicationTable: React.FC<ApplicationTableProps> = () => {
 
-    const [{ data, fetching, error }] = useGetAllApplikationsQuery();
+    const [{ data, fetching, error }] = useGetAllApplikationsRichQuery();
     let tableHTML;
-    const headerElements = ["Application Logo", "Applicationname", "Vendorname", "Tags", "Link"];
+    const headerElements = ["Application Logo", "Applicationname", "Vendorname", "Tags", "Link", "Edit"];
 
     if (fetching) { tableHTML = (<h1>LOADING</h1>) } //TODO Implement appropriate Loading animation
     else if (error) { tableHTML = (<h1>Error</h1>) } //TODO Implement appropriate Error handling 

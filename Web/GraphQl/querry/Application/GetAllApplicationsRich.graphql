@@ -1,0 +1,8 @@
+query GetAllApplikationsRich {
+    GetAllApplikations {
+        _id
+        shortName
+        longName
+        logoUrl
+    }
+}

@@ -1,6 +1,6 @@
 import { ObjectId } from "mongoose";
 require("dotenv").config();
-import Application, { ApplicationModel, ApplicationResponse, BaseApplication } from "../../Classes/Application";
+import Application, { ApplicationModel, ApplicationResponse } from "../../Classes/Application";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
 import { VendorModel } from "../../Classes/Vendor";
@@ -12,8 +12,8 @@ import DeletionMessage from "../../Types/DeletionMessage";
 
 @Resolver(Application)
 export default class ApplicationResolver {
-    @Query(() => [BaseApplication])
-    async GetAllApplikations(): Promise<BaseApplication[]> {
+    @Query(() => [Application])
+    async GetAllApplikations(): Promise<Application[]> {
         return await ApplicationModel.find({});
     }
 

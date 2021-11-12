@@ -9,7 +9,6 @@ import { ConnectionTypeModel } from "../../Classes/ConnectionType";
 import { ApplicationModel } from "../../Classes/Application";
 import { VendorModel } from "../../Classes/Vendor";
 import ErrorMessage from "../../Types/ErrorMessage";
-import { Channel } from "diagnostics_channel";
 
 @Resolver(ChannelName)
 export default class ChannelNameResolver {

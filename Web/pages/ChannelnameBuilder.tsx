@@ -6,7 +6,7 @@ import HeaderSection from '../Components/HeaderSection';
 import { dropDownElement } from '../Types/dropDownElement';
 import Select from 'react-select';
 import { customStyles } from 'Components/MainComponents/Forms/ChannelNameComponentForms/styleConfig';
-import { useChannelnameExistMutation, useGetAllApplikationsQuery, useGetAllConnectionTypesQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
+import { useChannelnameExistMutation, useGetAllApplikationsBasicQuery, useGetAllConnectionTypesQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
 import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
 import { ConnectorNameAcessor, ConnectorNameHelper, GenerateNameFromHelper, initConnectorName } from 'Types/ConnectorTypeHelper';
 
@@ -29,7 +29,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
         if (dataTypeRawData?.GetAllDataTypes) dataTypeData = GenerateDopDownFromQuery(dataTypeRawData.GetAllDataTypes)
     }
 
-    const [{ data: appRawData, fetching: appFetch }] = useGetAllApplikationsQuery();
+    const [{ data: appRawData, fetching: appFetch }] = useGetAllApplikationsBasicQuery();
     let appData: dropDownElement[] = []
     if (!appFetch) {
         if (appRawData?.GetAllApplikations) appData = GenerateDopDownFromQuery(appRawData.GetAllApplikations)

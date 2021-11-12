@@ -1,5 +1,4 @@
 import gql from 'graphql-tag';
-import { Upload } from 'Types/UploadType';
 import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -16,7 +15,7 @@ export type Scalars = {
   /** Mongo object id scalar type */
   ObjectId: any;
   /** The `Upload` scalar type represents a file upload. */
-  Upload: Upload;
+  Upload: any;
 };
 
 export type Application = {
@@ -32,13 +31,6 @@ export type ApplicationResponse = {
   __typename?: 'ApplicationResponse';
   Application?: Maybe<Application>;
   Errors?: Maybe<Array<ErrorMessage>>;
-};
-
-export type BaseApplication = {
-  __typename?: 'BaseApplication';
-  _id: Scalars['ObjectId'];
-  longName: Scalars['String'];
-  shortName: Scalars['String'];
 };
 
 export type BaseVendor = {
@@ -273,7 +265,7 @@ export type MutationAddAppLogoArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  GetAllApplikations: Array<BaseApplication>;
+  GetAllApplikations: Array<Application>;
   GetAllChannelNames: Array<ChannelName>;
   GetAllConnectionTypes: Array<ConnectionType>;
   GetAllDataAreas: Array<DataArea>;
@@ -507,10 +499,15 @@ export type CreateVendorMutationVariables = Exact<{
 
 export type CreateVendorMutation = { __typename?: 'Mutation', CreateVendor: { __typename?: 'VendorResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Vendor?: { __typename?: 'Vendor', _id: any } | null | undefined } };
 
-export type GetAllApplikationsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllApplikationsBasicQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllApplikationsQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'BaseApplication', _id: any, shortName: string, longName: string }> };
+export type GetAllApplikationsBasicQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string }> };
+
+export type GetAllApplikationsRichQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllApplikationsRichQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string }> };
 
 export type GetAllConnectionTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -694,8 +691,8 @@ export const CreateVendorDocument = gql`
 export function useCreateVendorMutation() {
   return Urql.useMutation<CreateVendorMutation, CreateVendorMutationVariables>(CreateVendorDocument);
 };
-export const GetAllApplikationsDocument = gql`
-    query GetAllApplikations {
+export const GetAllApplikationsBasicDocument = gql`
+    query GetAllApplikationsBasic {
   GetAllApplikations {
     _id
     shortName
@@ -704,8 +701,22 @@ export const GetAllApplikationsDocument = gql`
 }
     `;
 
-export function useGetAllApplikationsQuery(options: Omit<Urql.UseQueryArgs<GetAllApplikationsQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<GetAllApplikationsQuery>({ query: GetAllApplikationsDocument, ...options });
+export function useGetAllApplikationsBasicQuery(options: Omit<Urql.UseQueryArgs<GetAllApplikationsBasicQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllApplikationsBasicQuery>({ query: GetAllApplikationsBasicDocument, ...options });
+};
+export const GetAllApplikationsRichDocument = gql`
+    query GetAllApplikationsRich {
+  GetAllApplikations {
+    _id
+    shortName
+    longName
+    logoUrl
+  }
+}
+    `;
+
+export function useGetAllApplikationsRichQuery(options: Omit<Urql.UseQueryArgs<GetAllApplikationsRichQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetAllApplikationsRichQuery>({ query: GetAllApplikationsRichDocument, ...options });
 };
 export const GetAllConnectionTypesDocument = gql`
     query GetAllConnectionTypes {

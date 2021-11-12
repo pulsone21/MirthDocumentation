@@ -1,4 +1,4 @@
-query GetAllApplikations {
+query GetAllApplikationsBasic {
     GetAllApplikations {
         _id
         shortName
