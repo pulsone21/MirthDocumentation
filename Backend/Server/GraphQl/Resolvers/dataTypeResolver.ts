@@ -2,7 +2,6 @@ import { ObjectId } from "mongoose";
 import DataType, { DataTypeModel, DataTypeResponse } from "../../Classes/DataType";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
-
 @Resolver(DataType)
 export default class DataTypeResolver {
     @Query(() => [DataType])
@@ -11,59 +10,25 @@ export default class DataTypeResolver {
     }
     @Query(() => DataTypeResponse)
     async GetDataTypeByShortName(@Arg("shortName") shortName: String): Promise<DataTypeResponse> {
-        const DataType = await DataTypeModel.findOne({ shortName });
-        if (!DataType) {
-            return {
-                Errors: [
-                    {
-                        field: "shortName",
-                        message: `No DataType found with Shortname: ${shortName}`,
-                    },
-                ],
-            };
-        } else {
-            return {
-                DataType,
-            };
-        }
+        const DataType = await DataTypeModel.find({ shortName });
+        if (!DataType) return { Errors: [{ field: "shortName", message: `No DataType found with Shortname: ${shortName}` }] };
+        if (DataType.length > 1) return { Errors: [{ field: "shortName", message: `More then one DataType found with Shortname: ${shortName}` }] };
+        return { DataType: DataType[0] };
     }
 
     @Query(() => DataTypeResponse)
     async GetDataTypeByLongName(@Arg("longName") longName: String): Promise<DataTypeResponse> {
-        const DataType = await DataTypeModel.findOne({ longName });
-        if (!DataType) {
-            return {
-                Errors: [
-                    {
-                        field: "longName",
-                        message: `No DataType found with Longname: ${longName}`,
-                    },
-                ],
-            };
-        } else {
-            return {
-                DataType,
-            };
-        }
+        const DataType = await DataTypeModel.find({ longName });
+        if (!DataType) return { Errors: [{ field: "longName", message: `No DataType found with Longname: ${longName}` }] };
+        if (DataType.length > 1) return { Errors: [{ field: "longName", message: `More then one DataType found with Longname: ${longName}` }] };
+        return { DataType: DataType[0] };
     }
 
     @Query(() => DataTypeResponse)
     async GetDataTypeByID(@Arg("id", () => ObjectIdScalar) id: ObjectId): Promise<DataTypeResponse> {
         const DataType = await DataTypeModel.findOne({ id });
-        if (!DataType) {
-            return {
-                Errors: [
-                    {
-                        field: "ID",
-                        message: `No DataType found with ID: ${id}`,
-                    },
-                ],
-            };
-        } else {
-            return {
-                DataType,
-            };
-        }
+        if (!DataType) return { Errors: [{ field: "ID", message: `No DataType found with ID: ${id}` }] };
+        return { DataType };
     }
 
     @Mutation(() => DataTypeResponse)
@@ -72,41 +37,18 @@ export default class DataTypeResolver {
         @Arg("longName", () => String, { nullable: false }) longName: String
     ): Promise<DataTypeResponse> {
         const validation = await BaseValidation(shortName);
-        if (validation) {
-            return validation;
-        }
-
-        if (!longName) {
-            return {
-                Errors: [{ field: "longName", message: "please enter a Longname" }],
-            };
-        }
-
-        const dataType = await DataTypeModel.create({ shortName, longName });
-        if (!dataType) {
-            return {
-                Errors: [
-                    {
-                        field: "shortName",
-                        message: "Somehting went wrong!",
-                    },
-                ],
-            };
-        }
-        return {
-            DataType: dataType,
-        };
+        if (validation) return validation;
+        if (!longName) return { Errors: [{ field: "longName", message: "please enter a Longname" }] };
+        const DataType = await DataTypeModel.create({ shortName, longName });
+        if (!DataType) return { Errors: [{ field: "shortName", message: "Somehting went wrong!" }] };
+        return { DataType };
     }
 }
 
 async function BaseValidation(shortName: String): Promise<DataTypeResponse | undefined> {
     const validation = DataType.CheckShortName(shortName);
-    if (validation) {
-        return validation;
-    }
+    if (validation) return validation;
     const exist = DataTypeModel.CheckShortnameAvailable(shortName);
-    if (exist) {
-        return exist;
-    }
+    if (exist) return exist;
     return;
 }

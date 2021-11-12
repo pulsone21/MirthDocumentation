@@ -26,11 +26,7 @@ export default class Vendor extends BaseNameComponent {
 
     public static override async CheckShortnameAvailable(shortName: String): Promise<VendorResponse | undefined> {
         const exist = await VendorModel.find({ shortName });
-        if (exist.length > 0) {
-            return {
-                Errors: [{ field: "shortName", message: `${shortName} already taken` }],
-            };
-        }
+        if (exist.length > 0) return { Errors: [{ field: "shortName", message: `${shortName} already taken` }] };
         return;
     }
 }
@@ -40,20 +36,6 @@ export class VendorResponse {
     Errors?: ErrorMessage[];
     @Field(() => Vendor, { nullable: true })
     Vendor?: Vendor;
-}
-
-@ObjectType()
-export class BaseVendor {
-    @Field()
-    readonly _id: ObjectId;
-
-    @Field()
-    @Property({ unique: true })
-    public shortName: String;
-
-    @Field()
-    @Property()
-    public longName: String;
 }
 
 export const VendorModel = getModelForClass(Vendor);

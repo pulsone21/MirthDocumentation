@@ -17,18 +17,19 @@ export default class ChannelNameResolver {
         return await ChannelNameModel.find({});
     }
 
-    @Query(() => ChannelName)
-    async GetChannelNameByID(@Arg("id", () => ObjectIdScalar) id: ObjectId) {
-        try {
-            return await ChannelNameModel.findById(id);
-        } catch (err) {
-            throw new Error("No ChannelName found in the DB!");
-        }
+    @Query(() => ChannelNameResponse)
+    async GetChannelNameByID(@Arg("id") id: String): Promise<ChannelNameResponse> {
+        let ChannelName = await ChannelNameModel.findOne({ id });
+        if (!ChannelName) return { Errors: [{ field: "id", message: "No ChannelName found with id: " + id }] };
+        return { ChannelName };
     }
 
-    @Query(() => ChannelName)
-    async GetChannelNameByFullName(@Arg("name") name: string) {
-        return await ChannelNameModel.find({ name });
+    @Query(() => ChannelNameResponse)
+    async GetChannelNameByFullName(@Arg("name") name: string): Promise<ChannelNameResponse> {
+        let ChannelName = await ChannelNameModel.find({ name });
+        if (!ChannelName) return { Errors: [{ field: "fullName", message: "No ChannelName found with Fullname of: " + name }] };
+        if (ChannelName.length > 1) return { Errors: [{ field: "fullName", message: "More then one ChannelName found with Fullname of: " + name }] };
+        return { ChannelName: ChannelName[0] };
     }
 
     @Mutation(() => Boolean)

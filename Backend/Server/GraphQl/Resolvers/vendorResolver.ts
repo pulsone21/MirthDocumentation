@@ -1,41 +1,37 @@
 import { ObjectId } from "mongoose";
 import { Arg, Query, Resolver, Mutation } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
-import Vendor, { VendorModel, VendorResponse, BaseVendor } from "../../Classes/Vendor";
+import Vendor, { VendorModel, VendorResponse } from "../../Classes/Vendor";
 import { ApplicationModel } from "../../Classes/Application";
 
 @Resolver(Vendor)
 export default class VendorResolver {
-    @Query(() => [BaseVendor])
-    async GetAllVendors(): Promise<BaseVendor[]> {
+    @Query(() => [Vendor])
+    async GetAllVendors(): Promise<Vendor[]> {
         return await VendorModel.find({});
     }
 
-    @Query(() => Vendor)
-    async GetVendorByID(@Arg("id", () => ObjectIdScalar) id: ObjectId) {
-        try {
-            return await VendorModel.findById(id);
-        } catch (err) {
-            throw new Error("No Vendor found with ID: " + id);
-        }
+    @Query(() => VendorResponse)
+    async GetVendorByID(@Arg("id") id: String): Promise<VendorResponse> {
+        let Vendor = await VendorModel.findOne({ id });
+        if (!Vendor) return { Errors: [{ field: "id", message: "No Vendor with id: " + id + " found!" }] };
+        return { Vendor };
     }
 
-    @Query(() => Vendor)
-    async GetVendorShortName(@Arg("shortName") ShortName: String) {
-        try {
-            return await VendorModel.findOne({ shortName: ShortName });
-        } catch (err) {
-            throw new Error("No Vendor found in the DB!");
-        }
+    @Query(() => VendorResponse)
+    async GetVendorShortName(@Arg("shortName") shortName: String): Promise<VendorResponse> {
+        let Vendor = await VendorModel.find({ shortName });
+        if (!Vendor) return { Errors: [{ field: "shortName", message: "no Vendor found with shortname: " + shortName }] };
+        if (Vendor.length > 1) return { Errors: [{ field: "shortName", message: "more then one Vendor found with shortname: " + shortName }] };
+        return { Vendor: Vendor[0] };
     }
 
-    @Query(() => Vendor)
-    async GetVendorByLongName(@Arg("longName") LongName: String) {
-        try {
-            return await VendorModel.findOne({ longName: LongName });
-        } catch (err) {
-            throw new Error("No Vendor found in the DB!");
-        }
+    @Query(() => VendorResponse)
+    async GetVendorByLongName(@Arg("longName") longName: String): Promise<VendorResponse> {
+        let Vendor = await VendorModel.find({ longName });
+        if (!Vendor) return { Errors: [{ field: "longName", message: "no Vendor found with longName: " + longName }] };
+        if (Vendor.length > 1) return { Errors: [{ field: "longName", message: "more then one Vendor found with longName: " + longName }] };
+        return { Vendor: Vendor[0] };
     }
 
     @Mutation(() => VendorResponse)
@@ -45,15 +41,8 @@ export default class VendorResolver {
         @Arg("appLongname", { nullable: true }) applongName: String
     ): Promise<VendorResponse> {
         const validation = await BaseValidation(shortName);
-        if (validation) {
-            return validation;
-        }
-        if (!longName) {
-            return {
-                Errors: [{ field: "longName", message: "please enter a Longname" }],
-            };
-        }
-
+        if (validation) return validation;
+        if (!longName) return { Errors: [{ field: "longName", message: "please enter a Longname" }] };
         const vendor = await VendorModel.create({ shortName, longName });
         if (applongName) {
             const app = await ApplicationModel.find({ applongName });
@@ -61,41 +50,22 @@ export default class VendorResolver {
                 vendor.applications.push(app[0]);
                 vendor.save();
             } else if (app.length > 1) {
-                return {
-                    Errors: [
-                        {
-                            field: "application",
-                            message: `more then one application found`,
-                        },
-                    ],
-                };
+                return { Errors: [{ field: "application", message: `more then one application found` }] };
             } else {
-                return {
-                    Errors: [
-                        {
-                            field: "application",
-                            message: `no application with ${applongName} found`,
-                        },
-                    ],
-                };
+                return { Errors: [{ field: "application", message: `no application with ${applongName} found` }] };
             }
         }
-        return {
-            Vendor: vendor,
-        };
+        return { Vendor: vendor };
     }
 
-    @Mutation(() => Vendor)
+    @Mutation(() => VendorResponse)
     async UpdateVendor(
         @Arg("id", () => ObjectIdScalar) id: ObjectId,
         @Arg("shortName") shortName: String,
         @Arg("longName") longName: String
     ): Promise<VendorResponse> {
         const validation = await BaseValidation(shortName);
-        if (validation) {
-            return validation;
-        }
-
+        if (validation) return validation;
         const vend = await VendorModel.findById(id);
         if (vend) {
             if (shortName != undefined) {
@@ -107,30 +77,24 @@ export default class VendorResolver {
                 vend.longName = longName;
                 vend.save();
             }
-            return {
-                Vendor: vend,
-            };
+            return { Vendor: vend };
         }
-        return {
-            Errors: [{ field: "id", message: "Something went wrong!" }],
-        };
+        return { Errors: [{ field: "id", message: "Something went wrong!" }] };
     }
 
-    @Mutation(() => Vendor)
-    async AddApplikationToVendor(@Arg("VendorID", () => ObjectIdScalar) vendId: ObjectId, @Arg("ApplicationID", () => ObjectIdScalar) appId: ObjectId) {
-        const vend = await VendorModel.findById(vendId);
-        const app = await ApplicationModel.findById(appId);
-        if (vend && app) {
-            if (vend.applications.some((e) => e?._id.toString() === vendId.toString())) {
-                //Do nothing since the app is already in the array
-                throw new Error(`Application with ID: ${appId} allready in the List from Vendor with ID: ${vendId}`);
-            } else {
-                vend.applications.push(app);
-                vend.save();
-                return vend;
-            }
+    @Mutation(() => VendorResponse)
+    async AddApplikationToVendor(@Arg("VendorID") vendId: String, @Arg("ApplicationID") appId: String): Promise<VendorResponse> {
+        const Vendor = await VendorModel.find({ id: vendId });
+        const app = await ApplicationModel.find({ id: appId });
+        if (!app) return { Errors: [{ field: "ApplicationID", message: "No App found with id: " + appId }] };
+        if (!Vendor) return { Errors: [{ field: "VendorID", message: "No Vendor found with id: " + vendId }] };
+        //? No need to check for an array since the id is unique!
+        if (Vendor[0].applications.some((e) => e?._id.toString() === vendId.toString())) {
+            return { Errors: [{ field: "ApplicationID", message: "Application is already on the List." }] };
         } else {
-            return null;
+            Vendor[0].applications.push(app[0]);
+            Vendor[0].save();
+            return { Vendor: Vendor[0] };
         }
     }
 }
