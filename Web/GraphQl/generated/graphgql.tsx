@@ -33,13 +33,6 @@ export type ApplicationResponse = {
   Errors?: Maybe<Array<ErrorMessage>>;
 };
 
-export type BaseVendor = {
-  __typename?: 'BaseVendor';
-  _id: Scalars['ObjectId'];
-  longName: Scalars['String'];
-  shortName: Scalars['String'];
-};
-
 export type ChannelName = {
   __typename?: 'ChannelName';
   _id: Scalars['ObjectId'];
@@ -133,7 +126,7 @@ export type ErrorMessage = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  AddApplikationToVendor: Vendor;
+  AddApplikationToVendor: VendorResponse;
   AddVendorToApplication: ApplicationResponse;
   ChannelnameExist: Scalars['Boolean'];
   CreateApplication: ApplicationResponse;
@@ -149,14 +142,14 @@ export type Mutation = {
   Login: UserResponse;
   RegisterUser: UserResponse;
   UpdateApplication: ApplicationResponse;
-  UpdateVendor: Vendor;
+  UpdateVendor: VendorResponse;
   addAppLogo: Scalars['Boolean'];
 };
 
 
 export type MutationAddApplikationToVendorArgs = {
-  ApplicationID: Scalars['ObjectId'];
-  VendorID: Scalars['ObjectId'];
+  ApplicationID: Scalars['String'];
+  VendorID: Scalars['String'];
 };
 
 
@@ -271,12 +264,12 @@ export type Query = {
   GetAllDataAreas: Array<DataArea>;
   GetAllDataTopics: Array<DataTopic>;
   GetAllDataTypes: Array<DataType>;
-  GetAllVendors: Array<BaseVendor>;
+  GetAllVendors: Array<Vendor>;
   GetApplicationByID: ApplicationResponse;
   GetApplicationByLongName: ApplicationResponse;
   GetApplicationByShortName: ApplicationResponse;
-  GetChannelNameByFullName: ChannelName;
-  GetChannelNameByID: ChannelName;
+  GetChannelNameByFullName: ChannelNameResponse;
+  GetChannelNameByID: ChannelNameResponse;
   GetConnectionTypeByID: ConnectionTypeResponse;
   GetConnectionTypeByLongName: ConnectionTypeResponse;
   GetConnectionTypeByShortName: ConnectionTypeResponse;
@@ -289,15 +282,15 @@ export type Query = {
   GetDataTypeByID: DataTypeResponse;
   GetDataTypeByLongName: DataTypeResponse;
   GetDataTypeByShortName: DataTypeResponse;
-  GetVendorByID: Vendor;
-  GetVendorByLongName: Vendor;
-  GetVendorShortName: Vendor;
+  GetVendorByID: VendorResponse;
+  GetVendorByLongName: VendorResponse;
+  GetVendorShortName: VendorResponse;
   Me?: Maybe<User>;
 };
 
 
 export type QueryGetApplicationByIdArgs = {
-  id: Scalars['ObjectId'];
+  id: Scalars['String'];
 };
 
 
@@ -317,7 +310,7 @@ export type QueryGetChannelNameByFullNameArgs = {
 
 
 export type QueryGetChannelNameByIdArgs = {
-  id: Scalars['ObjectId'];
+  id: Scalars['String'];
 };
 
 
@@ -382,7 +375,7 @@ export type QueryGetDataTypeByShortNameArgs = {
 
 
 export type QueryGetVendorByIdArgs = {
-  id: Scalars['ObjectId'];
+  id: Scalars['String'];
 };
 
 
@@ -507,7 +500,7 @@ export type GetAllApplikationsBasicQuery = { __typename?: 'Query', GetAllApplika
 export type GetAllApplikationsRichQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllApplikationsRichQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string }> };
+export type GetAllApplikationsRichQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string, vendor: { __typename?: 'Vendor', _id: any } }> };
 
 export type GetAllConnectionTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -537,7 +530,14 @@ export type MeQuery = { __typename?: 'Query', Me?: { __typename?: 'User', _id: a
 export type GetAllVendorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllVendorsQuery = { __typename?: 'Query', GetAllVendors: Array<{ __typename?: 'BaseVendor', _id: any, shortName: string, longName: string }> };
+export type GetAllVendorsQuery = { __typename?: 'Query', GetAllVendors: Array<{ __typename?: 'Vendor', _id: any, shortName: string, longName: string }> };
+
+export type GetVendorByIdQueryVariables = Exact<{
+  getVendorById: Scalars['String'];
+}>;
+
+
+export type GetVendorByIdQuery = { __typename?: 'Query', GetVendorByID: { __typename?: 'VendorResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Vendor?: { __typename?: 'Vendor', shortName: string, longName: string } | null | undefined } };
 
 export const RegularUserFragmentDoc = gql`
     fragment RegularUser on User {
@@ -711,6 +711,9 @@ export const GetAllApplikationsRichDocument = gql`
     shortName
     longName
     logoUrl
+    vendor {
+      _id
+    }
   }
 }
     `;
@@ -793,4 +796,22 @@ export const GetAllVendorsDocument = gql`
 
 export function useGetAllVendorsQuery(options: Omit<Urql.UseQueryArgs<GetAllVendorsQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetAllVendorsQuery>({ query: GetAllVendorsDocument, ...options });
+};
+export const GetVendorByIdDocument = gql`
+    query GetVendorByID($getVendorById: String!) {
+  GetVendorByID(id: $getVendorById) {
+    Errors {
+      field
+      message
+    }
+    Vendor {
+      shortName
+      longName
+    }
+  }
+}
+    `;
+
+export function useGetVendorByIdQuery(options: Omit<Urql.UseQueryArgs<GetVendorByIdQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetVendorByIdQuery>({ query: GetVendorByIdDocument, ...options });
 };

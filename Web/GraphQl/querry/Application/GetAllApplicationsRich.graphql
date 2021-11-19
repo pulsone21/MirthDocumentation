@@ -4,5 +4,8 @@ query GetAllApplikationsRich {
         shortName
         longName
         logoUrl
+        vendor {
+            _id
+        }
     }
 }

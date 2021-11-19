@@ -9,21 +9,13 @@ import "../Components/BasicComponents/Forms/InputField.css"
 import "../CSS/applicationTable.css"
 import "../Components/MainComponents/ChannelnameBuilder/channelNameBuilder.css"
 import type { AppProps } from 'next/app'
-import { Provider, createClient } from 'urql';
-import { URQL_CLIENT_URL } from '../config';
+import { Provider } from 'urql';
 import Loginform from 'Components/MainComponents/Forms/LoginForm/LoginForm';
 import { useMeQuery } from 'GraphQl/generated/graphgql';
 import { withUrqlClient } from 'next-urql';
 import "tailwindcss/tailwind.css"
-import { myExchange } from '../CodeBase/urqlExchangeSetUp';
+import { client } from 'CodeBase/CreateUrqlClient';
 
-const client = createClient({
-  url: URQL_CLIENT_URL,
-  fetchOptions: {
-    credentials: "include",
-  },
-  exchanges: myExchange,
-})
 
 
 function MyApp({ Component, pageProps }: AppProps) {

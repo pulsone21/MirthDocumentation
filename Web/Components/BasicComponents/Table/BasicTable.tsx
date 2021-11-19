@@ -1,4 +1,6 @@
 import React from 'react'
+import TabelRow from './TabelRow';
+import TableCellText from './TableCellText';
 
 interface BasicTableProps {
     tableStyling?: string;
@@ -8,13 +10,17 @@ interface BasicTableProps {
 
 const BasicTable: React.FC<BasicTableProps> = (props) => {
     const tableRows: any[] = [];
+
     props.bodyElements.map((row, index) => {
+
         let cells: any[] = []
         row.map((cell, index) => {
-            cells.push(<td key={`${cell}-${index}`}>{cell}</td>)
+            cells.push(<TableCellText innerHtml={cell} />)
         })
-        tableRows.push(<tr key={`Row-${index}`} id={`Row-${index}`}>{cells}</tr>)
+
+        tableRows.push(<TabelRow index={index}>{cells}</TabelRow>)
     });
+
     return (
         <table className={props.tableStyling}>
             <thead>
@@ -32,11 +38,6 @@ export default BasicTable;
 
 /*
 infos über den header,
-
-
-
-
-
 <table>
     <thead>
         <th></th>

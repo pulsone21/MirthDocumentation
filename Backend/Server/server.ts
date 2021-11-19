@@ -64,6 +64,28 @@ async function startServer() {
             path: "/graphql",
             cors: false,
         });
+        app.get("/Server/Interface/Images/:image", function (req, res) {
+            console.log("Request Get");
+            var options = {
+                root: "D:\\Programming_Projects\\GitProjects\\MirthDocumentation\\Backend\\Server\\Interface\\Images\\", //Find a way to do it genereic
+                dotfiles: "deny",
+                headers: {
+                    "x-timestamp": Date.now(),
+                    "x-sent": true,
+                },
+            };
+
+            // let url = " D:/Programming_Projects/GitProjects/MirthDocumentation/Backend/Server/Interface/Images/" + req.params.image;
+            console.log(options);
+            res.sendFile(req.params.image, options, function (err) {
+                if (err) {
+                    console.log(err);
+                    res.send(err);
+                } else {
+                    console.log("Sent: " + req.params.image);
+                }
+            });
+        });
 
         app.listen({ port: usedPort }, () => {
             console.log(`🚀 Server ready at http://localhost:${usedPort}${server.graphqlPath}`);
