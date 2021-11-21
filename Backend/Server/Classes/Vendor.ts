@@ -14,11 +14,11 @@ export default class Vendor extends BaseNameComponent {
 
     @Field()
     @Property({ unique: true })
-    public shortName: String;
+    public shortName!: String;
 
     @Field()
     @Property()
-    public longName: String;
+    public longName!: String;
 
     @Field((_type) => [Application])
     @Property({ ref: () => "Application" }, WhatIsIt.ARRAY)

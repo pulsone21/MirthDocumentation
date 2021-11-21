@@ -1,13 +1,14 @@
 import React from 'react'
-import BasicButton from '../Button/BasicButton';
+import BasicButton, { BasicButtonProps } from '../Button/BasicButton';
 
-interface TableCellButtonProps {
+type TableCellButtonProps = BasicButtonProps & {
     innerHtml: string
+    index: number
 }
 
-const TableCellButton: React.FC<TableCellButtonProps> = ({ innerHtml }) => {
+const TableCellButton: React.FC<TableCellButtonProps> = ({ index, innerHtml, onClick }) => {
     return (
-        <td><BasicButton title={innerHtml} /></td>
+        <td key={`${index}-${innerHtml}`}><BasicButton title={innerHtml} onClick={onClick} /></td>
     );
 }
 export default TableCellButton;

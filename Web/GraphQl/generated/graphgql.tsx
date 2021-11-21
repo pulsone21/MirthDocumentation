@@ -502,6 +502,13 @@ export type GetAllApplikationsRichQueryVariables = Exact<{ [key: string]: never;
 
 export type GetAllApplikationsRichQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string, vendor: { __typename?: 'Vendor', _id: any } }> };
 
+export type GetApplicationByLongNameQueryVariables = Exact<{
+  longName: Scalars['String'];
+}>;
+
+
+export type GetApplicationByLongNameQuery = { __typename?: 'Query', GetApplicationByLongName: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', message: string, field: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string, vendor: { __typename?: 'Vendor', _id: any } } | null | undefined } };
+
 export type GetAllConnectionTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -538,6 +545,13 @@ export type GetVendorByIdQueryVariables = Exact<{
 
 
 export type GetVendorByIdQuery = { __typename?: 'Query', GetVendorByID: { __typename?: 'VendorResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Vendor?: { __typename?: 'Vendor', shortName: string, longName: string } | null | undefined } };
+
+export type GetVendorByLongNameQueryVariables = Exact<{
+  longName: Scalars['String'];
+}>;
+
+
+export type GetVendorByLongNameQuery = { __typename?: 'Query', GetVendorByLongName: { __typename?: 'VendorResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Vendor?: { __typename?: 'Vendor', shortName: string, _id: any, longName: string } | null | undefined } };
 
 export const RegularUserFragmentDoc = gql`
     fragment RegularUser on User {
@@ -721,6 +735,29 @@ export const GetAllApplikationsRichDocument = gql`
 export function useGetAllApplikationsRichQuery(options: Omit<Urql.UseQueryArgs<GetAllApplikationsRichQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetAllApplikationsRichQuery>({ query: GetAllApplikationsRichDocument, ...options });
 };
+export const GetApplicationByLongNameDocument = gql`
+    query GetApplicationByLongName($longName: String!) {
+  GetApplicationByLongName(longName: $longName) {
+    Errors {
+      message
+      field
+    }
+    Application {
+      _id
+      shortName
+      longName
+      logoUrl
+      vendor {
+        _id
+      }
+    }
+  }
+}
+    `;
+
+export function useGetApplicationByLongNameQuery(options: Omit<Urql.UseQueryArgs<GetApplicationByLongNameQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetApplicationByLongNameQuery>({ query: GetApplicationByLongNameDocument, ...options });
+};
 export const GetAllConnectionTypesDocument = gql`
     query GetAllConnectionTypes {
   GetAllConnectionTypes {
@@ -814,4 +851,23 @@ export const GetVendorByIdDocument = gql`
 
 export function useGetVendorByIdQuery(options: Omit<Urql.UseQueryArgs<GetVendorByIdQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetVendorByIdQuery>({ query: GetVendorByIdDocument, ...options });
+};
+export const GetVendorByLongNameDocument = gql`
+    query GetVendorByLongName($longName: String!) {
+  GetVendorByLongName(longName: $longName) {
+    Errors {
+      field
+      message
+    }
+    Vendor {
+      shortName
+      _id
+      longName
+    }
+  }
+}
+    `;
+
+export function useGetVendorByLongNameQuery(options: Omit<Urql.UseQueryArgs<GetVendorByLongNameQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<GetVendorByLongNameQuery>({ query: GetVendorByLongNameDocument, ...options });
 };

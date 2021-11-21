@@ -5,11 +5,12 @@ import Image from "next/image"
 interface TableCellImageProps {
     imageLink: string
     altText: string
+    index: number
 }
 
-const TableCellImage: React.FC<TableCellImageProps> = ({ imageLink, altText }) => {
+const TableCellImage: React.FC<TableCellImageProps> = ({ index, imageLink, altText }) => {
     return (
-        <td><Image src={imageLink} alt={altText} width={150} height={50} /></td>
+        <td key={`${index}-${altText}`}><Image src={imageLink} alt={altText} width={150} height={50} /></td>
     );
 }
 export default TableCellImage;

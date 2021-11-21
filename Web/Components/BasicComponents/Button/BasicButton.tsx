@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 
-type BasicButtonProps = HTMLAttributes<HTMLDivElement>
+export type BasicButtonProps = HTMLAttributes<HTMLDivElement>
 
 const BasicButton: React.FC<BasicButtonProps> = ({ className, ...props }) => {
     let classNames

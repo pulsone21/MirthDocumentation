@@ -1,6 +1,6 @@
 import { BACKEND_BASE_URL } from "config";
 import { dropDownElement } from "Types/dropDownElement";
-import { DataArea, DataTopic, DataType, ErrorMessage, ConnectionType, BaseApplication, BaseVendor } from "../GraphQl/generated/graphgql";
+import { DataArea, DataTopic, DataType, ErrorMessage, ConnectionType, Application, GetApplicationByLongNameQuery } from "../GraphQl/generated/graphgql";
 
 export const CreateClassNamesAsString = (classNames: string[]): string => {
     let outString = "";
@@ -18,9 +18,7 @@ export const ObjectToErrorMap = (errors: ErrorMessage[]) => {
     return errorMap;
 };
 
-export const GenerateDopDownFromQuery = (
-    response: ConnectionType[] | DataArea[] | DataType[] | DataTopic[] | BaseApplication[] | BaseVendor[]
-): dropDownElement[] => {
+export const GenerateDopDownFromQuery = (response: ConnectionType[] | DataArea[] | DataType[] | DataTopic[]): dropDownElement[] => {
     let newDropDownArray: dropDownElement[] = [];
     response.forEach((el) => {
         let newDropDownElement: dropDownElement = {
@@ -31,14 +29,6 @@ export const GenerateDopDownFromQuery = (
         newDropDownArray.push(newDropDownElement);
     });
     return newDropDownArray;
-};
-
-export const GenerateTableRowsFromInput = (input: BaseApplication[]): string[][] => {
-    let output: string[][] = [];
-    input.forEach((el) => {
-        output.push([el.shortName, el.longName]);
-    });
-    return output;
 };
 
 export const GetCorrectedLogoUrl = (input: string): string => {

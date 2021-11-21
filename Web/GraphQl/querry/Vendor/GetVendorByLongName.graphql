@@ -1,0 +1,13 @@
+query GetVendorByLongName($longName: String!) {
+    GetVendorByLongName(longName: $longName) {
+        Errors {
+            field
+            message
+        }
+        Vendor {
+            shortName
+            _id
+            longName
+        }
+    }
+}

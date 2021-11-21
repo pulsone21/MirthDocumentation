@@ -2,8 +2,8 @@ overwrite: true
 schema: "http://localhost:5000/graphql"
 documents: "GraphQl/**/*.graphql"
 generates:
-  GraphQl/generated/graphgql.tsx:
-    plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-urql"
+    GraphQl/generated/graphgql.tsx:
+        plugins:
+            - "typescript"
+            - "typescript-operations"
+            - "typescript-urql"

@@ -5,23 +5,29 @@ import { useCreateVendorMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
 
 interface VendorFormProps {
-
+    initialValues?: VendorInitialValues
 }
 
+export interface VendorInitialValues {
+    shortName: string,
+    longName: string,
+    application: string
+}
 
-const initialValues = {
+let initValues = {
     shortName: "",
     longName: "",
     application: ""
 }
 
-const VendorForm: React.FC<VendorFormProps> = ({ }) => {
+const VendorForm: React.FC<VendorFormProps> = ({ initialValues }) => {
 
     const [, CreateVendor] = useCreateVendorMutation()
+    if (initialValues) initValues = initialValues
 
     return (
         <Formik
-            initialValues={initialValues}
+            initialValues={initValues}
             onSubmit={async (values, { setErrors, resetForm }) => {
                 const vend = await CreateVendor({ shortName: values.shortName, longName: values.longName, appLongname: values.application })
 

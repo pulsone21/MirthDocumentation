@@ -1,0 +1,17 @@
+query GetApplicationByLongName($longName: String!) {
+    GetApplicationByLongName(longName: $longName) {
+        Errors {
+            message
+            field
+        }
+        Application {
+            _id
+            shortName
+            longName
+            logoUrl
+            vendor {
+                _id
+            }
+        }
+    }
+}

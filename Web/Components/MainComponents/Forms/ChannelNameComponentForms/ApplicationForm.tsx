@@ -10,28 +10,33 @@ import DropZone from 'Components/BasicComponents/Forms/DropZone';
 
 interface ApplicationFormProps {
     vendorList: dropDownElement[]
+    initialValues?: appInitValues;
 }
 
-interface initVal {
+export interface appInitValues {
     shortName: string,
     longName: string,
     vendor: any,
     logo: Upload | undefined
 }
 
-const initialValues: initVal = {
+let appInitialValues: appInitValues = {
     shortName: "",
     longName: "",
     vendor: "",
     logo: undefined,
 }
 
-const ApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList }) => {
+const ApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, initialValues }) => {
     const [, createApplication] = useCreateApplicationMutation();
+
+    if (initialValues) {
+        appInitialValues = initialValues;
+    }
 
     return (
         <Formik
-            initialValues={initialValues}
+            initialValues={appInitialValues}
             onSubmit={async (values, { setErrors, resetForm }) => {
                 console.log(values)
                 const { shortName, longName } = values

@@ -139,6 +139,7 @@ export default class ApplicationResolver {
         return { Errors: [{ field: "id", message: `Application with ${id} could not be found!` }] };
     }
 
+    //TODO Rebuild this that you dont send the objectIDScalar, cause frontEnd dont know it.
     @Mutation(() => ApplicationResponse)
     async AddVendorToApplication(
         @Arg("VendorID", () => ObjectIdScalar, { nullable: false }) vendId: ObjectId,
