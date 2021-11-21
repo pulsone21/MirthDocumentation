@@ -1,14 +1,15 @@
-import { getModelForClass, prop as Property, Ref } from "@typegoose/typegoose";
-import { WhatIsIt } from "@typegoose/typegoose/lib/internal/constants";
+import { getModelForClass, prop as Property } from "@typegoose/typegoose";
 // import { MaxLength } from "class-validator";
 import { ObjectId } from "mongodb";
 import ErrorMessage from "../Types/ErrorMessage";
 import { Field, ObjectType } from "type-graphql";
-import Application from "./Application";
 import { BaseNameComponent } from "./BaseNameComponent";
 
 @ObjectType()
 export default class Vendor extends BaseNameComponent {
+    constructor() {
+        super();
+    }
     @Field()
     readonly _id: ObjectId;
 
@@ -20,9 +21,9 @@ export default class Vendor extends BaseNameComponent {
     @Property()
     public longName!: String;
 
-    @Field((_type) => [Application])
-    @Property({ ref: () => "Application" }, WhatIsIt.ARRAY)
-    public applications: Ref<Application>[];
+    //@Field((_type) => [Application])
+    // @Property({ type: ObjectId, ref: () => Application })
+    // public applications: Ref<Application>[];
 
     public static override async CheckShortnameAvailable(shortName: String): Promise<VendorResponse | undefined> {
         const exist = await VendorModel.find({ shortName });

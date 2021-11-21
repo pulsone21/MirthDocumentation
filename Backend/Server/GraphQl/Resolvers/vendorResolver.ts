@@ -4,6 +4,7 @@ import { ObjectIdScalar } from "../myScalars/ObjectId";
 import Vendor, { VendorModel, VendorResponse } from "../../Classes/Vendor";
 import { ApplicationModel } from "../../Classes/Application";
 
+//TODO Build a Way to also get the application from the vendor side
 @Resolver(Vendor)
 export default class VendorResolver {
     @Query(() => [Vendor])
@@ -47,8 +48,10 @@ export default class VendorResolver {
         if (applongName) {
             const app = await ApplicationModel.find({ applongName });
             if (app.length === 1) {
-                vendor.applications.push(app[0]);
-                vendor.save();
+                if (!app[0].vendor) {
+                    app[0].vendor = vendor;
+                    app[0].save();
+                }
             } else if (app.length > 1) {
                 return { Errors: [{ field: "application", message: `more then one application found` }] };
             } else {
@@ -80,22 +83,6 @@ export default class VendorResolver {
             return { Vendor: vend };
         }
         return { Errors: [{ field: "id", message: "Something went wrong!" }] };
-    }
-
-    @Mutation(() => VendorResponse)
-    async AddApplikationToVendor(@Arg("VendorID") vendId: String, @Arg("ApplicationID") appId: String): Promise<VendorResponse> {
-        const Vendor = await VendorModel.find({ id: vendId });
-        const app = await ApplicationModel.find({ id: appId });
-        if (!app) return { Errors: [{ field: "ApplicationID", message: "No App found with id: " + appId }] };
-        if (!Vendor) return { Errors: [{ field: "VendorID", message: "No Vendor found with id: " + vendId }] };
-        //? No need to check for an array since the id is unique!
-        if (Vendor[0].applications.some((e) => e?._id.toString() === vendId.toString())) {
-            return { Errors: [{ field: "ApplicationID", message: "Application is already on the List." }] };
-        } else {
-            Vendor[0].applications.push(app[0]);
-            Vendor[0].save();
-            return { Vendor: Vendor[0] };
-        }
     }
 }
 

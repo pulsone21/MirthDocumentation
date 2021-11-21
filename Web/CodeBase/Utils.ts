@@ -1,6 +1,6 @@
 import { BACKEND_BASE_URL } from "config";
 import { dropDownElement } from "Types/dropDownElement";
-import { DataArea, DataTopic, DataType, ErrorMessage, ConnectionType, Application, GetApplicationByLongNameQuery } from "../GraphQl/generated/graphgql";
+import { DataArea, DataTopic, DataType, ErrorMessage, ConnectionType, Application, Vendor } from "../GraphQl/generated/graphgql";
 
 export const CreateClassNamesAsString = (classNames: string[]): string => {
     let outString = "";
@@ -18,7 +18,7 @@ export const ObjectToErrorMap = (errors: ErrorMessage[]) => {
     return errorMap;
 };
 
-export const GenerateDopDownFromQuery = (response: ConnectionType[] | DataArea[] | DataType[] | DataTopic[]): dropDownElement[] => {
+export const GenerateDopDownFromQuery = (response: ConnectionType[] | DataArea[] | DataType[] | DataTopic[] | Application[] | Vendor[]): dropDownElement[] => {
     let newDropDownArray: dropDownElement[] = [];
     response.forEach((el) => {
         let newDropDownElement: dropDownElement = {

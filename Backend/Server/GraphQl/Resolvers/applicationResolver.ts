@@ -1,7 +1,8 @@
 require("dotenv").config();
-import Application, { ApplicationModel, ApplicationResponse } from "../../Classes/Application";
+import Application, { ApplicationResponse, ApplicationModel } from "../../Classes/Application";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
+import {} from "../ModelCreator";
 import { VendorModel } from "../../Classes/Vendor";
 import { GraphQLUpload } from "graphql-upload";
 import { Upload } from "../../Types/UploadType";
@@ -19,7 +20,7 @@ export default class ApplicationResolver {
 
     @Query(() => ApplicationResponse)
     async GetApplicationByShortName(@Arg("shortName") shortName: String): Promise<ApplicationResponse> {
-        const Application = await ApplicationModel.find({ shortName });
+        const Application = await ApplicationModel.find({ shortName }).populate({ path: "vendor" });
         if (!Application) return { Errors: [{ field: "shortName", message: `No application found with Shortname: ${shortName}` }] };
         if (Application.length > 1) return { Errors: [{ field: "shortName", message: `More then one application found with Shortname: ${shortName}` }] };
         return { Application: Application[0] };
@@ -27,7 +28,7 @@ export default class ApplicationResolver {
 
     @Query(() => ApplicationResponse)
     async GetApplicationByLongName(@Arg("longName") longName: String): Promise<ApplicationResponse> {
-        const Application = await ApplicationModel.find({ longName });
+        const Application = await ApplicationModel.find({ longName }).populate({ path: "vendor" });
         if (!Application) return { Errors: [{ field: "longName", message: `No application found with Longname: ${longName}` }] };
         if (Application.length > 1) return { Errors: [{ field: "longName", message: `More then one application found with Longname: ${longName}` }] };
         return { Application: Application[0] };
@@ -35,7 +36,7 @@ export default class ApplicationResolver {
 
     @Query(() => ApplicationResponse)
     async GetApplicationByID(@Arg("id") id: String): Promise<ApplicationResponse> {
-        const Application = await ApplicationModel.findOne({ id });
+        const Application = await ApplicationModel.findOne({ id }).populate({ path: "vendor" });
         if (!Application) return { Errors: [{ field: "ID", message: `No application found with ID: ${id}` }] };
         return { Application };
     }
@@ -62,6 +63,7 @@ export default class ApplicationResolver {
             logoUrl = url;
         }
         let vendor;
+        console.log(vendorId);
         if (vendorId) {
             vendor = await VendorModel.findOne({ id: vendorId });
         }
@@ -71,11 +73,10 @@ export default class ApplicationResolver {
         if (!longName) return { Errors: [{ field: "longName", message: "please enter a Longname" }] };
 
         if (vendor) {
-            const app = await ApplicationModel.create({ shortName, longName, logoUrl, vendor });
-            vendor?.applications.push(app);
+            const app = await (await ApplicationModel.create({ shortName, longName, logoUrl, vendor })).populate({ path: "vendor" });
             return { Application: app };
         } else {
-            const app = await ApplicationModel.create({ shortName, longName, logoUrl });
+            const app = await (await ApplicationModel.create({ shortName, longName, logoUrl })).populate({ path: "vendor" });
             return { Errors: [{ field: "VendorLongName", message: `Vendor with ID ${vendorId} couldnt be found.` }], Application: app };
         }
     }
@@ -84,7 +85,7 @@ export default class ApplicationResolver {
     async DeleteApplication(@Arg("id", () => ObjectIdScalar) id: ObjectId): Promise<DeletionMessage> {
         const App = await ApplicationModel.findOne({ id });
         if (!App) return { Errors: [{ field: "id", message: "No App with this id found" }] };
-        let logoDeletion = await Application.DeleteMyLogo(App.logoUrl.toString());
+        let logoDeletion = Application.DeleteMyLogo(App.logoUrl.toString());
         if (!logoDeletion) return { Errors: [{ field: "id", message: "could not delete logo, please remove the logo manually from: " + App.logoUrl }] };
         let res = await ApplicationModel.deleteOne({ id });
         if (res.deletedCount > 0) return { deletion: true };
@@ -151,12 +152,6 @@ export default class ApplicationResolver {
         if (!vend) return { Errors: [{ field: "VendorID", message: `Vendor with ${vendId} not found!` }] };
         app.vendor = vend;
         app.save();
-        if (vend.applications.some((e) => e?._id.toString() === vendId.toString())) {
-            //Do nothing since the app is already in the array
-        } else {
-            vend.applications.push(app);
-            vend.save();
-        }
         return { Application: app };
     }
 }
