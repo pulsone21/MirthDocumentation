@@ -126,7 +126,6 @@ export type ErrorMessage = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  AddApplikationToVendor: VendorResponse;
   AddVendorToApplication: ApplicationResponse;
   ChannelnameExist: Scalars['Boolean'];
   CreateApplication: ApplicationResponse;
@@ -144,12 +143,6 @@ export type Mutation = {
   UpdateApplication: ApplicationResponse;
   UpdateVendor: VendorResponse;
   addAppLogo: Scalars['Boolean'];
-};
-
-
-export type MutationAddApplikationToVendorArgs = {
-  ApplicationID: Scalars['String'];
-  VendorID: Scalars['String'];
 };
 
 
@@ -408,7 +401,6 @@ export type UsernamePasswordInput = {
 export type Vendor = {
   __typename?: 'Vendor';
   _id: Scalars['ObjectId'];
-  applications: Array<Application>;
   longName: Scalars['String'];
   shortName: Scalars['String'];
 };
@@ -507,7 +499,7 @@ export type GetApplicationByLongNameQueryVariables = Exact<{
 }>;
 
 
-export type GetApplicationByLongNameQuery = { __typename?: 'Query', GetApplicationByLongName: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', message: string, field: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string, vendor: { __typename?: 'Vendor', _id: any } } | null | undefined } };
+export type GetApplicationByLongNameQuery = { __typename?: 'Query', GetApplicationByLongName: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', message: string, field: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string, vendor: { __typename?: 'Vendor', _id: any, shortName: string, longName: string } } | null | undefined } };
 
 export type GetAllConnectionTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -749,6 +741,8 @@ export const GetApplicationByLongNameDocument = gql`
       logoUrl
       vendor {
         _id
+        shortName
+        longName
       }
     }
   }

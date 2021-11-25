@@ -11,6 +11,8 @@ query GetApplicationByLongName($longName: String!) {
             logoUrl
             vendor {
                 _id
+                shortName
+                longName
             }
         }
     }

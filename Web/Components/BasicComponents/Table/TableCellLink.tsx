@@ -1,14 +1,15 @@
-import React, { TdHTMLAttributes } from 'react'
+import React, { PropsWithChildren, TdHTMLAttributes } from 'react'
+import Link, { LinkProps } from 'next/link'
 
-type TableCellLinkProps = TdHTMLAttributes<HTMLTableCellElement> & {
-    link: string
+
+type TableCellLinkProps = TdHTMLAttributes<HTMLTableCellElement> & PropsWithChildren<LinkProps> & {
     innerHtml: string
     index: number
 }
 
-const TableCellLink: React.FC<TableCellLinkProps> = ({ index, link, innerHtml, ...props }) => {
+const TableCellLink: React.FC<TableCellLinkProps> = ({ index, href, as, innerHtml, ...props }) => {
     return (
-        <td key={`${index}-${innerHtml}`} {...props}><a href={link}>{innerHtml}</a></td>
+        <td key={`${index}-${innerHtml}`} {...props}><Link href={href} as={as}>{innerHtml}</Link></td>
     );
 }
 export default TableCellLink;
