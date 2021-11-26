@@ -3,9 +3,10 @@ import { useRouter } from "next/router"
 import { useGetAllVendorsQuery, useGetApplicationByLongNameQuery } from 'GraphQl/generated/graphgql';
 import Head from 'next/head';
 import HeaderSection from 'Components/HeaderSection';
-import ApplicationForm, { appInitValues } from 'Components/MainComponents/Forms/ChannelNameComponentForms/ApplicationForm';
+import { appInitValues } from 'Components/MainComponents/Forms/Application/createNewApplicationForm';
 import { dropDownElement } from 'Types/dropDownElement';
 import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
+import UpdateApplicationForm from 'Components/MainComponents/Forms/Application/UpdateApplicationForm';
 
 interface ApplicationProps {
 
@@ -34,7 +35,7 @@ const Application: React.FC<ApplicationProps> = ({ }) => {
             shortName: data.GetApplicationByLongName.Application.longName,
             vendor: data.GetApplicationByLongName.Application.vendor.longName,
         }
-        appText = (<ApplicationForm initialValues={initVals} vendorList={vendData} />)
+        appText = (<UpdateApplicationForm initialValues={initVals} vendorList={vendData} />)
     }
 
 
@@ -45,7 +46,10 @@ const Application: React.FC<ApplicationProps> = ({ }) => {
                 <link rel="shortcut icon" href="/MDlogoSimplified.png" />
             </Head>
             <HeaderSection></HeaderSection>
-            {appText}
+            <div className="flex justify-center items-center">
+                {appText}
+            </div>
+
         </>
     );
 }

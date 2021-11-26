@@ -50,18 +50,18 @@ const DescriptionBuilder: React.FC<DescriptionBuilderProps> = () => {
                         {({ values }) => (
                             <form onChange={() => handleChange(values)}>
                                 <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                    <h1 className="HeaderText">Description Builder</h1>
+                                    <h1 className="HeaderTitle">Description Builder</h1>
                                     <button style={{ maxHeight: "35px", alignSelf: "flex-end" }} className="navBtn" type="submit" >Clear Fields</button>
                                 </div>
-                                <InputField LableSide="left" id="description" name="description" placeholder="main description" className="articalText" />
-                                <InputField LableSide="left" id="comment" name="comment" placeholder="special things" className="articalText" />
+                                <InputField LableSide="left" id="description" name="description" placeholder="main description" className="ArticalText" />
+                                <InputField LableSide="left" id="comment" name="comment" placeholder="special things" className="ArticalText" />
                                 <InputField LableSide="left" id="documentation Link" name="documentationLink" placeholder="link to the documentation" className="SubTitle" />
-                                <InputField LableSide="left" id="source" name="source" placeholder="source system/directory contact" className="articalText" />
-                                <InputField LableSide="left" id="creation" name="creation" placeholder="creation date/ creator" className="articalText" />
-                                <InputFieldMulti fieldList={values.destinations} id="destinations" name="destinations" placeholder="destination system/directory contact" className="articalText" />
-                                <InputFieldMulti fieldList={values.changes} LableSide="left" id="changes" name="changes" placeholder="what when why who" className="articalText" />
-                                <InputFieldMulti fieldList={values["known issues"]} LableSide="left" id="known issues" name="known issues" placeholder="what/resolution steps" className="articalText" />
-                                <InputFieldMulti fieldList={values["tags/keywords"]} LableSide="left" id="tags/keywords" name="tags/keywords" placeholder="search tags/keywords parameter" className="articalText" />
+                                <InputField LableSide="left" id="source" name="source" placeholder="source system/directory contact" className="ArticalText" />
+                                <InputField LableSide="left" id="creation" name="creation" placeholder="creation date/ creator" className="ArticalText" />
+                                <InputFieldMulti fieldList={values.destinations} id="destinations" name="destinations" placeholder="destination system/directory contact" className="ArticalText" />
+                                <InputFieldMulti fieldList={values.changes} LableSide="left" id="changes" name="changes" placeholder="what when why who" className="ArticalText" />
+                                <InputFieldMulti fieldList={values["known issues"]} LableSide="left" id="known issues" name="known issues" placeholder="what/resolution steps" className="ArticalText" />
+                                <InputFieldMulti fieldList={values["tags/keywords"]} LableSide="left" id="tags/keywords" name="tags/keywords" placeholder="search tags/keywords parameter" className="ArticalText" />
                             </form>
                         )}
                     </Formik>

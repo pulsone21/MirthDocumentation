@@ -8,6 +8,7 @@ type InputSelectProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string
     listContent: dropDownElement[]
     handleChange: (value: any) => {}
+    defaultValue?: string
 }
 
 let styles: StylesConfig = {
@@ -20,10 +21,15 @@ let styles: StylesConfig = {
 }
 const InputSelect: React.FC<InputSelectProps> = (props) => {
     const [, { error }] = useField(props)
+
+    const defaulVal = () => {
+        return props.listContent.filter(option => option.label === props.defaultValue)
+    }
+
     return (
         <div className="FieldContainer">
             <label htmlFor={props.name}>{props.name}</label>
-            <Select styles={styles} onChange={(newValue) => props.handleChange(newValue)} placeholder="Seach for an Application" options={props.listContent} />
+            <Select value={defaulVal()} styles={styles} onChange={(newValue) => props.handleChange(newValue)} placeholder={props.placeholder} options={props.listContent} />
             {error ? <p className="ErrorMessage">{error}</p> : null}
         </div>
     );

@@ -411,6 +411,8 @@ export type VendorResponse = {
   Vendor?: Maybe<Vendor>;
 };
 
+export type BasicApplicationFragment = { __typename?: 'Application', _id: any, longName: string, shortName: string };
+
 export type RegularUserFragment = { __typename?: 'User', _id: any, Username: string };
 
 export type ChannelnameExistMutationVariables = Exact<{
@@ -487,7 +489,7 @@ export type CreateVendorMutation = { __typename?: 'Mutation', CreateVendor: { __
 export type GetAllApplikationsBasicQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllApplikationsBasicQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string }> };
+export type GetAllApplikationsBasicQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, longName: string, shortName: string }> };
 
 export type GetAllApplikationsRichQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -545,6 +547,13 @@ export type GetVendorByLongNameQueryVariables = Exact<{
 
 export type GetVendorByLongNameQuery = { __typename?: 'Query', GetVendorByLongName: { __typename?: 'VendorResponse', Errors?: Array<{ __typename?: 'ErrorMessage', field: string, message: string }> | null | undefined, Vendor?: { __typename?: 'Vendor', shortName: string, _id: any, longName: string } | null | undefined } };
 
+export const BasicApplicationFragmentDoc = gql`
+    fragment BasicApplication on Application {
+  _id
+  longName
+  shortName
+}
+    `;
 export const RegularUserFragmentDoc = gql`
     fragment RegularUser on User {
   _id
@@ -700,12 +709,10 @@ export function useCreateVendorMutation() {
 export const GetAllApplikationsBasicDocument = gql`
     query GetAllApplikationsBasic {
   GetAllApplikations {
-    _id
-    shortName
-    longName
+    ...BasicApplication
   }
 }
-    `;
+    ${BasicApplicationFragmentDoc}`;
 
 export function useGetAllApplikationsBasicQuery(options: Omit<Urql.UseQueryArgs<GetAllApplikationsBasicQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetAllApplikationsBasicQuery>({ query: GetAllApplikationsBasicDocument, ...options });

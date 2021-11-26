@@ -28,7 +28,7 @@ const Registerform: React.FC<RegisterformProps> = ({ }) => {
         >
             {({ handleSubmit }) => (
                 <form className="RegisterForm" onSubmit={handleSubmit}>
-                    <h2 className="HeaderText">Register Form</h2>
+                    <h2 className="HeaderTitle">Register Form</h2>
                     <InputField id="username" name="username" placeholder="Username"></InputField>
                     <InputField id="password" name="password" placeholder="Password" type="password" ></InputField>
                     <button className="baseBtn" type="submit"><FaUserPlus style={{ marginRight: "15px", alignSelf: "center" }} />Register</button>

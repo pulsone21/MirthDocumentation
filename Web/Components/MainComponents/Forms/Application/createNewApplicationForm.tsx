@@ -27,7 +27,7 @@ let appInitialValues: appInitValues = {
     logo: undefined,
 }
 
-const ApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, initialValues }) => {
+const CreateNewApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, initialValues }) => {
     const [, createApplication] = useCreateApplicationMutation();
 
     if (initialValues) {
@@ -61,4 +61,4 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, initialVa
     )
 
 }
-export default ApplicationForm;
+export default CreateNewApplicationForm;

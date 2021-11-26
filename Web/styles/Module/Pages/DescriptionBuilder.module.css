@@ -82,7 +82,7 @@
     box-shadow: 0px 0px 8px var(--color-secondary);
 }
 
-.Descriptionbuilder-Container .HeaderText {
+.Descriptionbuilder-Container .HeaderTitle {
     margin-left: 0px !important;
     color: var(--color-secondary-highlight);
     margin-left: 15px;

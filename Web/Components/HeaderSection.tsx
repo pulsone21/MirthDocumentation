@@ -1,11 +1,10 @@
 import * as React from 'react';
 import Nav from "./Nav"
-
 import { FaSignOutAlt, FaUser } from "react-icons/fa"
 import IconButton from './BasicComponents/Button/IconButton';
 import Image from "next/image"
 import MD2 from "../public/MD2.png"
-import { cssDefaults } from "../CSS/defaultcss";
+import { defaultCss } from "../styles/defaultcss";
 import { useLogOutMutation } from 'GraphQl/generated/graphgql';
 interface HeaderSectionProps {
 
@@ -31,11 +30,11 @@ const HeaderSection: React.FC<HeaderSectionProps> = () => {
             <div style={{ marginRight: "15px" }}>
                 <p className="SideInfo">Mirth Documentation Stand....TBD Function not Impletemented YET</p>
                 <div style={{ display: 'flex', flexDirection: "row", marginTop: "10px", justifyContent: "flex-end" }}>
-                    <IconButton onClick={handleClickProfile} className="baseBtn m-0 mr-5" >
-                        <FaUser size="1.5em" color={cssDefaults.colorTertiary} stroke="#1b578c" className="m-1 " />
+                    <IconButton onClick={handleClickProfile} className="baseBtn" >
+                        <FaUser size="1.5em" color={defaultCss.colorTertiary} stroke="#1b578c" className="m-1 " />
                     </IconButton>
-                    <IconButton onClick={() => { logout() }} className="baseBtn m-0">
-                        <FaSignOutAlt size="1.5em" color={cssDefaults.colorTertiary} stroke="#1b578c" className="m-1 ml-2 " />
+                    <IconButton onClick={() => { logout() }} className="baseBtn">
+                        <FaSignOutAlt size="1.5em" color={defaultCss.colorTertiary} stroke="#1b578c" className="" />
                     </IconButton>
                 </div>
             </div>

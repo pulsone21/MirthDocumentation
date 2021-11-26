@@ -1,0 +1,5 @@
+fragment BasicApplication on Application {
+    _id
+    longName
+    shortName
+}

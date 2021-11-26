@@ -1,3 +1,59 @@
+@import "./defaults.css";
+
+.loadingDIV {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1vh;
+}
+
+.HeaderTitle {
+    font: var(--font-Title);
+    color: var(--color-primary-highlight);
+}
+.SubTitle {
+    font: var(--font-SubTitle);
+    color: var(--color-secondary-highlight);
+}
+.ArticalText {
+    font: var(--font-Artical);
+    color: var(--color-tertiary);
+}
+.SideInfo {
+    font: var(--font-footer);
+    color: var(--color-secondary-highlight);
+}
+
+.disabled,
+.disabled:hover {
+    cursor: none !important;
+    background-color: gray !important;
+    color: darkgray !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border: none !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#root {
+    background-color: var(--color-primary-highlight);
+}
+
+.clickToCopyEvent {
+    animation: blink-onClick-keyframes 0.7s;
+}
+@keyframes blink-onClick-keyframes {
+    from {
+        box-shadow: 0px 0px 25px var(--color-tertiary);
+    }
+    to {
+        box-shadow: 0px 0px 0px var(--color-tertiary);
+    }
+}
+
 html,
 body {
     padding: 0;

@@ -1,7 +1,5 @@
 query GetAllApplikationsBasic {
     GetAllApplikations {
-        _id
-        shortName
-        longName
+        ...BasicApplication
     }
 }

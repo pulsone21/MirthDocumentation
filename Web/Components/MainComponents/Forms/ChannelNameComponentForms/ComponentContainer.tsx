@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaMinusSquare, FaPlusSquare } from 'react-icons/fa';
 import { dropDownElement } from 'Types/dropDownElement';
-import ApplicationForm from './ApplicationForm';
+import CreateNewApplicationForm from '../Application/createNewApplicationForm';
 import BaseChannelComponentForm from './BaseChannelComponentForm';
 import VendorForm from './VendorForm';
 
@@ -20,7 +20,7 @@ const ComponentContainer: React.FC<ComponentContainerProps> = ({ componentName, 
             html = <VendorForm />
             break;
         case "Application":
-            html = <ApplicationForm vendorList={vendorList ? vendorList : []} />
+            html = <CreateNewApplicationForm vendorList={vendorList ? vendorList : []} />
             break;
         default:
             html = <BaseChannelComponentForm componentName={componentName} />

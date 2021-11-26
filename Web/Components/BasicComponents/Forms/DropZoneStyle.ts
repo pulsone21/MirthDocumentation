@@ -1,4 +1,4 @@
-import { cssDefaults } from "CSS/defaultcss";
+const cssDefaults = require("CSS/defaultcss");
 
 export const baseStyle = {
     flex: 1,

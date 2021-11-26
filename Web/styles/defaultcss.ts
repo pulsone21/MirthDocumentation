@@ -1,4 +1,4 @@
-export const cssDefaults = {
+export const defaultCss = {
     colorPrimary: "#13191f",
     colorPrimaryHighlight: "#222d38",
     colorSecondary: "#1b578c",

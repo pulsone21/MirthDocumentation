@@ -13,8 +13,8 @@ const InputField: React.FC<InputFieldProps> = (props) => {
 
     return (
         <div className="FieldContainer">
-            <label htmlFor={props.id}>{props.name}</label>
-            <input autoComplete="off"
+            <label className="SubTitle text-colorSecondaryHighlight mr-5" htmlFor={props.id}>{props.name}</label>
+            <input className="ArticalText color bg-colorPrimary text-colorTertiary p-1 inputHover" autoComplete="off"
                 {...field}
                 id={props.id}
                 type={props.type ? props.type : "text"}

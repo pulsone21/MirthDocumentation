@@ -32,7 +32,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
     const [{ data: appRawData, fetching: appFetch }] = useGetAllApplikationsBasicQuery();
     let appData: dropDownElement[] = []
     if (!appFetch) {
-        if (appRawData?.GetAllApplikations) appData = GenerateDopDownFromQuery(appRawData.GetAllApplikations)
+        if (appRawData?.GetAllApplikations) appData = GenerateDopDownFromQuery(appRawData.GetAllApplikations) //? works still with the error there is the vendor missing in the request
     }
 
     const [{ data: dataAreaRawData, fetching: dataAreaFetch }] = useGetAllDataAreasQuery();
@@ -102,8 +102,8 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
             <div className="channelNameBuilder-Container">
                 <div className="Toolbar">
                     <div style={{ marginTop: "15px" }}>
-                        <h1 style={{ marginLeft: "10px", marginBottom: "0px" }} className="HeaderText">Channelname Builder</h1>
-                        <p style={{ marginLeft: "40px" }} className="articalText">Here you can build out the Channelname</p>
+                        <h1 style={{ marginLeft: "10px", marginBottom: "0px" }} className="HeaderTitle">Channelname Builder</h1>
+                        <p style={{ marginLeft: "40px" }} className="ArticalText">Here you can build out the Channelname</p>
                     </div>
                     <h2 style={{ marginTop: "5px", marginLeft: "5px", fontWeight: "bold", fontSize: "1.5em" }}>Missing an Component?</h2>
                     <ComponentContainer vendorList={vendData} componentName="Application" />
