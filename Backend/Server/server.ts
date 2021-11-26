@@ -10,19 +10,16 @@ import CreateSchema from "./GraphQl/graphQlSchema";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import { MyContext } from "./Types/MyContext";
+import { CheckAdminUser } from "./CodeBase/InitialCheck";
 
 const app = express();
 startServer();
 
 async function startServer() {
     const usedPort = process.env.PORT;
-    const dbUrl = process.env.DB_URL;
-    const dbUser = process.env.DB_USER;
-    const dbPw = process.env.DB_PASSWORD;
-    const dbName = process.env.DB_Name;
-    const mongoUrl = `mongodb://${dbUser}:${dbPw}@${dbUrl}/${dbName}`;
+    const dbUrl = process.env.DB_URL || "";
 
-    mongoose.connect(mongoUrl, async () => {
+    mongoose.connect(dbUrl, async () => {
         console.log("Connected to DB");
         const corsOptions: cors.CorsOptions = {
             credentials: true,
@@ -37,7 +34,7 @@ async function startServer() {
                 saveUninitialized: false, // don't create session until something stored
                 resave: false, //don't save session if unmodified
                 store: MongoStore.create({
-                    mongoUrl,
+                    mongoUrl: dbUrl,
                     touchAfter: 3600,
                 }),
                 cookie: {
@@ -67,16 +64,13 @@ async function startServer() {
         app.get("/Server/Interface/Images/:image", function (req, res) {
             console.log("Request Get");
             var options = {
-                root: "D:\\Programming_Projects\\GitProjects\\MirthDocumentation\\Backend\\Server\\Interface\\Images\\", //Find a way to do it genereic
+                root: process.env.APP_BASE_DIR + "\\Backend\\Server\\Interface\\Images\\",
                 dotfiles: "deny",
                 headers: {
                     "x-timestamp": Date.now(),
                     "x-sent": true,
                 },
             };
-
-            // let url = " D:/Programming_Projects/GitProjects/MirthDocumentation/Backend/Server/Interface/Images/" + req.params.image;
-            console.log(options);
             res.sendFile(req.params.image, options, function (err) {
                 if (err) {
                     console.log(err);
@@ -86,7 +80,7 @@ async function startServer() {
                 }
             });
         });
-
+        CheckAdminUser();
         app.listen({ port: usedPort }, () => {
             console.log(`🚀 Server ready at http://localhost:${usedPort}${server.graphqlPath}`);
         });

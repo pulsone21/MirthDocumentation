@@ -8,12 +8,10 @@ require("dotenv").config();
 export default class UserResolver {
     @Query(() => User, { nullable: true })
     Me(@Ctx() { req }: MyContext) {
-        // console.log(req.session);
         if (!req.session.userId) {
             return null;
         }
         const id = req.session.userId;
-        console.log(id);
         return UserModel.findOne({ id });
     }
 
@@ -45,17 +43,19 @@ export default class UserResolver {
                 ],
             };
         }
-
-        console.log("setting Coockie in Session:");
-        // console.log(req);
         req.session.userId = User.id;
-
-        console.log("Cookie set");
-        console.log(req.session);
-
         return {
             User,
         };
+    }
+
+    @Query(() => Boolean)
+    static async AdminPresent(): Promise<Boolean> {
+        const user = await UserModel.findOne({ Username: "Admin" });
+        if (!user) {
+            return false;
+        }
+        return true;
     }
 
     //TODO rebuild to just create an User as admin person, we shouldnt allow self regisiter
@@ -77,8 +77,8 @@ export default class UserResolver {
             };
         }
 
-        const hasedPassword = await argon2.hash(options.password);
-        const User = await UserModel.create({ Username: options.username, Password: hasedPassword });
+        const hashedPassword = await argon2.hash(options.password);
+        const User = await UserModel.create({ Username: options.username, Password: hashedPassword });
         if (!User) {
             return {
                 Errors: [
@@ -89,9 +89,7 @@ export default class UserResolver {
                 ],
             };
         }
-
         req.session.userId = User.id;
-
         return { User };
     }
 
