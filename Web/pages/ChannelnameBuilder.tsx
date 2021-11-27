@@ -9,6 +9,8 @@ import { customStyles } from 'Components/MainComponents/Forms/ChannelNameCompone
 import { useChannelnameExistMutation, useGetAllApplikationsBasicQuery, useGetAllConnectionTypesQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
 import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
 import { ConnectorNameAcessor, ConnectorNameHelper, GenerateNameFromHelper, initConnectorName } from 'Types/ConnectorTypeHelper';
+import styles from "../styles/Module/Pages/channelNameBuilder.module.css"
+import btnStyles from "../styles/Module/Components/button.module.css"
 
 //TODO Implement the Numbering Convention ---> maybe complete automatic with possible settings in a config file.....
 interface ChannelNameBuilderProps {
@@ -32,7 +34,9 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
     const [{ data: appRawData, fetching: appFetch }] = useGetAllApplikationsBasicQuery();
     let appData: dropDownElement[] = []
     if (!appFetch) {
-        if (appRawData?.GetAllApplikations) appData = GenerateDopDownFromQuery(appRawData.GetAllApplikations) //? works still with the error there is the vendor missing in the request
+        //@ts-ignore gument of type '{ __typename?: "Application" | undefined; _id: any; longName: string; shortName: string; }[]' is not assignable to parameter of type. 
+        //Vendor is missing in the get Json therefor the Object looks not exactly like an Application[]
+        if (appRawData?.GetAllApplikations) appData = GenerateDopDownFromQuery(appRawData.GetAllApplikations)
     }
 
     const [{ data: dataAreaRawData, fetching: dataAreaFetch }] = useGetAllDataAreasQuery();
@@ -99,8 +103,8 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
                 <link rel="shortcut icon" href="/MDlogoSimplified.png" />
             </Head>
             <HeaderSection></HeaderSection>
-            <div className="channelNameBuilder-Container">
-                <div className="Toolbar">
+            <div className={styles["channelNameBuilder-Container"]}>
+                <div className={styles.Toolbar}>
                     <div style={{ marginTop: "15px" }}>
                         <h1 style={{ marginLeft: "10px", marginBottom: "0px" }} className="HeaderTitle">Channelname Builder</h1>
                         <p style={{ marginLeft: "40px" }} className="ArticalText">Here you can build out the Channelname</p>
@@ -112,24 +116,24 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
                     <ComponentContainer componentName="DataArea" />
                     <ComponentContainer componentName="DataTopic" />
                 </div>
-                <div className="BuildingArea">
+                <div className={styles.BuildingArea}>
                     <h2 style={{ marginBottom: "45px" }}>Select the different components to generate a channelname</h2>
-                    <div className="flex justify-center">
+                    <div style={{ display: "flex", justifyContent: "center" }}>
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "application" })} placeholder="Seach for an Application" options={appData} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "vendor" })} placeholder="Seach for an Vendor" options={vendData} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "dataType" })} placeholder="Seach for an DataType" options={dataTypeData} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "dataArea" })} placeholder="Seach for an DataArea" options={dataAreaData} />
                     </div>
-                    <div className="flex mt-5 mb-5">
+                    <div style={{ display: "flex", marginBottom: "5px", marginTop: "5px" }}>
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "dataTopic" })} placeholder="Seach for an DataTopic" options={dataTopicData} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "connectionType" })} placeholder="Seach for an ConnectorType" options={conTypData} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "environment" })} placeholder="Seach for an Environment" options={environments} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "channelNumber" })} placeholder="Seach for an Number" options={environments} />
                     </div>
-                    <button type="submit" onClick={handleSubmit} className="baseBtn p-2"><p>Generate Channel Name</p></button>
+                    <button type="submit" onClick={handleSubmit} style={{ padding: "2px" }} className={btnStyles.baseBtn}><p>Generate Channel Name</p></button>
                 </div>
-                <div className="ChannelNameDisplay">
-                    <h1 onClick={() => handleClick()} onAnimationEnd={() => setCopieEvent(false)} className={copieEvent ? 'clickToCopyEvent ChannelNameOutput' : 'ChannelNameOutput'}>{channelName}</h1>
+                <div className={styles.ChannelNameDisplay}>
+                    <h1 onClick={() => handleClick()} onAnimationEnd={() => setCopieEvent(false)} className={copieEvent ? 'clickToCopyEvent ' + styles.ChannelNameOutput : styles.ChannelNameOutput}>{channelName}</h1>
                     <p className={copieMessageClasses}>{copieMessage}</p>
                 </div>
             </div>

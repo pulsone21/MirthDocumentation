@@ -114,7 +114,7 @@
     color: var(--color-correct) !important;
 }
 
-..channelNameBuilder-Container .ChannelNameDisplay .error {
+.channelNameBuilder-Container .ChannelNameDisplay .error {
     color: var(--color-error) !important;
 }
 
