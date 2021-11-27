@@ -1,5 +1,3 @@
-@import "../../defaults.css";
-
 .baseBtn {
     display: flex;
     background-color: var(--color-secondary);

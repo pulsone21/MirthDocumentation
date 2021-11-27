@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-
+import styles from "../../../styles/Module/Components/button.module.css"
 
 export type BasicButtonProps = HTMLAttributes<HTMLDivElement>
 
@@ -8,7 +8,7 @@ const BasicButton: React.FC<BasicButtonProps> = ({ className, ...props }) => {
     if (className) {
         classNames = className
     } else {
-        classNames = "baseBtn"
+        classNames = styles.baseBtn
     }
 
     return (

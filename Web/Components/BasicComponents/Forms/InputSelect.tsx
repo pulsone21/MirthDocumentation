@@ -2,7 +2,8 @@ import React, { InputHTMLAttributes } from 'react'
 import { dropDownElement } from '../../../Types/dropDownElement'
 import Select, { StylesConfig } from 'react-select'
 import { useField } from 'formik';
-import { customStyles } from 'Components/MainComponents/Forms/ChannelNameComponentForms/styleConfig';
+import { customStyles } from './styleConfig';
+import styleInput from "../../../styles/Module/Components/InputField.module.css";
 
 type InputSelectProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string
@@ -27,10 +28,10 @@ const InputSelect: React.FC<InputSelectProps> = (props) => {
     }
 
     return (
-        <div className="FieldContainer">
-            <label htmlFor={props.name}>{props.name}</label>
+        <div className={styleInput.FieldContainer}>
+            <label style={{ marginRight: "5px" }} className="SubTitle" htmlFor={props.name}>{props.name}</label>
             <Select value={defaulVal()} styles={styles} onChange={(newValue) => props.handleChange(newValue)} placeholder={props.placeholder} options={props.listContent} />
-            {error ? <p className="ErrorMessage">{error}</p> : null}
+            {error ? <p className={styleInput.ErrorMessage}>{error}</p> : null}
         </div>
     );
 }

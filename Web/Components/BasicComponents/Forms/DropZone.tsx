@@ -4,6 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import { acceptStyle, activeStyle, baseStyle, rejectStyle } from './DropZoneStyle';
 import BasicButton from '../Button/BasicButton';
 import Image from "next/image"
+import styles from "../../../styles/Module/Components/InputField.module.css"
 
 
 interface DropZoneProps {
@@ -42,13 +43,13 @@ const DropZone: React.FC<DropZoneProps> = ({ formikHandler }) => {
         setPath("")
     }
     return (
-        <section className="FieldContainer mt-5" >
+        <section style={{ marginTop: "5px" }} className={styles.FieldContainer} >
             <div {...getRootProps({ style })}>
                 {preview ? (
                     <>
                         <Image src={path} alt="Input Preview" width={250} height={150} />
                         {/* <img src={path} alt="Input Preview" /> */}
-                        <BasicButton title="Delete Image" onClick={handleDeleteImg} className="baseBtn -mb-3 mt-2" />
+                        <BasicButton title="Delete Image" onClick={handleDeleteImg} style={{ marginBottom: "-3px", marginTop: "2px" }} />
                     </>) :
                     (isDragActive ? (
                         <>

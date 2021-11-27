@@ -1,11 +1,11 @@
-import { cssDefaults } from "CSS/defaultcss";
+import { defaultCss } from "../../../styles/defaultcss";
 import { StylesConfig } from "react-select";
 
 export const customStyles: StylesConfig = {
     input: (provided, _state) => ({
         ...provided,
-        color: cssDefaults.colorTertiary,
-        ":focus": { borderColor: cssDefaults.colorTertiary },
+        color: defaultCss.colorTertiary,
+        ":focus": { borderColor: defaultCss.colorTertiary },
     }),
     container: (provided, _state) => ({
         ...provided,
@@ -14,10 +14,10 @@ export const customStyles: StylesConfig = {
     }),
     control: (provided, _state) => ({
         ...provided,
-        backgroundColor: cssDefaults.colorPrimary,
+        backgroundColor: defaultCss.colorPrimary,
         cursor: "pointer",
         transition: "all 0.2s ease",
-        ":hover": { borderColor: cssDefaults.colorSecondary },
+        ":hover": { borderColor: defaultCss.colorSecondary },
     }),
     placeholder: (provided, _state) => ({
         ...provided,
@@ -25,35 +25,35 @@ export const customStyles: StylesConfig = {
         left: "0px",
         marginRight: "2px",
         width: "110%",
-        color: cssDefaults.colorTertiary,
-        font: cssDefaults.fontArtical,
+        color: defaultCss.colorTertiary,
+        font: defaultCss.fontArtical,
     }),
     dropdownIndicator: (provided, _state) => ({
         ...provided,
-        ":hover": { color: cssDefaults.colorSecondary },
+        ":hover": { color: defaultCss.colorSecondary },
     }),
     menu: (provided, _state) => ({
         ...provided,
         borderRadius: "5px",
-        boxShadow: "0px 0px 5px " + cssDefaults.colorTertiary,
+        boxShadow: "0px 0px 5px " + defaultCss.colorTertiary,
     }),
     menuList: (provided, _state) => ({
         ...provided,
         borderRadius: "5px",
-        backgroundColor: cssDefaults.colorPrimary,
+        backgroundColor: defaultCss.colorPrimary,
     }),
     option: (provided, state) => ({
         ...provided,
         cursor: "pointer",
-        color: cssDefaults.colorTertiary,
-        backgroundColor: state.isFocused ? cssDefaults.colorPrimaryHighlight : cssDefaults.colorPrimary,
+        color: defaultCss.colorTertiary,
+        backgroundColor: state.isFocused ? defaultCss.colorPrimaryHighlight : defaultCss.colorPrimary,
     }),
     noOptionsMessage: (provided, _state) => ({
         ...provided,
-        color: cssDefaults.colorTertiary,
+        color: defaultCss.colorTertiary,
     }),
     singleValue: (provided, _state) => ({
         ...provided,
-        color: cssDefaults.colorTertiary,
+        color: defaultCss.colorTertiary,
     }),
 };

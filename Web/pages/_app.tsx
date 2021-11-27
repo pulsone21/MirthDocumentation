@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/defaults.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'urql';
 import Loginform from 'Components/MainComponents/Forms/LoginForm/LoginForm';

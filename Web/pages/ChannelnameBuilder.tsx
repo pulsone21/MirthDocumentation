@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import HeaderSection from '../Components/HeaderSection';
 import { dropDownElement } from '../Types/dropDownElement';
 import Select from 'react-select';
-import { customStyles } from 'Components/MainComponents/Forms/ChannelNameComponentForms/styleConfig';
+import { customStyles } from '../Components/BasicComponents/Forms/styleConfig';
 import { useChannelnameExistMutation, useGetAllApplikationsBasicQuery, useGetAllConnectionTypesQuery, useGetAllDataAreasQuery, useGetAllDataTopicsQuery, useGetAllDataTypesQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
 import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
 import { ConnectorNameAcessor, ConnectorNameHelper, GenerateNameFromHelper, initConnectorName } from 'Types/ConnectorTypeHelper';

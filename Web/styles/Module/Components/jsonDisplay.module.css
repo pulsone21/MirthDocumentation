@@ -1,0 +1,56 @@
+.outer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+
+.copieMessage {
+    color: var(--color-tertiary);
+    font: var(--font-Artical);
+    margin-top: 10px;
+    margin-left: 5px;
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
+.copied {
+    color: var(--color-correct) !important;
+}
+
+.codeContainer {
+    background-color: var(--color-primary-highlight);
+    filter: brightness(1.2);
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    width: 95%;
+    height: 100%;
+    min-height: 350px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.codeContainer:hover,
+.codeContainer:focus {
+    animation: hoverBlinkEffect 0.9s linear infinite;
+}
+
+.codeContainer pre {
+    pointer-events: none;
+    color: var(--color-tertiary);
+}
+
+@keyframes hoverBlinkEffect {
+    0% {
+        box-shadow: 0px 0px 15px var(--color-secondary);
+    }
+    50% {
+        box-shadow: 0px 0px 5px var(--color-secondary);
+    }
+    100% {
+        box-shadow: 0px 0px 15px var(--color-secondary);
+    }
+}

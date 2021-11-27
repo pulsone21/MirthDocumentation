@@ -1,5 +1,6 @@
 import * as React from 'react';
 import copy from "copy-to-clipboard"
+import styles from "../../../styles/Module/Components/jsonDisplay.module.css"
 
 type JSONDisplayProps = {
     JsonToDisplay: string
@@ -11,27 +12,25 @@ const JSONDisplay: React.FC<JSONDisplayProps> = ({ JsonToDisplay }) => {
 
     const [prevJson, setPrevJson] = React.useState("")
     const [copieMessage, setCopieMessage] = React.useState("Click to copy the description")
-    const [copieMessageClasses, setCopieMessageClasses] = React.useState("copieMessage")
+    const [copieMessageClasses, setCopieMessageClasses] = React.useState(styles.copieMessage)
 
     const handleonClick = () => {
         copy(JsonToDisplay)
         setCopieMessage("Description copied to clipboard")
-        setCopieMessageClasses(prevState => `${prevState} copied`)
+        setCopieMessageClasses(prevState => `${prevState} ${styles.copied}`)
     }
 
     React.useEffect(() => {
-        console.log("prevJSON", prevJson)
-        console.log("jsonToDisplay", JsonToDisplay)
         if (prevJson != JsonToDisplay) {
             setCopieMessage("Click to copy the description")
-            setCopieMessageClasses("copieMessage")
+            setCopieMessageClasses(styles.copieMessage)
             setPrevJson(JsonToDisplay)
         }
     }, [prevJson, JsonToDisplay])
 
     return (
-        <div className="outer" >
-            <div onClick={() => handleonClick()} className="codeContainer" >
+        <div className={styles.outer}>
+            <div onClick={() => handleonClick()} className={styles.codeContainer} >
                 <pre>{JsonToDisplay}</pre>
 
             </div>

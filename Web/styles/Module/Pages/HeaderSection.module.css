@@ -1,24 +1,22 @@
-@import "./defaults.css";
-
 header {
-  background: var(--color-primary);
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.67);
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+    background: var(--color-primary);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.67);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .titles {
-  /* Mirth Doku */
-  position: flex;
-  font: var(--font-Title);
-  margin-left: 15px;
-  color: var(--color-secondary-highlight);
+    /* Mirth Doku */
+    position: flex;
+    font: var(--font-Title);
+    margin-left: 15px;
+    color: var(--color-secondary-highlight);
 }
 
 header div {
-  height: 100%;
-  position: flex;
+    height: 100%;
+    position: flex;
 }

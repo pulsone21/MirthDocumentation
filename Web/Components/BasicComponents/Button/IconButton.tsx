@@ -1,10 +1,10 @@
 import React, { HTMLAttributes } from 'react';
-
+import styles from "../../../styles/Module/Components/button.module.css"
 type IconButtonProps = HTMLAttributes<HTMLDivElement>
 
 
 const IconButton: React.FC<IconButtonProps> = (props) => {
-    let className = "baseBtn"
+    let className = styles.baseBtn
     if (props.className) {
         className = props.className;
     }

@@ -1,4 +1,4 @@
-const cssDefaults = require("CSS/defaultcss");
+import { defaultCss } from "../../../styles/defaultcss";
 
 export const baseStyle = {
     flex: 1,
@@ -8,9 +8,9 @@ export const baseStyle = {
     padding: "20px",
     borderWidth: 2,
     borderRadius: 2,
-    borderColor: cssDefaults.colorSecondary,
+    borderColor: defaultCss.colorSecondary,
     borderStyle: "dashed",
-    color: cssDefaults.colorSecondary,
+    color: defaultCss.colorSecondary,
     outline: "none",
     transition: "all .24s ease-in-out",
     maxWidth: "305px",
@@ -18,14 +18,14 @@ export const baseStyle = {
 };
 
 export const activeStyle = {
-    borderColor: cssDefaults.colorSecondaryHighlight,
-    color: cssDefaults.colorSecondaryHighlight,
+    borderColor: defaultCss.colorSecondaryHighlight,
+    color: defaultCss.colorSecondaryHighlight,
 };
 
 export const acceptStyle = {
-    borderColor: cssDefaults.colorCorrect,
+    borderColor: defaultCss.colorCorrect,
 };
 
 export const rejectStyle = {
-    borderColor: cssDefaults.colorError,
+    borderColor: defaultCss.colorError,
 };
