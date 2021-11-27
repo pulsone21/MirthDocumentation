@@ -71,7 +71,7 @@
     color: var(--color-correct) !important;
 }
 
-.channelNameBuilder-Container .ChannelNameDisplay .error {
+.error {
     color: var(--color-error) !important;
 }
 

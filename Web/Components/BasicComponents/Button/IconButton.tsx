@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import styles from "../../../styles/Module/Components/button.module.css"
+import styles from "../../../styles/Module/Components/basicComponents/button.module.css"
 type IconButtonProps = HTMLAttributes<HTMLDivElement>
 
 

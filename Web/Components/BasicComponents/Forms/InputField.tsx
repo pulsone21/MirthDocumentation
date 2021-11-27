@@ -1,7 +1,7 @@
 import { useField } from 'formik';
 import React, { InputHTMLAttributes } from 'react'
 import { LableSide } from "../../../Types/lableSideType"
-import styles from "../../../styles/Module/Components/InputField.module.css"
+import styles from "../../../styles/Module/Components/basicComponents/InputField.module.css"
 
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     id: string;

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from 'next/link'
-import btnStyles from "../styles/Module/Components/button.module.css"
+import btnStyles from "../styles/Module/Components/basicComponents/button.module.css"
 
 function Nav() {
   return (

@@ -2,9 +2,9 @@ import React, { InputHTMLAttributes } from 'react';
 import { Field, FieldArray } from 'formik';
 import { FaPlus } from "react-icons/fa"
 import { LableSide } from 'Types/lableSideType';
-import styles from "../../../styles/Module/Components/InputField.module.css"
+import styles from "../../../styles/Module/Components/basicComponents/InputField.module.css"
 import IconButton from "../Button/IconButton";
-import btnStyles from "../../../styles/Module/Components/button.module.css";
+import btnStyles from "../../../styles/Module/Components/basicComponents/button.module.css";
 
 
 type InputFieldMultiProps = InputHTMLAttributes<HTMLInputElement> & {

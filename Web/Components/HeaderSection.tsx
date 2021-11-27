@@ -6,8 +6,8 @@ import Image from "next/image"
 import MD2 from "../public/MD2.png"
 import { defaultCss } from "../styles/defaultcss";
 import { useLogOutMutation } from 'GraphQl/generated/graphgql';
-import styles from "../styles/Module/Components/header.module.css"
-import btnStyles from "../styles/Module/Components/button.module.css"
+import styles from "../styles/Module/Components/mainComponents/header.module.css"
+import btnStyles from "../styles/Module/Components/basicComponents/button.module.css"
 interface HeaderSectionProps {
 
 }

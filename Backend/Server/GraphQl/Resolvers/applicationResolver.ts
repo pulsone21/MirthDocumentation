@@ -2,7 +2,6 @@ require("dotenv").config();
 import Application, { ApplicationResponse, ApplicationModel } from "../../Classes/Application";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { ObjectIdScalar } from "../myScalars/ObjectId";
-import {} from "../ModelCreator";
 import { VendorModel } from "../../Classes/Vendor";
 import { GraphQLUpload } from "graphql-upload";
 import { Upload } from "../../Types/UploadType";
@@ -55,38 +54,38 @@ export default class ApplicationResolver {
         @Arg("logo", () => GraphQLUpload, { nullable: true }) logo: Upload,
         @Arg("VendorId", () => ObjectIdScalar) vendorId: ObjectId
     ): Promise<ApplicationResponse> {
-        let logoUrl = "";
+        console.log("Create Application Request");
+        const validation = await BaseValidation(shortName);
+        if (validation) return validation;
+        console.log("validation passed");
+
+        let logoUrl = undefined;
         if (logo) {
             let { response, url } = await SaveLogoToServer(logo);
             console.log(response, url);
             if (!response) return { Errors: [{ field: "Logo", message: "Something went wrong during the image saving, nothing was saved!" }] };
             logoUrl = url;
+            console.log("logo saved at " + logoUrl);
         }
-        let vendor;
-        console.log(vendorId);
-        if (vendorId) {
-            vendor = await VendorModel.findOne({ id: vendorId });
-        }
-        const validation = await BaseValidation(shortName);
-        if (validation) return validation;
+        let vendor = await VendorModel.findOne({ id: vendorId });
+        if (!vendor) return { Errors: [{ field: "vendor", message: `Vendor with id ${vendorId} not found!` }] };
 
         if (!longName) return { Errors: [{ field: "longName", message: "please enter a Longname" }] };
 
-        if (vendor) {
-            const app = await (await ApplicationModel.create({ shortName, longName, logoUrl, vendor })).populate({ path: "vendor" });
-            return { Application: app };
-        } else {
-            const app = await (await ApplicationModel.create({ shortName, longName, logoUrl })).populate({ path: "vendor" });
-            return { Errors: [{ field: "VendorLongName", message: `Vendor with ID ${vendorId} couldnt be found.` }], Application: app };
-        }
+        const app = await ApplicationModel.create({ shortName, longName, vendor, logoUrl });
+        app.populate("vendor");
+        console.log(app);
+        return { Application: app };
     }
 
     @Mutation(() => DeletionMessage)
     async DeleteApplication(@Arg("id", () => ObjectIdScalar) id: ObjectId): Promise<DeletionMessage> {
         const App = await ApplicationModel.findOne({ id });
         if (!App) return { Errors: [{ field: "id", message: "No App with this id found" }] };
-        let logoDeletion = Application.DeleteMyLogo(App.logoUrl.toString());
-        if (!logoDeletion) return { Errors: [{ field: "id", message: "could not delete logo, please remove the logo manually from: " + App.logoUrl }] };
+        if (App.logoUrl) {
+            let logoDeletion = Application.DeleteMyLogo(App.logoUrl.toString());
+            if (!logoDeletion) return { Errors: [{ field: "id", message: "could not delete logo, please remove the logo manually from: " + App.logoUrl }] };
+        }
         let res = await ApplicationModel.deleteOne({ id });
         if (res.deletedCount > 0) return { deletion: true };
         return { deletion: false, Errors: [{ field: "id", message: "something went wrong, could not delete the document" }] };
@@ -96,7 +95,8 @@ export default class ApplicationResolver {
     async DeleteLogoFromApp(@Arg("id", () => ObjectIdScalar) id: ObjectId): Promise<Boolean> {
         const app = await ApplicationModel.findOne({ id });
         if (!app) return false;
-        return await Application.DeleteMyLogo(app.logoUrl.toString());
+        if (app.logoUrl) return await Application.DeleteMyLogo(app.logoUrl.toString());
+        return false;
     }
 
     @Mutation(() => ApplicationResponse)

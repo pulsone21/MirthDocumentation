@@ -7,8 +7,8 @@ import React from 'react'
 import { dropDownElement } from 'Types/dropDownElement';
 import { Upload } from "../../../../Types/UploadType";
 import DropZone from 'Components/BasicComponents/Forms/DropZone';
-import styles from "../../../../styles/Module/Components/applicationForm.module.css"
-import btnStyles from "../../../../styles/Module/Components/button.module.css"
+import styles from "../../../../styles/Module/Components/mainComponents/applicationForm.module.css"
+import btnStyles from "../../../../styles/Module/Components/basicComponents/button.module.css"
 
 interface ApplicationFormProps {
     vendorList: dropDownElement[]
@@ -36,6 +36,7 @@ const CreateNewApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, 
         appInitialValues = initialValues;
     }
 
+    //TODO On Submit the Select is not cleared
     return (
         <Formik
             initialValues={appInitialValues}

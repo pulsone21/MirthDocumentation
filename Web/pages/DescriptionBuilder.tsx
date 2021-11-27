@@ -6,7 +6,7 @@ import HeaderSection from '../Components/HeaderSection';
 import InputFieldMulti from '../Components/BasicComponents/Forms/InputFieldMulti';
 import JSONDisplay from "../Components/MainComponents/DescriptionBuilder/JSONDisplay";
 import styles from "../styles/Module/Pages/DescriptionBuilder.module.css"
-import btnStyles from "../styles/Module/Components/button.module.css"
+import btnStyles from "../styles/Module/Components/basicComponents/button.module.css"
 
 
 interface DescriptionBuilderProps {

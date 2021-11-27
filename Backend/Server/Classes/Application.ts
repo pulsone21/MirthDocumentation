@@ -22,9 +22,9 @@ export default class Application extends BaseNameComponent {
     @Property()
     longName: String;
 
-    @Field()
-    @Property({ unique: true })
-    logoUrl: String;
+    @Field({ nullable: true })
+    @Property({ require: false })
+    logoUrl?: String;
 
     @Property({ type: ObjectId, ref: () => Vendor })
     @Field((_type) => Vendor)

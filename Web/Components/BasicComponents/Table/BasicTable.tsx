@@ -1,9 +1,9 @@
 import React from 'react'
 import TabelRow from './TabelRow';
 import TableCellText from './TableCellText';
+import styles from "../../../styles/Module/Components/basicComponents/table.module.css"
 
 interface BasicTableProps {
-    tableStyling?: string;
     headerElements: string[]
     bodyElements: string[][]
 }
@@ -15,20 +15,20 @@ const BasicTable: React.FC<BasicTableProps> = (props) => {
 
         let cells: any[] = []
         row.map((cell, index) => {
-            cells.push(<TableCellText innerHtml={cell} />)
+            cells.push(<TableCellText index={index} innerHtml={cell} />)
         })
 
         tableRows.push(<TabelRow index={index}>{cells}</TabelRow>)
     });
 
     return (
-        <table className={props.tableStyling}>
-            <thead>
+        <table className={styles.table}>
+            <thead className={styles.thead}>
                 <tr>
                     {props.headerElements.map((el, index) => <th key={index}>{el}</th>)}
                 </tr>
             </thead>
-            <tbody>
+            <tbody className={styles.tbody}>
                 {tableRows}
             </tbody>
         </table >

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import copy from "copy-to-clipboard"
-import styles from "../../../styles/Module/Components/jsonDisplay.module.css"
+import styles from "../../../styles/Module/Components/basicComponents/jsonDisplay.module.css"
 
 type JSONDisplayProps = {
     JsonToDisplay: string

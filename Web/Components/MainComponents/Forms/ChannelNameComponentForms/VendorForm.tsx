@@ -3,8 +3,8 @@ import InputField from 'Components/BasicComponents/Forms/InputField';
 import { Formik } from 'formik';
 import { useCreateVendorMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
-import styles from "../../../../styles/Module/Components/vendorForm.module.css"
-import btnStyles from "../../../../styles/Module/Components/button.module.css"
+import styles from "../../../../styles/Module/Components/mainComponents/vendorForm.module.css"
+import btnStyles from "../../../../styles/Module/Components/basicComponents/button.module.css"
 interface VendorFormProps {
     initialValues?: VendorInitialValues
 }

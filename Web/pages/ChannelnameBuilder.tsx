@@ -10,8 +10,8 @@ import { useChannelnameExistMutation, useGetAllApplikationsBasicQuery, useGetAll
 import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
 import { ConnectorNameAcessor, ConnectorNameHelper, GenerateNameFromHelper, initConnectorName } from 'Types/ConnectorTypeHelper';
 import styles from "../styles/Module/Pages/channelNameBuilder.module.css"
-import btnStyles from "../styles/Module/Components/button.module.css"
-
+import btnStyles from "../styles/Module/Components/basicComponents/button.module.css"
+import copyMsgStyle from "../styles/Module/Components/basicComponents/jsonDisplay.module.css"
 //TODO Implement the Numbering Convention ---> maybe complete automatic with possible settings in a config file.....
 interface ChannelNameBuilderProps {
 
@@ -21,7 +21,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
     const [channelName, SetChannelName] = useState("PlaceHolder ChannelName")
     const [copieEvent, setCopieEvent] = useState(false)
     const [copieMessage, setCopieMessage] = useState("Click the Name to copy the the Channelname")
-    const [copieMessageClasses, setCopieMessageClasses] = useState("copieMessage")
+    const [copieMessageClasses, setCopieMessageClasses] = useState(copyMsgStyle.copieMessage)
     const [connectorNameHelper, _] = useState<ConnectorNameHelper>(initConnectorName);
     const [, channelNameExist] = useChannelnameExistMutation();
 
@@ -68,7 +68,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
         copyToClipboard(channelName);
         setCopieEvent(true)
         setCopieMessage("Channelname copied to clipboard")
-        setCopieMessageClasses(prevState => `${prevState} copied`)
+        setCopieMessageClasses(prevState => `${prevState} ${copyMsgStyle.copied}`)
     }
 
     const handleSubmit = async () => {
@@ -80,7 +80,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
             console.log(response)
             if (response?.data?.ChannelnameExist === true) {
                 setCopieMessage("CHANNELNAME ALREADY EXIST!")
-                setCopieMessageClasses(prevState => `${prevState} error`)
+                setCopieMessageClasses(prevState => `${prevState} ${styles.error}`)
                 return;
             }
             SetChannelName(connectorNameHelper.name)

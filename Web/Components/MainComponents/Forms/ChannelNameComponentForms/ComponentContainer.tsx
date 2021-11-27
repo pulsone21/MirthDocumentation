@@ -4,8 +4,8 @@ import { dropDownElement } from 'Types/dropDownElement';
 import CreateNewApplicationForm from '../Application/createNewApplicationForm';
 import BaseChannelComponentForm from './BaseChannelComponentForm';
 import VendorForm from './VendorForm';
-import styles from "../../../../styles/Module/Components/componentContainer.module.css";
-import btnStyles from "../../../../styles/Module/Components/button.module.css";
+import styles from "../../../../styles/Module/Components/mainComponents/componentContainer.module.css";
+import btnStyles from "../../../../styles/Module/Components/basicComponents/button.module.css";
 
 interface ComponentContainerProps {
     componentName: "Application" | "DataType" | "DataArea" | "DataTopic" | "Vendor"

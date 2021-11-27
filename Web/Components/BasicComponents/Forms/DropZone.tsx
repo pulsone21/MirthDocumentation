@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import { acceptStyle, activeStyle, baseStyle, rejectStyle } from './DropZoneStyle';
 import BasicButton from '../Button/BasicButton';
 import Image from "next/image"
-import styles from "../../../styles/Module/Components/InputField.module.css"
+import styles from "../../../styles/Module/Components/basicComponents/InputField.module.css"
 
 
 interface DropZoneProps {

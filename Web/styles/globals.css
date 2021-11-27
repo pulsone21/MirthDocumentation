@@ -70,14 +70,6 @@ table {
     border-collapse: collapse;
 }
 
-.MainComponentContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-    margin-top: 15px;
-}
-
 .MDlogo {
     align-self: center;
     margin-left: 25px;

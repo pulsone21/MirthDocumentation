@@ -3,8 +3,8 @@ import InputField from 'Components/BasicComponents/Forms/InputField';
 import { Formik } from 'formik';
 import { useCreateDataAreaMutation, useCreateDataTopicMutation, useCreateDataTypeMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
-import btnStyles from "../../../../styles/Module/Components/button.module.css"
-import styles from "../../../../styles/Module/Components/basicChannelComponentForm.module.css"
+import btnStyles from "../../../../styles/Module/Components/basicComponents/button.module.css"
+import styles from "../../../../styles/Module/Components/mainComponents/basicChannelComponentForm.module.css"
 interface BaseChannelComponentFormProps {
     componentName: "DataType" | "DataArea" | "DataTopic"
 }

@@ -1,9 +1,9 @@
-import React, { InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes, useState } from 'react'
 import { dropDownElement } from '../../../Types/dropDownElement'
 import Select, { StylesConfig } from 'react-select'
 import { useField } from 'formik';
 import { customStyles } from './styleConfig';
-import styleInput from "../../../styles/Module/Components/InputField.module.css";
+import styleInput from "../../../styles/Module/Components/basicComponents/InputField.module.css";
 
 type InputSelectProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string
@@ -22,15 +22,23 @@ let styles: StylesConfig = {
 }
 const InputSelect: React.FC<InputSelectProps> = (props) => {
     const [, { error }] = useField(props)
+    const [defValue, setDefValue] = useState<dropDownElement[]>();
 
-    const defaulVal = () => {
-        return props.listContent.filter(option => option.label === props.defaultValue)
+    if (props.defaultValue) {
+        setDefValue(props.listContent.filter(option => option.label === props.defaultValue))
+    }
+
+    const onChange = (newValue: unknown) => {
+        props.handleChange(newValue)
+        console.log(newValue)
+        //@ts-ignore -> newValue is unknown from the select element but it is save an dorpDownElement
+        setDefValue(props.listContent.filter(option => option.label === newValue.label))
     }
 
     return (
         <div className={styleInput.FieldContainer}>
             <label style={{ marginRight: "5px" }} className="ArticalText" htmlFor={props.name}>{props.name}</label>
-            <Select value={defaulVal()} styles={styles} onChange={(newValue) => props.handleChange(newValue)} placeholder={props.placeholder} options={props.listContent} />
+            <Select value={defValue} styles={styles} onChange={(newValue) => onChange(newValue)} placeholder={props.placeholder} options={props.listContent} />
             {error ? <p className={styleInput.ErrorMessage}>{error}</p> : null}
         </div>
     );
