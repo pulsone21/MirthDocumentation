@@ -7,6 +7,8 @@ import React from 'react'
 import { dropDownElement } from 'Types/dropDownElement';
 import { Upload } from "../../../../Types/UploadType";
 import DropZone from 'Components/BasicComponents/Forms/DropZone';
+import styles from "../../../../styles/Module/Components/applicationForm.module.css"
+import btnStyles from "../../../../styles/Module/Components/button.module.css"
 
 interface ApplicationFormProps {
     vendorList: dropDownElement[]
@@ -49,12 +51,12 @@ const CreateNewApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, 
             }}>
             {({ values, handleSubmit, setFieldValue }) => (
                 <form onSubmit={handleSubmit}>
-                    <h2>Create new Application</h2>
+                    <h2 className={styles.FormHeader}>Create new Application</h2>
                     <InputField name="longName" id="longName" width="100%" placeholder={`Longname of the Application`} />
                     <InputField name="shortName" id="shortName" placeholder={`Shortname for the Application`} />
                     <InputSelect handleChange={(newValue) => values.vendor = newValue.value} name="vendor" id="vendor" placeholder="Seach for an Vendor" listContent={vendorList} />
                     <DropZone formikHandler={setFieldValue} />
-                    <button className="w-11/12 mt-3 baseBtn" type="submit"><p>Create</p></button>
+                    <button style={{ width: "90%", marginTop: "0.75rem" }} className={btnStyles.baseBtn} type="submit"><p>Create</p></button>
                 </form>
             )}
         </Formik>

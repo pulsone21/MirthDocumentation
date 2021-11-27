@@ -3,7 +3,8 @@ import InputField from 'Components/BasicComponents/Forms/InputField';
 import { Formik } from 'formik';
 import { useCreateDataAreaMutation, useCreateDataTopicMutation, useCreateDataTypeMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
-
+import btnStyles from "../../../../styles/Module/Components/button.module.css"
+import styles from "../../../../styles/Module/Components/basicChannelComponentForm.module.css"
 interface BaseChannelComponentFormProps {
     componentName: "DataType" | "DataArea" | "DataTopic"
 }
@@ -54,10 +55,10 @@ const BaseChannelComponentForm: React.FC<BaseChannelComponentFormProps> = ({ com
             }}>
             {({ handleSubmit }) => (
                 <form onSubmit={handleSubmit}>
-                    <h2>{`Create new ${componentName}`}</h2>
+                    <h2 className={styles.FormHeader}>{`Create new ${componentName}`}</h2>
                     <InputField name="longName" id="longName" placeholder={`Longname of the ${componentName}`}></InputField>
                     <InputField name="shortName" id="shortName" placeholder={`Shortname for the ${componentName}`}></InputField>
-                    <button className="w-11/12 mt-3 baseBtn" type="submit"><p>Create</p></button>
+                    <button style={{ width: "90%", marginTop: "0.75rem" }} className={btnStyles.baseBtn} type="submit"><p>Create</p></button>
                 </form>
             )}
         </Formik>

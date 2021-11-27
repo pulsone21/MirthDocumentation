@@ -4,6 +4,8 @@ import { dropDownElement } from 'Types/dropDownElement';
 import CreateNewApplicationForm from '../Application/createNewApplicationForm';
 import BaseChannelComponentForm from './BaseChannelComponentForm';
 import VendorForm from './VendorForm';
+import styles from "../../../../styles/Module/Components/componentContainer.module.css";
+import btnStyles from "../../../../styles/Module/Components/button.module.css";
 
 interface ComponentContainerProps {
     componentName: "Application" | "DataType" | "DataArea" | "DataTopic" | "Vendor"
@@ -28,17 +30,17 @@ const ComponentContainer: React.FC<ComponentContainerProps> = ({ componentName, 
     }
 
     return (
-        <div className="container">
+        <div className={styles.container}>
             {myState ?
                 (
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
                         {html}
-                        <FaMinusSquare className="iconButton" style={{ minHeight: "25px", minWidth: "25px" }} onClick={() => setMyState(false)} />
+                        <FaMinusSquare className={btnStyles.iconButton} style={{ minHeight: "25px", minWidth: "25px" }} onClick={() => setMyState(false)} />
                     </div>
                 ) : (
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
-                        <p className="ContainerPalceholder">Create {componentName}</p>
-                        <FaPlusSquare className="iconButton" onClick={() => setMyState(true)} />
+                        <p className={styles.ContainerPalceholder}>Create {componentName}</p>
+                        <FaPlusSquare className={btnStyles.iconButton} onClick={() => setMyState(true)} />
                     </div>
                 )
             }

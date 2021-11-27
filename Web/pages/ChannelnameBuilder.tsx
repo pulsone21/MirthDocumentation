@@ -109,12 +109,14 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
                         <h1 style={{ marginLeft: "10px", marginBottom: "0px" }} className="HeaderTitle">Channelname Builder</h1>
                         <p style={{ marginLeft: "40px" }} className="ArticalText">Here you can build out the Channelname</p>
                     </div>
-                    <h2 style={{ marginTop: "5px", marginLeft: "5px", fontWeight: "bold", fontSize: "1.5em" }}>Missing an Component?</h2>
-                    <ComponentContainer vendorList={vendData} componentName="Application" />
-                    <ComponentContainer componentName="Vendor" />
-                    <ComponentContainer componentName="DataType" />
-                    <ComponentContainer componentName="DataArea" />
-                    <ComponentContainer componentName="DataTopic" />
+                    <div style={{ marginTop: "5px", }} className={styles.InnerToolbarContainer}>
+                        <h2 className={styles.ToolbarHeader}>Missing an Component?</h2>
+                        <ComponentContainer vendorList={vendData} componentName="Application" />
+                        <ComponentContainer componentName="Vendor" />
+                        <ComponentContainer componentName="DataType" />
+                        <ComponentContainer componentName="DataArea" />
+                        <ComponentContainer componentName="DataTopic" />
+                    </div>
                 </div>
                 <div className={styles.BuildingArea}>
                     <h2 style={{ marginBottom: "45px" }}>Select the different components to generate a channelname</h2>
@@ -130,7 +132,7 @@ const ChannelNameBuilder: React.FC<ChannelNameBuilderProps> = () => {
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "environment" })} placeholder="Seach for an Environment" options={environments} />
                         <Select styles={customStyles} onChange={(newValue) => onSelectChange(newValue, { componentName: "channelNumber" })} placeholder="Seach for an Number" options={environments} />
                     </div>
-                    <button type="submit" onClick={handleSubmit} style={{ padding: "2px" }} className={btnStyles.baseBtn}><p>Generate Channel Name</p></button>
+                    <button type="submit" onClick={handleSubmit} style={{ padding: "0.5rem" }} className={btnStyles.baseBtn}><p>Generate Channel Name</p></button>
                 </div>
                 <div className={styles.ChannelNameDisplay}>
                     <h1 onClick={() => handleClick()} onAnimationEnd={() => setCopieEvent(false)} className={copieEvent ? 'clickToCopyEvent ' + styles.ChannelNameOutput : styles.ChannelNameOutput}>{channelName}</h1>

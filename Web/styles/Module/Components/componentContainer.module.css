@@ -1,0 +1,14 @@
+.ContainerPalceholder {
+    color: var(--color-secondary);
+    font: var(--font-Artical);
+    pointer-events: none;
+}
+
+.container {
+    cursor: pointer;
+    background-color: var(--color-primary-highlight);
+    margin-top: 5px;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 5px;
+}

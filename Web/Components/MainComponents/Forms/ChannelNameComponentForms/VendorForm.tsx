@@ -3,7 +3,8 @@ import InputField from 'Components/BasicComponents/Forms/InputField';
 import { Formik } from 'formik';
 import { useCreateVendorMutation } from 'GraphQl/generated/graphgql';
 import React from 'react'
-
+import styles from "../../../../styles/Module/Components/vendorForm.module.css"
+import btnStyles from "../../../../styles/Module/Components/button.module.css"
 interface VendorFormProps {
     initialValues?: VendorInitialValues
 }
@@ -40,11 +41,11 @@ const VendorForm: React.FC<VendorFormProps> = ({ initialValues }) => {
         >
             {({ handleSubmit }) => (
                 <form onSubmit={handleSubmit}>
-                    <h2>Create new Vendor</h2>
+                    <h2 className={styles.FormHeader}>Create new Vendor</h2>
                     <InputField name="longName" id="longName" placeholder="Longname of the vendor"></InputField>
                     <InputField name="shortName" id="shortName" placeholder="Shortname for the vendor"></InputField>
                     <InputField name="application" id="application" placeholder="link application by longname"></InputField>
-                    <button className="w-11/12 mt-3 baseBtn" type="submit"><p>Create</p></button>
+                    <button style={{ width: "90%", marginTop: "0.75rem" }} className={btnStyles.baseBtn} type="submit"><p>Create</p></button>
                 </form>
             )}
         </Formik>

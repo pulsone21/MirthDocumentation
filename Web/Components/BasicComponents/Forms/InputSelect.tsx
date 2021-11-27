@@ -29,7 +29,7 @@ const InputSelect: React.FC<InputSelectProps> = (props) => {
 
     return (
         <div className={styleInput.FieldContainer}>
-            <label style={{ marginRight: "5px" }} className="SubTitle" htmlFor={props.name}>{props.name}</label>
+            <label style={{ marginRight: "5px" }} className="ArticalText" htmlFor={props.name}>{props.name}</label>
             <Select value={defaulVal()} styles={styles} onChange={(newValue) => props.handleChange(newValue)} placeholder={props.placeholder} options={props.listContent} />
             {error ? <p className={styleInput.ErrorMessage}>{error}</p> : null}
         </div>
