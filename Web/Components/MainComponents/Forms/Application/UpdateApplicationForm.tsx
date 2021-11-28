@@ -7,7 +7,7 @@ import { useCreateApplicationMutation } from 'GraphQl/generated/graphgql';
 import { dropDownElement } from 'Types/dropDownElement';
 import { Upload } from "../../../../Types/UploadType";
 import DropZone from 'Components/BasicComponents/Forms/DropZone';
-
+import btnStyles from "../../../../styles/Module/Components/basicComponents/button.module.css"
 
 interface ApplicationFormProps {
     vendorList: dropDownElement[]
@@ -50,16 +50,17 @@ const UpdateApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, ini
             }}>
             {({ values, handleSubmit, setFieldValue }) => (
                 <form onSubmit={handleSubmit}>
-                    <h2>Update Application - {initialValues?.longName}</h2>
+                    <h2 className="SubTitle">Update Application - {initialValues?.longName}</h2>
                     <InputField name="longName" id="longName" width="100%" placeholder={`Longname of the Application`} />
                     <InputField name="shortName" id="shortName" placeholder={`Shortname for the Application`} />
-                    <InputSelect defaultValue={initialValues?.vendor} handleChange={(newValue) => values.vendor = newValue.value} name="vendor" id="vendor" placeholder="Seach for an Vendor" listContent={vendorList} />
+                    <InputSelect defaultValue={values.vendor} setFieldValue={setFieldValue} name="vendor" id="vendor" placeholder="Seach for an Vendor" listContent={vendorList} />
                     <DropZone formikHandler={setFieldValue} />
-                    <button className="w-11/12 mt-3 baseBtn" type="submit"><p>Update</p></button>
+                    <button style={{ width: "90%", marginTop: "0.75rem" }} className={btnStyles.baseBtn} type="submit"><p>Update</p></button>
                 </form>
             )}
         </Formik>
     )
+    //handleChange={(newValue) =>  setFieldValue("vendor", newValue.value)}
 
 }
 export default UpdateApplicationForm;

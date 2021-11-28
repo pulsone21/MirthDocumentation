@@ -27,12 +27,12 @@ const Application: React.FC<ApplicationProps> = ({ }) => {
     } else if (error) {
         appText = (<p>{error.message}</p>)
     } else if (data?.GetApplicationByLongName.Errors) {
-        appText = (<p>{JSON.stringify(data.GetApplicationByLongName.Errors, null, 4)}</p>)
+        appText = (<p>{JSON.stringify(data.GetApplicationByLongName.Errors, null, 4)}</p>) //TODO built out a correct error display
     } else if (data?.GetApplicationByLongName.Application) {
         let initVals: appInitValues = {
             logo: undefined,
             longName: data.GetApplicationByLongName.Application.longName,
-            shortName: data.GetApplicationByLongName.Application.longName,
+            shortName: data.GetApplicationByLongName.Application.shortName,
             vendor: data.GetApplicationByLongName.Application.vendor.longName,
         }
         appText = (<UpdateApplicationForm initialValues={initVals} vendorList={vendData} />)
@@ -46,7 +46,7 @@ const Application: React.FC<ApplicationProps> = ({ }) => {
                 <link rel="shortcut icon" href="/MDlogoSimplified.png" />
             </Head>
             <HeaderSection></HeaderSection>
-            <div className="flex justify-center items-center">
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 {appText}
             </div>
 

@@ -8,8 +8,8 @@ import styleInput from "../../../styles/Module/Components/basicComponents/InputF
 type InputSelectProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string
     listContent: dropDownElement[]
-    handleChange: (value: any) => {}
     defaultValue?: string
+    setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
 }
 
 let styles: StylesConfig = {
@@ -22,15 +22,28 @@ let styles: StylesConfig = {
 }
 const InputSelect: React.FC<InputSelectProps> = (props) => {
     const [, { error }] = useField(props)
-    const [defValue, setDefValue] = useState<dropDownElement[]>();
+    const [initalRun, SetInitalRun] = useState(false)
+    const [defValue, setDefValue] = useState<dropDownElement>();
 
-    if (props.defaultValue) {
-        setDefValue(props.listContent.filter(option => option.label === props.defaultValue))
+    if (!initalRun) {
+        if (props.defaultValue) {
+            let defDropDown;
+            props.listContent.forEach(el => {
+                if (el.label === props.defaultValue) {
+                    defDropDown = el;
+                    return
+                }
+            })
+
+            if (defValue != defDropDown) {
+                setDefValue(defDropDown)
+            }
+        }
+        SetInitalRun(true)
     }
 
     const onChange = (newValue: unknown) => {
-        props.handleChange(newValue)
-        console.log(newValue)
+        props.setFieldValue(props.name, newValue)
         //@ts-ignore -> newValue is unknown from the select element but it is save an dorpDownElement
         setDefValue(props.listContent.filter(option => option.label === newValue.label))
     }
@@ -38,7 +51,7 @@ const InputSelect: React.FC<InputSelectProps> = (props) => {
     return (
         <div className={styleInput.FieldContainer}>
             <label style={{ marginRight: "5px" }} className="ArticalText" htmlFor={props.name}>{props.name}</label>
-            <Select value={defValue} styles={styles} onChange={(newValue) => onChange(newValue)} placeholder={props.placeholder} options={props.listContent} />
+            <Select name={props.name} value={defValue} styles={styles} onChange={(newValue) => onChange(newValue)} placeholder={props.placeholder} options={props.listContent} />
             {error ? <p className={styleInput.ErrorMessage}>{error}</p> : null}
         </div>
     );
