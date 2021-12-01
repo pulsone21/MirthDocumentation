@@ -14,9 +14,10 @@ import { CheckAdminUser } from "./CodeBase/InitialCheck";
 
 const app = express();
 startServer();
+//TODO built out something to check the config File, that everything is set up.
 
 async function startServer() {
-    const usedPort = process.env.PORT;
+    const usedPort = process.env.PORT || "8443";
     const dbUrl = process.env.DB_URL || "";
 
     mongoose.connect(dbUrl, async () => {
@@ -61,6 +62,7 @@ async function startServer() {
             path: "/graphql",
             cors: false,
         });
+
         app.get("/Server/Interface/Images/:image", function (req, res) {
             console.log("Request Get");
             var options = {
