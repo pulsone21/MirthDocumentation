@@ -8,10 +8,12 @@ import { dropDownElement } from 'Types/dropDownElement';
 import { Upload } from "../../../../Types/UploadType";
 import DropZone from 'Components/BasicComponents/Forms/DropZone';
 import btnStyles from "../../../../styles/Module/Components/basicComponents/button.module.css"
+import Image from "next/image"
 
 interface ApplicationFormProps {
     vendorList: dropDownElement[]
-    initialValues?: appInitValues;
+    initialValues?: appInitValues
+    logoPath?: string | undefined
 }
 
 export interface appInitValues {
@@ -28,7 +30,7 @@ let appInitialValues: appInitValues = {
     logo: undefined,
 }
 
-const UpdateApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, initialValues }) => {
+const UpdateApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, initialValues, logoPath }) => {
     const [, createApplication] = useCreateApplicationMutation();
 
     if (initialValues) {
@@ -40,8 +42,8 @@ const UpdateApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, ini
             initialValues={appInitialValues}
             onSubmit={async (values, { setErrors, resetForm }) => {
                 console.log(values)
-                const { shortName, longName } = values
-                const response = await createApplication({ shortName, longName, vendorId: values.vendor, logo: values.logo });
+                const { shortName, longName, vendor, logo } = values
+                const response = await createApplication({ shortName, longName, vendorId: vendor, logo });
                 if (response.data?.CreateApplication.Errors) {
                     setErrors(ObjectToErrorMap(response.data.CreateApplication.Errors))
                 } else {
@@ -50,7 +52,10 @@ const UpdateApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, ini
             }}>
             {({ values, handleSubmit, setFieldValue }) => (
                 <form onSubmit={handleSubmit}>
-                    <h2 className="SubTitle">Update Application - {initialValues?.longName}</h2>
+                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        <h2 className="SubTitle">Update Application {`- ${initialValues?.longName}` || ""}</h2>
+                        {logoPath ? <Image src={logoPath} alt="Input Preview" width={250} height={150} /> : null}
+                    </div>
                     <InputField name="longName" id="longName" width="100%" placeholder={`Longname of the Application`} />
                     <InputField name="shortName" id="shortName" placeholder={`Shortname for the Application`} />
                     <InputSelect defaultValue={values.vendor} setFieldValue={setFieldValue} name="vendor" id="vendor" placeholder="Seach for an Vendor" listContent={vendorList} />
@@ -60,7 +65,5 @@ const UpdateApplicationForm: React.FC<ApplicationFormProps> = ({ vendorList, ini
             )}
         </Formik>
     )
-    //handleChange={(newValue) =>  setFieldValue("vendor", newValue.value)}
-
 }
 export default UpdateApplicationForm;

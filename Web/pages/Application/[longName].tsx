@@ -5,7 +5,7 @@ import Head from 'next/head';
 import HeaderSection from 'Components/HeaderSection';
 import { appInitValues } from 'Components/MainComponents/Forms/Application/createNewApplicationForm';
 import { dropDownElement } from 'Types/dropDownElement';
-import { GenerateDopDownFromQuery } from 'CodeBase/Utils';
+import { GenerateDopDownFromQuery, GetCorrectedLogoUrl } from 'CodeBase/Utils';
 import UpdateApplicationForm from 'Components/MainComponents/Forms/Application/UpdateApplicationForm';
 
 interface ApplicationProps {
@@ -35,7 +35,8 @@ const Application: React.FC<ApplicationProps> = ({ }) => {
             shortName: data.GetApplicationByLongName.Application.shortName,
             vendor: data.GetApplicationByLongName.Application.vendor.longName,
         }
-        appText = (<UpdateApplicationForm initialValues={initVals} vendorList={vendData} />)
+        let logoPath = data.GetApplicationByLongName.Application.logoUrl ? GetCorrectedLogoUrl(data.GetApplicationByLongName.Application.logoUrl) : undefined;
+        appText = (<UpdateApplicationForm initialValues={initVals} vendorList={vendData} logoPath={logoPath} />)
     }
 
 
