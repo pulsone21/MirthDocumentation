@@ -11,7 +11,7 @@ interface TableCellImageProps {
 const TableCellImage: React.FC<TableCellImageProps> = ({ index, imageLink, altText }) => {
 
     return (
-        <td key={`${index}-${altText}`}><Image src={imageLink} alt={altText} width={150} height={50} /></td>
+        <td key={`${index}-${altText}`} className="ArticalText" ><Image src={imageLink} alt={altText} width={150} height={50} /></td>
     );
 }
 export default TableCellImage;

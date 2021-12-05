@@ -14,7 +14,7 @@ import { ObjectId } from "mongoose";
 export default class ApplicationResolver {
     @Query(() => [Application])
     async GetAllApplikations(): Promise<Application[]> {
-        return await ApplicationModel.find({});
+        return await ApplicationModel.find({}).populate({ path: "vendor" });
     }
 
     @Query(() => ApplicationResponse)

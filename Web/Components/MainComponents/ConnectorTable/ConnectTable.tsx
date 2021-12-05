@@ -1,17 +1,17 @@
-
-import React from 'react'
-import TabelRow from '../../BasicComponents/Table/TabelRow';
-import TableCellImage from '../../BasicComponents/Table/TableCellImage';
-import TableCellLink from '../../BasicComponents/Table/TableCellLink';
-import styles from "../../../styles/Module/Components/mainComponents/applicationTable.module.css"
+import TabelRow from 'Components/BasicComponents/Table/TabelRow';
+import TableCellImage from 'Components/BasicComponents/Table/TableCellImage';
+import TableCellLink from 'Components/BasicComponents/Table/TableCellLink';
 import TableCellText from 'Components/BasicComponents/Table/TableCellText';
-interface AppTableProps {
+import React from 'react'
+import styles from "../../../styles/Module/Components/mainComponents/applicationTable.module.css"
+
+interface ConnectTableProps {
     bodyElements: string[][]
 }
 
-const AppTable: React.FC<AppTableProps> = ({ bodyElements }) => {
+const ConnectTable: React.FC<ConnectTableProps> = ({ bodyElements }) => {
 
-    const headerElements = ["Image", "Application Name", "Vendor Name", "AppTree"]
+    const headerElements = ["Type", "ChannelName", "Application Name", "Path", "File"]
     const tableRows: any[] = [];
 
     bodyElements.map((row, index) => {
@@ -40,6 +40,4 @@ const AppTable: React.FC<AppTableProps> = ({ bodyElements }) => {
         </table>
     );
 }
-export default AppTable;
-
-
+export default ConnectTable;

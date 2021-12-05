@@ -21,7 +21,7 @@ export type Scalars = {
 export type Application = {
   __typename?: 'Application';
   _id: Scalars['ObjectId'];
-  logoUrl: Scalars['String'];
+  logoUrl?: Maybe<Scalars['String']>;
   longName: Scalars['String'];
   shortName: Scalars['String'];
   vendor: Vendor;
@@ -494,14 +494,14 @@ export type GetAllApplikationsBasicQuery = { __typename?: 'Query', GetAllApplika
 export type GetAllApplikationsRichQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllApplikationsRichQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string, vendor: { __typename?: 'Vendor', _id: any } }> };
+export type GetAllApplikationsRichQuery = { __typename?: 'Query', GetAllApplikations: Array<{ __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl?: string | null | undefined, vendor: { __typename?: 'Vendor', _id: any, longName: string } }> };
 
 export type GetApplicationByLongNameQueryVariables = Exact<{
   longName: Scalars['String'];
 }>;
 
 
-export type GetApplicationByLongNameQuery = { __typename?: 'Query', GetApplicationByLongName: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', message: string, field: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl: string, vendor: { __typename?: 'Vendor', _id: any, shortName: string, longName: string } } | null | undefined } };
+export type GetApplicationByLongNameQuery = { __typename?: 'Query', GetApplicationByLongName: { __typename?: 'ApplicationResponse', Errors?: Array<{ __typename?: 'ErrorMessage', message: string, field: string }> | null | undefined, Application?: { __typename?: 'Application', _id: any, shortName: string, longName: string, logoUrl?: string | null | undefined, vendor: { __typename?: 'Vendor', _id: any, shortName: string, longName: string } } | null | undefined } };
 
 export type GetAllConnectionTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -726,6 +726,7 @@ export const GetAllApplikationsRichDocument = gql`
     logoUrl
     vendor {
       _id
+      longName
     }
   }
 }

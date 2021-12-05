@@ -2,7 +2,7 @@
 import * as React from 'react';
 import HeaderSection from '../Components/HeaderSection';
 import Head from 'next/head';
-import { useGetAllApplikationsRichQuery, useGetAllVendorsQuery } from 'GraphQl/generated/graphgql';
+import { useGetAllApplikationsRichQuery } from 'GraphQl/generated/graphgql';
 import { withUrqlClient } from 'next-urql';
 import { client } from 'CodeBase/CreateUrqlClient';
 import AppTable from '../Components/MainComponents/AppTable/AppTable';
@@ -13,26 +13,17 @@ interface ApplicationTableProps {
 }
 
 const ApplicationTable: React.FC<ApplicationTableProps> = () => {
-
-    const [{ data: appData, fetching: appFetching, error: appError }] = useGetAllApplikationsRichQuery();
-    const [{ data: vendData, fetching: _vendFetch, error: _vendError, }] = useGetAllVendorsQuery();
+    const [{ data, fetching, error }] = useGetAllApplikationsRichQuery();
 
     let tableHTML;
     let bodyElements: string[][] = [];
-    if (appFetching) { tableHTML = (<h1>LOADING</h1>) } //TODO Implement appropriate Loading animation
-    else if (appError) { tableHTML = (<h1>Error</h1>) } //TODO Implement appropriate Error handling 
-    else if (appData?.GetAllApplikations && vendData?.GetAllVendors) {
-        appData.GetAllApplikations.forEach(async appEl => {
-            let longName: string = "";
-            vendData.GetAllVendors.forEach(venEl => {
-                if (appEl.vendor._id == venEl._id) {
-                    longName = venEl.longName
-                }
-            })
-            if (longName.length < 1) longName = `Vendor with id: ${appEl.vendor._id} not Found!`
+    if (fetching) { tableHTML = (<h1>LOADING</h1>) } //TODO Implement appropriate Loading animation
+    else if (error) { tableHTML = (<h1>Error</h1>) } //TODO Implement appropriate Error handling 
+    else if (data?.GetAllApplikations) {
+        data.GetAllApplikations.forEach(async appEl => {
             let logoUrl = ""
             if (appEl.logoUrl != undefined) logoUrl = GetCorrectedLogoUrl(appEl.logoUrl)
-            bodyElements.push([logoUrl, appEl.longName, longName, "TBD AppTree", "..."])
+            bodyElements.push([logoUrl, appEl.longName, appEl.vendor.longName, "TBD AppTree", "..."])
         })
         tableHTML = (<AppTable bodyElements={bodyElements}></AppTable>)
     }

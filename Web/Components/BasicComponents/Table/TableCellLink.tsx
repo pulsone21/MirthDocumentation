@@ -9,7 +9,7 @@ type TableCellLinkProps = TdHTMLAttributes<HTMLTableCellElement> & PropsWithChil
 
 const TableCellLink: React.FC<TableCellLinkProps> = ({ index, href, as, innerHtml, ...props }) => {
     return (
-        <td key={`${index}-${innerHtml}`} {...props}><Link href={href} as={as}>{innerHtml}</Link></td>
+        <td key={`${index}-${innerHtml}`} className="ArticalText" {...props}><Link href={href} as={as} passHref><a className="clickable">{innerHtml}</a></Link></td>
     );
 }
 export default TableCellLink;

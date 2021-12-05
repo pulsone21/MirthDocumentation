@@ -14,7 +14,13 @@ import ErrorMessage from "../../Types/ErrorMessage";
 export default class ChannelNameResolver {
     @Query(() => [ChannelName])
     async GetAllChannelNames(): Promise<ChannelName[]> {
-        return await ChannelNameModel.find({});
+        return await ChannelNameModel.find({})
+            .populate("dataType")
+            .populate("dataTopic")
+            .populate("dataArea")
+            .populate("connectionType")
+            .populate("application")
+            .populate("vendor");
     }
 
     @Query(() => ChannelNameResponse)

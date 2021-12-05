@@ -7,7 +7,7 @@ type TableCellTextProps = TdHTMLAttributes<HTMLTableCellElement> & {
 
 const TableCellText: React.FC<TableCellTextProps> = ({ index, innerHtml, ...props }) => {
     return (
-        <td key={`${index}-${innerHtml}`} {...props} >{innerHtml}</td>
+        <td key={`${index}-${innerHtml}`} className="ArticalText"  {...props} >{innerHtml}</td>
     );
 }
 export default TableCellText;
