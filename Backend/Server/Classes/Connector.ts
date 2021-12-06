@@ -1,67 +1,87 @@
+import { ObjectId } from "bson";
+import { Field, ObjectType } from "type-graphql";
+import ChannelName from "./ChannelName";
+import { getModelForClass, prop as Property, Ref } from "@typegoose/typegoose";
+import { Types } from "mongoose";
+
 enum ConnectorType {
     SOURCE,
     DESTINATION,
 }
 
-class Connector {
-    id: String;
-    connector_id: String;
-    name: String;
+@ObjectType()
+export default class Connector {
+    @Field()
+    readonly _id: ObjectId;
+
+    @Field()
+    @Property({ unique: true })
+    mirthId: String;
+
+    @Field()
+    @Property()
+    name: Ref<ChannelName>;
+
+    @Field()
+    @Property()
     path: String;
+
+    @Field()
+    @Property()
     server: Number;
-    sources: Connector[];
-    destinations: Connector[];
+
+    @Property({ type: ObjectId, ref: () => ChannelName, default: [] })
+    @Field((_type) => ChannelName)
+    sources: Ref<ChannelName>[];
+
+    @Property({ type: ObjectId, ref: () => ChannelName, default: [] })
+    @Field((_type) => ChannelName)
+    destinations: Ref<ChannelName>[];
+
+    @Field()
+    @Property()
     enabled: Boolean;
+
+    @Field()
+    @Property()
     file: String;
+
+    @Field()
+    @Property()
     description: String;
+
+    @Field()
+    @Property()
     tags: String[] | null;
+
+    @Field()
+    @Property()
     connector_type: ConnectorType;
 
-    constructor(
-        connector_id: string,
-        name: string,
-        path: string,
-        enabled: boolean,
-        file: string,
-        connectorType: ConnectorType,
-        description?: string,
-        tags?: [string]
-    ) {
-        this.connector_id = connector_id;
-        this.name = name;
-        this.path = path;
-        this.enabled = enabled;
-        this.file = file;
-        this.connector_type = connectorType;
-        this.description = description ? description : "";
-        this.tags = tags ? tags : null;
-        this.server = parseInt(connector_id.split("_")[0]);
-        this.sources = new Array<Connector>();
-        this.destinations = new Array<Connector>();
+    AddDestination(channelName: ChannelName) {
+        this.destinations.push(channelName);
     }
-
-    AddDestination(connector: Connector) {
-        this.destinations.push(connector);
+    AddSource(channelName: ChannelName) {
+        this.sources.push(channelName);
     }
-    AddSource(connector: Connector) {
-        this.sources.push(connector);
-    }
-    RemoveDestination(connector: Connector) {
-        let tmpArray = new Array<Connector>();
+    RemoveDestination(channelName: ChannelName) {
+        let tmpArray: Ref<ChannelName, Types.ObjectId | undefined>[] = [];
         this.destinations.forEach((el) => {
-            if (el.connector_id != connector.connector_id) {
-                tmpArray.push(el);
+            if (el?._id != channelName._id) {
+                if (el) tmpArray.push(el);
             }
         });
         this.destinations = tmpArray;
     }
-    RemoveSource(connector: Connector) {
-        let tmpArray = new Array<Connector>();
+    RemoveSource(channelName: ChannelName) {
+        let tmpArray: Ref<ChannelName, Types.ObjectId | undefined>[] = [];
         this.sources.forEach((el) => {
-            if (el.connector_id != connector.connector_id) {
-                tmpArray.push(el);
+            if (el?._id != channelName._id) {
+                if (el) tmpArray.push(el);
             }
         });
         this.sources = tmpArray;
     }
 }
+
+export const ConnectorModel = getModelForClass(Connector);

@@ -26,3 +26,7 @@ export const ObjectIdScalar = new GraphQLScalarType({
         return new ObjectId(ast.value); // value from the client query
     },
 });
+
+export function GenerateObjectIDFromString(id: string) {
+    return new ObjectId(id);
+}
